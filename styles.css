@@ -125,6 +125,7 @@ img {
     height: 230px; /* Set the desired height for your image */
     width: auto; /* Automatically calculate the width to maintain proportion */
     margin: 1em;
+    max-width: 100%;
 }
 
 .image-description {
