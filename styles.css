@@ -124,10 +124,10 @@ hr {
 }
 
 img {
-    height: 16em; /* Set the desired height for your image */
+    height: auto; /* Set the desired height for your image */
     width: auto; /* Automatically calculate the width to maintain proportion */
     margin: 1em;
-    max-width: 100%;
+    max-width: 70%;
 }
 
 .image-description {
