@@ -56,10 +56,12 @@ body {
 
 .container {
     position: relative;
-    max-width: 700px;
+    max-width: 100%;
     margin: 2em auto;
     padding: 0 1em;
     z-index: 2; /* Ensure the content is above the overlay */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on smaller screens */
 }
 
 
@@ -122,7 +124,7 @@ hr {
 }
 
 img {
-    height: 230px; /* Set the desired height for your image */
+    height: 16em; /* Set the desired height for your image */
     width: auto; /* Automatically calculate the width to maintain proportion */
     margin: 1em;
     max-width: 100%;
