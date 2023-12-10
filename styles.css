@@ -28,7 +28,7 @@ a:active {
 }
 
 
-body {
+/*body {
     font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
     background-image: url(Iguazú.jpg);
     background-size: cover;
@@ -39,13 +39,30 @@ body {
     border-width: 5px;
     
 }
-
+*/
+body {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 50em;
+    max-width: 800px;
+    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+    background-image: url(Iguazú.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    line-height: 1.4;
+    color: #181818;
+    
+    border-width: 5px;
+}
+/*
 @media only screen and (max-width: 600px) {
     body {
         font-size: 14px;
     }
 }
-
+*/
 /* .overlay {
     position: absolute;
     top: 50%;
@@ -62,7 +79,7 @@ body {
 
 .container {
     position: relative;
-    max-width: 700px;
+    max-width: 800px;
     margin: 2em auto;
     padding: 0 1em;
     z-index: 2; /* Ensure the content is above the overlay */
@@ -80,6 +97,8 @@ header {
     text-align: center;
     
 }
+
+
 
 h1 {
     font-size: 2em;
