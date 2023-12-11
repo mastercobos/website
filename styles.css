@@ -48,7 +48,7 @@ body {
     min-width: 50em;
     max-width: 800px;
     font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
-    background-image: url(Iguazú.jpg);
+    background-image: url(resources/Iguazú.jpg);
     background-size: cover;
     background-attachment: fixed;
     line-height: 1.4;
