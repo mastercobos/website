@@ -96,6 +96,7 @@ header {
     background: #ffffff;
     text-align: center;
     
+    
 }
 
 
@@ -173,4 +174,8 @@ video {
     display: block;
     
 
+}
+
+.sitemap {
+    margin: 0;
 }
