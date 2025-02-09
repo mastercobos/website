@@ -5,72 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manuel Cobos Robles</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
-  
     <div class="container">
         <header>
-            <h1> <span style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";> Manuel Cobos Robles</span></h1>
-            <p class="career">Energy Engineer</p>
+            <div class="language-switcher"> 
+                <a id="btn-en" aria-label="Switch to English">EN</a>
+                <span>|</span>
+                <a id="btn-es" aria-label="Cambiar a Español">ES</a>
+            </div>
+
+            <h1 id="title">Manuel Cobos Robles</h1>
+            <p class="career" id="career">Energy Engineer</p>
             
-            <p class="sitemap">
-                <a href="./">About me</a> |
-                <a href="./projects">Projects</a> |
-                <a href="https://www.linkedin.com/in/manuel-cobos-robles/">Linkedin</a>
-            <!--<a href="https://github.com/mastercobos">Github</a>-->
-            </p>
-            
+            <nav>
+                <p class="sitemap">
+                    <a href="#" id="about">About me</a> |
+                    <a href="./projects" id="projects">Projects</a> |
+                    <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </p>
+            </nav>
         </header>
         <hr>
         <section class="bio">
-            <p class="description">
-                The objective of this website is to provide a brief
-                 introduction to my academic life and job experience.
-                 Additionally, I intend to explain some of the projects
-                 I have undertaken in the past.
+            <p class="description" id="description">
+                The objective of this website is to provide a brief introduction to my academic life and job experience. Additionally, I intend to explain some of the projects I have undertaken in the past.
             </p>
-
-            <p>In 2017, I commenced my studies in <i>Energy Engineering</i> at <a class="header" href="https://www.uma.es"> 
-                University of Malaga </a>. Over time, I realized my desire to pursue
-            international experiences.
-                </p>
-                    
-            <p>In 2021, I relocated to Seville to further my studies in <a class="header" 
-                href="https://www.us.es/"> University of Seville</a>. While there,
-                I pursued a specialization within my degree titled 
-                <i>Power Production Systems</i>.
-                The specialization focused on 
-                <b>conventional energy generation</b> systems,
-                 including 
-                <b>Combined Cycle Power Plants, Nuclear Power Plants</b>, etc.</p>
-
-            <p>In 2022, I continued my studies in Río de Janeiro, Brazil. From August
-               onward, I spent 5 months in Niteroi, attending 
-               <a class="header" href="https://www.uff.br/">Fluminense Federal University</a></a>.</p>
-
+            
+            <p id="education1">In 2017, I commenced my studies in <i>Energy Engineering</i> at <a class="header" href="https://www.uma.es" target="_blank" rel="noopener noreferrer">University of Malaga</a>. Over time, I realized my desire to pursue international experiences.</p>
+            
+            <p id="education2">In 2021, I relocated to Seville to further my studies in <a class="header" href="https://www.us.es/" target="_blank" rel="noopener noreferrer">University of Seville</a>. While there, I pursued a specialization within my degree titled <i>Power Production Systems</i>. The specialization focused on <b>conventional energy generation</b> systems, including <b>Combined Cycle Power Plants, Nuclear Power Plants</b>, etc.</p>
+            
+            <p id="education3">In 2022, I continued my studies in Rio de Janeiro, Brazil. From August onward, I spent 5 months in Niteroi, attending <a class="header" href="https://www.uff.br/" target="_blank" rel="noopener noreferrer">Fluminense Federal University</a>.</p>
+            
             <div class="image-container">
                 <img src="resources/ItaipuH4.jpg" alt="Presa Itaipú">
-                <p class="image-description">Itaipú hydroelectric dam, (Foz do Iguaçu, Brazil).</p>
+                <p class="image-description" id="imageDesc">Itaipú hydroelectric dam, (Foz do Iguaçu, Brazil).</p>
             </div>
-
-            <p>By January 2023, I had returned from Brazil and began
-                a trainee job. The role centered around <b>Renewable
-                Energies</b> projects, with a major focus on designing
-                <b>photovoltaic systems</b> for self-consumption. 
-                                
-                The internship concluded at the end of June.</p>
-
-            <p>At that time, all that remained for me to graduate was completing
-                my thesis. Come September, I successfully presented my thesis to
-                the University. The project received a grade of <b>9.5</b> out
-                of 10 and went on to become a <b>finalist</b> for an 
-                <b>energy efficiency award</b>.</p>
-
-            <p>
-                <li><a href="resources/CV_Manuel_Cobos.pdf">Curriculum Vitae</a>
-            </p>
+            
+            <p id="workExperience">By January 2023, I had returned from Brazil and began a trainee job. The role centered around <b>Renewable Energies</b> projects, with a major focus on designing <b>photovoltaic systems</b> for self-consumption. The internship concluded at the end of June.</p>
+            
+            <p id="thesis">At that time, all that remained for me to graduate was completing my thesis. Come September, I successfully presented my thesis to the University. The project received a grade of <b>9.5</b> out of 10 and went on to become a <b>finalist</b> for an <b>energy efficiency award</b>.</p>
+            
+            <ul>
+                <li><a href="resources/CV_Manuel_Cobos.pdf" id="cv" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a></li>
+            </ul>
         </section>
     </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const translations = {
+                es: {
+                    title: "Manuel Cobos Robles",
+                    career: "Ingeniero de la Energía",
+                    about: "Sobre mí",
+                    projects: "Proyectos",
+                    description: "El objetivo de este sitio web es proporcionar una breve introducción a mi vida académica y experiencia laboral. Además, pretendo explicar algunos de los proyectos que he realizado en el pasado.",
+                    education1: "En 2017, comencé mis estudios en <i>Ingeniería de la Energía</i> en la <a class='header' href='https://www.uma.es'>Universidad de Málaga</a>. Con el tiempo, me di cuenta de mi deseo de vivir experiencias internacionales.",
+                    education2: "En 2021, me trasladé a Sevilla para continuar mis estudios en la <a class='header' href='https://www.us.es/'>Universidad de Sevilla</a>. Allí, cursé la especialización <i>Sistemas de Producción de Energía</i>, centrada en <b>generación de energía convencional</b>, incluyendo <b>Centrales de Ciclo Combinado, Centrales Nucleares</b>, etc.",
+                    education3: "En 2022, continué mis estudios en Río de Janeiro, Brasil. Desde agosto, pasé 5 meses en Niteroi, asistiendo a la <a class='header' href='https://www.uff.br/'>Universidad Federal Fluminense</a>.",
+                    imageDesc: "Presa hidroeléctrica de Itaipú (Foz do Iguaçu, Brasil).",
+                    workExperience: "En enero de 2023, regresé de Brasil y comencé una pasantía. El trabajo se centró en proyectos de <b>Energías Renovables</b>, con un enfoque principal en el diseño de <b>instalaciones fotovoltaicas</b> para autoconsumo. La pasantía finalizó a finales de junio.",
+                    thesis: "En ese momento, lo único que me quedaba para graduarme era completar mi tesis. En septiembre, presenté con éxito mi tesis en la Universidad. El proyecto recibió una calificación de <b>9.5</b> sobre 10 y fue finalista de un <b>premio de eficiencia energética</b>.",
+                    cv: "Currículum Vitae",
+                },
+            };
+
+            document.getElementById('btn-es').addEventListener('click', () => {
+                Object.keys(translations.es).forEach(id => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.innerHTML = translations.es[id];
+                    }
+                });
+            });
+
+            document.getElementById('btn-en').addEventListener('click', () => {
+                // Reset all text content to English
+                location.reload();
+            });
+        });
+    </script>
 </body>
 </html>
