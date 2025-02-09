@@ -48,15 +48,12 @@
             <p id="thesis">At that time, all that remained for me to graduate was completing my thesis. Come September, I successfully presented my thesis to the University. The project received a grade of <b>9.5</b> out of 10 and went on to become a <b>finalist</b> for an <b>energy efficiency award</b>.</p>
             
             <ul>
-<<<<<<< HEAD
                 <li><a href="resources/CV_Manuel_Cobos_EN.pdf" id="cv" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a></li>
-=======
-                <li><a href="resources/CV_Manuel_Cobos.pdf" id="cv" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a></li>
->>>>>>> 5a88e18a22f8b5239a6f88511e8db9f5f24e9252
             </ul>
         </section>
     </div>
-    
+
+    <!-- Add the JavaScript to switch languages -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const translations = {
@@ -73,8 +70,7 @@
                     workExperience: "En enero de 2023, regresé de Brasil y comencé una pasantía. El trabajo se centró en proyectos de <b>Energías Renovables</b>, con un enfoque principal en el diseño de <b>instalaciones fotovoltaicas</b> para autoconsumo. La pasantía finalizó a finales de junio.",
                     thesis: "En ese momento, lo único que me quedaba para graduarme era completar mi tesis. En septiembre, presenté con éxito mi tesis en la Universidad. El proyecto recibió una calificación de <b>9.5</b> sobre 10 y fue finalista de un <b>premio de eficiencia energética</b>.",
                     cv: "Currículum Vitae",
-<<<<<<< HEAD
-                    cvLink: "resources/CV_Manuel_Cobos_ES.pdf"  // Link to the Spanish version of the CV
+                    cvLink: "resources/CV_Manuel_Cobos_ES.pdf"
                 },
                 en: {
                     title: "Manuel Cobos Robles",
@@ -89,15 +85,14 @@
                     workExperience: "In January 2023, I returned from Brazil and started an internship focused on <b>Renewable Energy</b> projects, with a primary focus on designing <b>photovoltaic installations</b> for self-consumption. The internship ended at the end of June.",
                     thesis: "At that point, the only thing left for me to graduate was to complete my thesis. In September, I successfully presented my thesis at the University. The project received a grade of <b>9.5</b> out of 10 and was a finalist for an <b>energy efficiency award</b>.",
                     cv: "Curriculum Vitae",
-                    cvLink: "resources/CV_Manuel_Cobos_English.pdf"  // Link to the English version of the CV
+                    cvLink: "resources/CV_Manuel_Cobos_EN.pdf"
                 },
             };
-    
+
             // Function to switch the language
             function switchLanguage(language) {
                 Object.keys(translations[language]).forEach(id => {
                     if (id === "cvLink") {
-                        // Change the CV download link dynamically
                         document.getElementById('cv').href = translations[language][id];
                     } else {
                         const element = document.getElementById(id);
@@ -107,31 +102,14 @@
                     }
                 });
             }
-    
+
             // Event listeners for language buttons
             document.getElementById('btn-es').addEventListener('click', () => {
                 switchLanguage('es');
             });
-    
+
             document.getElementById('btn-en').addEventListener('click', () => {
                 switchLanguage('en');
-=======
-                },
-            };
-
-            document.getElementById('btn-es').addEventListener('click', () => {
-                Object.keys(translations.es).forEach(id => {
-                    const element = document.getElementById(id);
-                    if (element) {
-                        element.innerHTML = translations.es[id];
-                    }
-                });
-            });
-
-            document.getElementById('btn-en').addEventListener('click', () => {
-                // Reset all text content to English
-                location.reload();
->>>>>>> 5a88e18a22f8b5239a6f88511e8db9f5f24e9252
             });
         });
     </script>
