@@ -145,7 +145,8 @@ hr {
     
     .language-switcher a {
         font-weight: bold;
-        margin-left: 0px;  
+        margin-left: 0px;
+        cursor: pointer;  
     }
 
 
