@@ -33,19 +33,14 @@ body {
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    /* FIX: min-width reducido para no romper móvil */
     min-width: 320px;
     max-width: 800px;
     font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
-    background-image: url(resources/Iguazú.jpg);
+    background-image: url(https://mastercobos.github.io/website/resources/Igua%C3%BAzu%CC%81.jpg);
     background-size: cover;
     background-attachment: fixed;
     line-height: 1.4;
     color: #181818;
-    /* FIX: añadidos border-style y border-color para que el borde se renderice */
-    border-width: 5px;
-    border-style: solid;
-    border-color: #597091;
     padding: 0 1em;
 }
 
