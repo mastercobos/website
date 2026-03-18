@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad - Poemario</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Hoja de estilos compartida con el resto del sitio -->
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        /* La imagen de fondo usa ruta absoluta para funcionar desde cualquier subdirectorio */
+        body { background-image: url(/website/resources/Iguazú.jpg); }
+    </style>
 </head>
 <body>
 <div class="container">
 
     <header>
         <div class="language-switcher">
-            <button id="btn-en" aria-label="Switch to English">EN</button>
-            <span>|</span>
             <button id="btn-es" aria-label="Cambiar a Español">ES</button>
+            <span>|</span>
+            <button id="btn-en" aria-label="Switch to English">EN</button>
         </div>
 
         <h1 id="pageTitle">Política de Privacidad</h1>
@@ -21,8 +26,8 @@
 
         <nav>
             <p class="sitemap">
-                <a href="./index.html" id="navAbout">Sobre mí</a> |
-                <a href="./projects.html" id="navProjects">Proyectos</a> |
+                <a href="/website/index.html" id="navAbout">Sobre mí</a> |
+                <a href="/website/projects.html" id="navProjects">Proyectos</a> |
                 <a href="https://www.linkedin.com/in/manuel-cobos-robles/"
                    target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </p>
@@ -38,7 +43,7 @@
              Puedes usar las secciones comentadas de abajo como guía.
         ─────────────────────────────────────────────────────────────── -->
 
-        <p id="intro">Poemario es una aplicación desarrollada por <b>[tu nombre]</b>. Esta política de privacidad describe cómo funciona la app en relación a tus datos.</p>
+        <p id="intro">Poemario es una aplicación desarrollada por <b>Manuel Cobos Robles</b>. Esta política de privacidad describe cómo funciona la app en relación a tus datos.</p>
 
         <h2 id="sec1">Datos que recogemos</h2>
         <p id="sec1text">Poemario no recoge, almacena ni comparte ningún dato personal. No existe registro de usuario, ni seguimiento de actividad, ni conexión a servidores externos.</p>
@@ -58,7 +63,7 @@
         <p id="sec4text">Cualquier cambio futuro en esta política se publicará en esta misma página.</p>
 
         <h2 id="sec5">Contacto</h2>
-        <p id="sec5text">Si tienes alguna pregunta puedes escribir a: <b>[tu email]</b></p>
+        <p id="sec5text">Si tienes alguna pregunta puedes escribir a: <b>manuelrr91@gmail.com</b></p>
 
         <p class="meta" id="lastUpdated">Última actualización: marzo de 2026</p>
     </section>
