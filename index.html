@@ -10,9 +10,10 @@
     <div class="container">
         <header>
             <div class="language-switcher"> 
-                <a id="btn-en" aria-label="Switch to English">EN</a>
+                <!-- FIX: usar <button> en lugar de <a> sin href -->
+                <button id="btn-en" aria-label="Switch to English">EN</button>
                 <span>|</span>
-                <a id="btn-es" aria-label="Cambiar a Español">ES</a>
+                <button id="btn-es" aria-label="Cambiar a Español">ES</button>
             </div>
 
             <h1 id="title">Manuel Cobos Robles</h1>
@@ -20,8 +21,9 @@
             
             <nav>
                 <p class="sitemap">
-                    <a href="#" id="about">About me</a> |
-                    <a href="./projects" id="projects">Projects</a> |
+                    <!-- FIX: href apuntaba a "#", ahora apunta a la página correcta -->
+                    <a href="./index.html" id="about">About me</a> |
+                    <a href="./projects.html" id="projects">Projects</a> |
                     <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </p>
             </nav>
@@ -47,13 +49,13 @@
             
             <p id="thesis">At that time, all that remained for me to graduate was completing my thesis. Come September, I successfully presented my thesis to the University. The project received a grade of <b>9.5</b> out of 10 and went on to become a <b>finalist</b> for an <b>energy efficiency award</b>.</p>
             
+            <!-- FIX: id="cv" movido al <a>, no al <li> -->
             <ul>
-                <li><a href="resources/CV_Manuel_Cobos_EN.pdf" id="cv" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a></li>
+                <li><a id="cv" href="resources/CV_Manuel_Cobos_EN.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a></li>
             </ul>
         </section>
     </div>
 
-    <!-- Add the JavaScript to switch languages -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const translations = {
@@ -63,14 +65,15 @@
                     about: "Sobre mí",
                     projects: "Proyectos",
                     description: "El objetivo de este sitio web es proporcionar una breve introducción a mi vida académica y experiencia laboral. Además, pretendo explicar algunos de los proyectos que he realizado en el pasado.",
-                    education1: "En 2017, comencé mis estudios en <i>Ingeniería de la Energía</i> en la <a class='header' href='https://www.uma.es'>Universidad de Málaga</a>. Con el tiempo, me di cuenta de mi deseo de vivir experiencias internacionales.",
-                    education2: "En 2021, me trasladé a Sevilla para continuar mis estudios en la <a class='header' href='https://www.us.es/'>Universidad de Sevilla</a>. Allí, cursé la especialización <i>Sistemas de Producción de Energía</i>, centrada en <b>generación de energía convencional</b>, incluyendo <b>Centrales de Ciclo Combinado, Centrales Nucleares</b>, etc.",
-                    education3: "En 2022, continué mis estudios en Río de Janeiro, Brasil. Desde agosto, pasé 5 meses en Niteroi, asistiendo a la <a class='header' href='https://www.uff.br/'>Universidad Federal Fluminense</a>.",
+                    education1: "En 2017, comencé mis estudios en <i>Ingeniería de la Energía</i> en la <a class='header' href='https://www.uma.es' target='_blank' rel='noopener noreferrer'>Universidad de Málaga</a>. Con el tiempo, me di cuenta de mi deseo de vivir experiencias internacionales.",
+                    education2: "En 2021, me trasladé a Sevilla para continuar mis estudios en la <a class='header' href='https://www.us.es/' target='_blank' rel='noopener noreferrer'>Universidad de Sevilla</a>. Allí, cursé la especialización <i>Sistemas de Producción de Energía</i>, centrada en <b>generación de energía convencional</b>, incluyendo <b>Centrales de Ciclo Combinado, Centrales Nucleares</b>, etc.",
+                    education3: "En 2022, continué mis estudios en Río de Janeiro, Brasil. Desde agosto, pasé 5 meses en Niteroi, asistiendo a la <a class='header' href='https://www.uff.br/' target='_blank' rel='noopener noreferrer'>Universidad Federal Fluminense</a>.",
                     imageDesc: "Presa hidroeléctrica de Itaipú (Foz do Iguaçu, Brasil).",
                     workExperience: "En enero de 2023, regresé de Brasil y comencé una pasantía. El trabajo se centró en proyectos de <b>Energías Renovables</b>, con un enfoque principal en el diseño de <b>instalaciones fotovoltaicas</b> para autoconsumo. La pasantía finalizó a finales de junio.",
                     thesis: "En ese momento, lo único que me quedaba para graduarme era completar mi tesis. En septiembre, presenté con éxito mi tesis en la Universidad. El proyecto recibió una calificación de <b>9.5</b> sobre 10 y fue finalista de un <b>premio de eficiencia energética</b>.",
                     cv: "Currículum Vitae",
-                    cvLink: "resources/CV_Manuel_Cobos_ES.pdf"
+                    cvLink: "resources/CV_Manuel_Cobos_ES.pdf",
+                    htmlLang: "es"
                 },
                 en: {
                     title: "Manuel Cobos Robles",
@@ -78,39 +81,40 @@
                     about: "About me",
                     projects: "Projects",
                     description: "The objective of this website is to provide a brief introduction to my academic life and job experience. Additionally, I intend to explain some of the projects I have undertaken in the past.",
-                    education1: "In 2017, I began my studies in <i>Energy Engineering</i> at the <a class='header' href='https://www.uma.es'>University of Málaga</a>. Over time, I realized my desire to live international experiences.",
-                    education2: "In 2021, I moved to Seville to continue my studies at the <a class='header' href='https://www.us.es/'>University of Seville</a>. There, I specialized in <i>Energy Production Systems</i>, focusing on <b>conventional energy generation</b>, including <b>Combined Cycle Power Plants, Nuclear Power Plants</b>, etc.",
-                    education3: "In 2022, I continued my studies in Rio de Janeiro, Brazil. From August, I spent 5 months in Niteroi, attending the <a class='header' href='https://www.uff.br/'>Federal Fluminense University</a>.",
-                    imageDesc: "Itaipú Hydroelectric Dam (Foz do Iguaçu, Brazil).",
-                    workExperience: "In January 2023, I returned from Brazil and started an internship focused on <b>Renewable Energy</b> projects, with a primary focus on designing <b>photovoltaic installations</b> for self-consumption. The internship ended at the end of June.",
-                    thesis: "At that point, the only thing left for me to graduate was to complete my thesis. In September, I successfully presented my thesis at the University. The project received a grade of <b>9.5</b> out of 10 and was a finalist for an <b>energy efficiency award</b>.",
+                    education1: "In 2017, I commenced my studies in <i>Energy Engineering</i> at <a class='header' href='https://www.uma.es' target='_blank' rel='noopener noreferrer'>University of Malaga</a>. Over time, I realized my desire to pursue international experiences.",
+                    education2: "In 2021, I relocated to Seville to further my studies in <a class='header' href='https://www.us.es/' target='_blank' rel='noopener noreferrer'>University of Seville</a>. While there, I pursued a specialization within my degree titled <i>Power Production Systems</i>. The specialization focused on <b>conventional energy generation</b> systems, including <b>Combined Cycle Power Plants, Nuclear Power Plants</b>, etc.",
+                    education3: "In 2022, I continued my studies in Rio de Janeiro, Brazil. From August onward, I spent 5 months in Niteroi, attending <a class='header' href='https://www.uff.br/' target='_blank' rel='noopener noreferrer'>Fluminense Federal University</a>.",
+                    imageDesc: "Itaipú hydroelectric dam, (Foz do Iguaçu, Brazil).",
+                    workExperience: "By January 2023, I had returned from Brazil and began a trainee job. The role centered around <b>Renewable Energies</b> projects, with a major focus on designing <b>photovoltaic systems</b> for self-consumption. The internship concluded at the end of June.",
+                    thesis: "At that time, all that remained for me to graduate was completing my thesis. Come September, I successfully presented my thesis to the University. The project received a grade of <b>9.5</b> out of 10 and went on to become a <b>finalist</b> for an <b>energy efficiency award</b>.",
                     cv: "Curriculum Vitae",
-                    cvLink: "resources/CV_Manuel_Cobos_EN.pdf"
-                },
+                    cvLink: "resources/CV_Manuel_Cobos_EN.pdf",
+                    htmlLang: "en"
+                }
             };
 
-            // Function to switch the language
             function switchLanguage(language) {
+                document.documentElement.lang = translations[language].htmlLang;
+                localStorage.setItem("lang", language);
+
                 Object.keys(translations[language]).forEach(id => {
+                    if (id === "htmlLang") return;
+
                     if (id === "cvLink") {
-                        document.getElementById('cv').href = translations[language][id];
+                        document.getElementById("cv").href = translations[language][id];
                     } else {
                         const element = document.getElementById(id);
-                        if (element) {
-                            element.innerHTML = translations[language][id];
-                        }
+                        if (element) element.innerHTML = translations[language][id];
                     }
                 });
             }
 
-            // Event listeners for language buttons
-            document.getElementById('btn-es').addEventListener('click', () => {
-                switchLanguage('es');
-            });
+            // Aplicar el idioma guardado al cargar la página
+            const savedLang = localStorage.getItem("lang") || "en";
+            switchLanguage(savedLang);
 
-            document.getElementById('btn-en').addEventListener('click', () => {
-                switchLanguage('en');
-            });
+            document.getElementById("btn-es").addEventListener("click", () => switchLanguage("es"));
+            document.getElementById("btn-en").addEventListener("click", () => switchLanguage("en"));
         });
     </script>
 </body>

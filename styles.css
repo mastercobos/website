@@ -1,7 +1,9 @@
+/* ── Tipografía base ── */
 p {
     font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
+/* ── Enlaces ── */
 a {
     text-decoration: none;
     color: #181818;
@@ -25,12 +27,14 @@ a:active {
     border-bottom: dotted thin #d6ceba;
 }
 
+/* ── Body ── */
 body {
     margin-top: 50px;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    min-width: 50em;
+    /* FIX: min-width reducido para no romper móvil */
+    min-width: 320px;
     max-width: 800px;
     font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
     background-image: url(resources/Iguazú.jpg);
@@ -38,10 +42,14 @@ body {
     background-attachment: fixed;
     line-height: 1.4;
     color: #181818;
+    /* FIX: añadidos border-style y border-color para que el borde se renderice */
     border-width: 5px;
+    border-style: solid;
+    border-color: #597091;
     padding: 0 1em;
 }
 
+/* ── Contenedor ── */
 .container {
     position: relative;
     max-width: 100%;
@@ -51,6 +59,7 @@ body {
     flex-direction: column;
 }
 
+/* ── Cabecera ── */
 header {
     border: solid #597091;
     padding: 40px;
@@ -76,6 +85,7 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* ── Separador ── */
 hr {
     border: 0;
     border-top: 1px solid #000;
@@ -83,70 +93,140 @@ hr {
     margin: 0 auto;
 }
 
+/* ── Sección bio / contenido ── */
 .bio {
     border: solid #597091;
     padding: 40px;
     background: #ffffff;
 }
 
+/* ── Imágenes ── */
 .image-container {
     text-align: center;
 }
 
-.media {
-    width: 100%; /* Ensure it adapts to the container */
+img {
+    max-width: 70%;
     height: auto;
-    margin-top: 0.5em;
-    margin-bottom: 2em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
 }
 
-
-@media only screen and (max-width: 600px) {
-    .language-switcher {
-        position: static; 
-        text-align: left; 
-        margin: 10px 0; 
-    }
+.image-description {
+    font-style: italic;
+    margin: 0em 0.5em;
 }
 
+/* ── Vídeo ── */
+video {
+    max-width: 70%;
+    height: auto;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
 
-    img {
-        max-width: 70%;
-        height: auto;
-        margin-top: 1em;
-        margin-bottom: 0.5em;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-    }
-    
-    .image-description {
-        font-style: italic;
-        margin: 0em 0.5em;
-    }
+/* ── Selector de idioma ── */
+/* FIX: sacado del bloque @media donde estaba mal indentado */
+.language-switcher {
+    text-align: left;
+    margin-bottom: 0;
+}
 
-    video {
-        max-width: 70%;
-        height: auto;
-        margin-top: 0.5em;
-        margin-bottom: 2em;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-    }
+/* FIX: los botones de idioma heredan el estilo de <a> */
+.language-switcher button {
+    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 1em;
+    background: none;
+    border: none;
+    border-bottom: solid thin #d6ceba;
+    color: #181818;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
 
+.language-switcher button:hover {
+    color: #fff;
+    background: #181818;
+    border-bottom: none;
+}
 
+/* ── Sección de contenido genérica (usado en privacidad, etc.) ── */
+.content {
+    border: solid #597091;
+    padding: 40px;
+    background: #ffffff;
+}
+
+h2 {
+    font-size: 1.25em;
+    margin: 1.8em 0 0.4em;
+    border-bottom: 1px solid #d6ceba;
+    padding-bottom: 0.2em;
+}
+
+h2:first-child { margin-top: 0; }
+
+/* Subtítulo bajo el h1 del header */
+.subtitle {
+    font-style: italic;
+    margin: 0.3em 0 1em;
+    color: #444;
+}
+
+/* Bloque placeholder (contenido pendiente) */
+.placeholder {
+    border: 2px dashed #597091;
+    border-radius: 2px;
+    padding: 2em;
+    margin: 1.5em 0;
+    text-align: center;
+    color: #597091;
+    font-style: italic;
+    background: #f7f5f0;
+}
+
+.placeholder strong {
+    display: block;
+    font-size: 1.05em;
+    margin-bottom: 0.4em;
+    font-style: normal;
+}
+
+/* Pie de página con fecha de actualización */
+.meta {
+    font-size: 0.85em;
+    color: #666;
+    font-style: italic;
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid #d6ceba;
+}
+
+/* ── Responsive ── */
+@media only screen and (max-width: 600px) {
+    /* FIX: min-width en body ya está en 320px, aquí solo ajustes de layout */
     .language-switcher {
+        position: static;
         text-align: left;
-        top: 0px;
-         margin-bottom: 0px;  /* Space below the language switcher */
-    }
-    
-    .language-switcher a {
-        font-weight: bold;
-        margin-left: 0px;
-        cursor: pointer;  
+        margin: 10px 0;
     }
 
+    header,
+    .bio,
+    .content {
+        padding: 24px 18px;
+    }
 
+    img,
+    video {
+        max-width: 100%;
+    }
+}

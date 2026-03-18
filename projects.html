@@ -7,73 +7,90 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+    <!-- FIX: añadido <div class="container"> que faltaba -->
+    <div class="container">
         <header>
             <div class="language-switcher"> 
-                <a id="btn-en" aria-label="Switch to English">EN</a>
+                <!-- FIX: usar <button> en lugar de <a> sin href -->
+                <button id="btn-en" aria-label="Switch to English">EN</button>
                 <span>|</span>
-                <a id="btn-es" aria-label="Cambiar a Español">ES</a>
+                <button id="btn-es" aria-label="Cambiar a Español">ES</button>
             </div>
             
-            <h1>Projects</h1>
-            <p class="career">"The journey of a thousand miles begins with one step." - Lao Tse</p>
+            <h1 id="pageTitle">Projects</h1>
+            <p class="career" id="quote">"The journey of a thousand miles begins with one step." - Lao Tse</p>
             <nav>
                 <p class="sitemap">
-                    <a href="./">About me</a> |
-                    <a href="./projects">Projects</a> |
+                    <a href="./index.html">About me</a> |
+                    <a href="./projects.html">Projects</a> |
                     <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </p>
             </nav>
         </header>
         <hr>
         <section class="bio">
-            <h2>Improvement of a Heat Pump Monitoring and Data Acquisition System</h2>
-            <p class="description">This project involved modifying a commercial <b>aerothermal heat pump</b> to enhance its monitoring and data acquisition capabilities.</p>
+            <h2 id="projectTitle">Improvement of a Heat Pump Monitoring and Data Acquisition System</h2>
+            <p class="description" id="projectDesc">This project involved modifying a commercial <b>aerothermal heat pump</b> to enhance its monitoring and data acquisition capabilities.</p>
             <ul>
-                <li>Improved sensor system in an aerothermal heat pump.</li>
-                <li>Implemented analog and <b>Modbus RTU</b> sensors on a <b>Siemens PLC S7-1500</b>.</li>
-                <li>Developed data acquisition and monitoring system in <b>TIA Portal v17</b>.</li>
+                <li id="bullet1">Improved sensor system in an aerothermal heat pump.</li>
+                <li id="bullet2">Implemented analog and <b>Modbus RTU</b> sensors on a <b>Siemens PLC S7-1500</b>.</li>
+                <li id="bullet3">Developed data acquisition and monitoring system in <b>TIA Portal v17</b>.</li>
             </ul>
-            <p>The following video demonstrates the monitoring system in action on a <b>Siemens HMI screen</b>.</p>
-            <video controls>
-                <source src="resources/HMI.mp4" type="video/mp4" alt="Monitoring system demonstration on Siemens HMI screen">
+            <p id="videoDesc">The following video demonstrates the monitoring system in action on a <b>Siemens HMI screen</b>.</p>
+            <!-- FIX: aria-label añadido al <video> en lugar del inválido alt en <source> -->
+            <video controls aria-label="Monitoring system demonstration on Siemens HMI screen">
+                <source src="resources/HMI.mp4" type="video/mp4">
             </video>
-            <p>Data can be accessed via the <b>PLC web server</b>, allowing CSV file downloads of stored data.</p>
+            <p id="dataAccess">Data can be accessed via the <b>PLC web server</b>, allowing CSV file downloads of stored data.</p>
         </section>
     </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const translations = {
                 es: {
-                    projects: "Proyectos",
-                    career: "\"El viaje de las mil millas comienza con un solo paso.\" - Lao Tse",
-                    description: "Este proyecto implicó la modificación de una <b>bomba de calor aerotérmica</b> para mejorar su sistema de monitorización y adquisición de datos.",
-                    bioTitle: "Mejora del Sistema de Monitorización y Adquisición de Datos de una Bomba de Calor",
-                    bullet1: "Incremento del número y tipo de sensores en una bomba de calor aerotérmica.",
-                    bullet2: "Implementación de sensores analógicos y digitales <b>Modbus RTU</b> en un <b>Siemens PLC S7-1500</b>.",
-                    bullet3: "Desarrollo del sistema de adquisición de datos y monitorización en <b>TIA Portal v17</b>.",
-                    videoDesc: "El siguiente video se muestran los datos medidos en una <b>pantalla HMI de Siemens</b>.",
-                    dataAccess: "Los datos pueden accederse a través del <b>servidor web del PLC</b>, permitiendo la descarga de un archivo CSV con los datos almacenados."
+                    pageTitle:    "Proyectos",
+                    quote:        "\"El viaje de las mil millas comienza con un solo paso.\" - Lao Tse",
+                    projectTitle: "Mejora del Sistema de Monitorización y Adquisición de Datos de una Bomba de Calor",
+                    projectDesc:  "Este proyecto implicó la modificación de una <b>bomba de calor aerotérmica</b> para mejorar su sistema de monitorización y adquisición de datos.",
+                    bullet1:      "Incremento del número y tipo de sensores en una bomba de calor aerotérmica.",
+                    bullet2:      "Implementación de sensores analógicos y digitales <b>Modbus RTU</b> en un <b>Siemens PLC S7-1500</b>.",
+                    bullet3:      "Desarrollo del sistema de adquisición de datos y monitorización en <b>TIA Portal v17</b>.",
+                    videoDesc:    "El siguiente video muestra los datos medidos en una <b>pantalla HMI de Siemens</b>.",
+                    dataAccess:   "Los datos pueden accederse a través del <b>servidor web del PLC</b>, permitiendo la descarga de un archivo CSV con los datos almacenados.",
+                    htmlLang:     "es"
+                },
+                en: {
+                    pageTitle:    "Projects",
+                    quote:        "\"The journey of a thousand miles begins with one step.\" - Lao Tse",
+                    projectTitle: "Improvement of a Heat Pump Monitoring and Data Acquisition System",
+                    projectDesc:  "This project involved modifying a commercial <b>aerothermal heat pump</b> to enhance its monitoring and data acquisition capabilities.",
+                    bullet1:      "Improved sensor system in an aerothermal heat pump.",
+                    bullet2:      "Implemented analog and <b>Modbus RTU</b> sensors on a <b>Siemens PLC S7-1500</b>.",
+                    bullet3:      "Developed data acquisition and monitoring system in <b>TIA Portal v17</b>.",
+                    videoDesc:    "The following video demonstrates the monitoring system in action on a <b>Siemens HMI screen</b>.",
+                    dataAccess:   "Data can be accessed via the <b>PLC web server</b>, allowing CSV file downloads of stored data.",
+                    htmlLang:     "en"
                 }
             };
 
-            // Event listeners for language change
-            document.getElementById('btn-es').addEventListener('click', () => {
-                document.querySelector('h1').innerText = translations.es.projects;
-                document.querySelector('.career').innerText = translations.es.career;
-                document.querySelector('.description').innerHTML = translations.es.description;
-                document.querySelector('h2').innerText = translations.es.bioTitle;
-                document.querySelectorAll('li')[0].innerText = translations.es.bullet1;
-                document.querySelectorAll('li')[1].innerHTML = translations.es.bullet2;
-                document.querySelectorAll('li')[2].innerHTML = translations.es.bullet3;
-                document.querySelectorAll('p')[3].innerHTML = translations.es.videoDesc;
-                document.querySelectorAll('p')[4].innerHTML = translations.es.dataAccess;
-            });
+            function switchLanguage(language) {
+                document.documentElement.lang = translations[language].htmlLang;
+                localStorage.setItem("lang", language);
 
-            document.getElementById('btn-en').addEventListener('click', () => {
-                // Reset to English by reloading the page
-                location.reload();
-            });
+                Object.keys(translations[language]).forEach(id => {
+                    if (id === "htmlLang") return;
+                    const el = document.getElementById(id);
+                    if (el) el.innerHTML = translations[language][id];
+                });
+            }
+
+            // Aplicar el idioma guardado al cargar la página
+            const savedLang = localStorage.getItem("lang") || "en";
+            switchLanguage(savedLang);
+
+            document.getElementById("btn-es").addEventListener("click", () => switchLanguage("es"));
+            document.getElementById("btn-en").addEventListener("click", () => switchLanguage("en"));
         });
     </script>
 </body>
