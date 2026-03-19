@@ -68,7 +68,6 @@ hr {
 .bio {
     border: solid #597091;
     border-top: none;
-    border-bottom: none;
     padding: 40px;
     background: #ffffff;
 }
@@ -76,7 +75,6 @@ hr {
 .content {
     border: solid #597091;
     border-top: none;
-    border-bottom: none;
     padding: 40px;
     background: #ffffff;
 }
@@ -84,7 +82,6 @@ hr {
 .project-detail {
     border: solid #597091;
     border-top: none;
-    border-bottom: none;
     padding: 40px;
     background: #ffffff;
 }
@@ -200,25 +197,34 @@ h2:first-child { margin-top: 0; }
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border-left: 1px solid #597091;
-    border-right: 1px solid #597091;
+    gap: 1.2em;
+    border: solid #597091;
+    border-top: none;
+    padding: 24px;
+    background: #f7f5f0;
 }
 
 .project-card {
     background: #ffffff;
-    border-right: 1px solid #d6ceba;
-    border-bottom: 1px solid #597091;
+    border: 1px solid #d6ceba;
     text-decoration: none;
     color: #181818;
     display: flex;
     flex-direction: column;
     font-weight: normal;
-    transition: background 0.15s ease;
+    box-shadow: 0 2px 8px rgba(89,112,145,0.10);
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
-.project-card:last-child { border-right: none; }
-.project-card:hover { background: #f0ece3; }
-.project-card:hover .card-arrow { transform: translateX(4px); }
+.project-card:last-child { border-right: 1px solid #d6ceba; }
+
+.project-card:hover {
+    border-color: #597091;
+    box-shadow: 0 6px 20px rgba(89,112,145,0.22);
+    transform: translateY(-3px);
+}
+
+.project-card:hover .card-arrow { transform: translateX(5px); }
 
 .card-image {
     width: 100%;
@@ -343,7 +349,10 @@ h2:first-child { margin-top: 0; }
 
     img, video { max-width: 100%; }
 
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-card { border-right: none; }
-    .project-card:last-child { border-bottom: none; }
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 16px;
+        gap: 1em;
+    }
+    .project-card { border-right: 1px solid #d6ceba; }
 }
