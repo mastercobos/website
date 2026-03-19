@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +12,19 @@
         <header>
             <div class="language-switcher"> 
                 <!-- FIX: usar <button> en lugar de <a> sin href -->
-                <button id="btn-en" aria-label="Switch to English">EN</button>
-                <span>|</span>
                 <button id="btn-es" aria-label="Cambiar a Español">ES</button>
+                <span>|</span>
+                <button id="btn-en" aria-label="Switch to English">EN</button>
             </div>
+
+            <h1 id="title">Manuel Cobos Robles</h1>
+            <p class="career" id="career">Energy Engineer</p>
             
-            <h1 id="pageTitle">Projects</h1>
-            <p class="career" id="quote">"The journey of a thousand miles begins with one step." - Lao Tse</p>
             <nav>
                 <p class="sitemap">
-                    <a href="./index.html">About me</a> |
-                    <a href="./projects.html">Projects</a> |
+                    <!-- FIX: href apuntaba a "#", ahora apunta a la página correcta -->
+                    <a href="./index.html" id="about">About me</a> |
+                    <a href="./projects.html" id="projects">Projects</a> |
                     <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </p>
             </nav>
@@ -50,6 +52,8 @@
             const translations = {
                 es: {
                     pageTitle:    "Proyectos",
+                    about:    "Sobre mí",
+                    projects: "Proyectos",
                     quote:        "\"El viaje de las mil millas comienza con un solo paso.\" - Lao Tse",
                     projectTitle: "Mejora del Sistema de Monitorización y Adquisición de Datos de una Bomba de Calor",
                     projectDesc:  "Este proyecto implicó la modificación de una <b>bomba de calor aerotérmica</b> para mejorar su sistema de monitorización y adquisición de datos.",
@@ -62,6 +66,8 @@
                 },
                 en: {
                     pageTitle:    "Projects",
+                    navAbout:    "About me",
+                    navProjects: "Projects",       
                     quote:        "\"The journey of a thousand miles begins with one step.\" - Lao Tse",
                     projectTitle: "Improvement of a Heat Pump Monitoring and Data Acquisition System",
                     projectDesc:  "This project involved modifying a commercial <b>aerothermal heat pump</b> to enhance its monitoring and data acquisition capabilities.",
@@ -86,7 +92,7 @@
             }
 
             // Aplicar el idioma guardado al cargar la página
-            const savedLang = localStorage.getItem("lang") || "en";
+            const savedLang = localStorage.getItem("lang") || "es";
             switchLanguage(savedLang);
 
             document.getElementById("btn-es").addEventListener("click", () => switchLanguage("es"));
