@@ -11,21 +11,9 @@ a {
     font-weight: bold;
 }
 
-a:visited {
-    color: #000000;
-}
-
-a:hover {
-    color: #fff;
-    background: #181818;
-    border-bottom: none;
-}
-
-a:active {
-    color: #fff;
-    background: #000;
-    border-bottom: dotted thin #d6ceba;
-}
+a:visited { color: #000000; }
+a:hover { color: #fff; background: #181818; border-bottom: none; }
+a:active { color: #fff; background: #000; border-bottom: dotted thin #d6ceba; }
 
 /* ── Body ── */
 body {
@@ -49,7 +37,7 @@ body {
     position: relative;
     max-width: 100%;
     margin: 2em auto;
-    padding: 0 1em;
+    padding: 0;
     display: flex;
     flex-direction: column;
 }
@@ -57,48 +45,95 @@ body {
 /* ── Cabecera ── */
 header {
     border: solid #597091;
+    border-bottom: none;
     padding: 40px;
     background: #ffffff;
     text-align: center;
 }
 
-h1 {
-    font-size: 2em;
+h1 { font-size: 2em; margin: 0; }
+.career { font-style: italic; margin: 0.5em 0; }
+nav { margin-top: 1em; }
+nav a:hover { text-decoration: underline; }
+
+/* ── Separador entre bloques ── */
+hr {
+    border: 0;
+    border-top: 1px solid #597091;
+    width: 100%;
     margin: 0;
 }
 
-.career {
-    font-style: italic;
-    margin: 0.5em 0;
-}
-
-nav {
-    margin-top: 1em;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* ── Separador ── */
-hr {
-    border: 0;
-    border-top: 1px solid #000;
-    width: 65%;
-    margin: 0 auto;
-}
-
-/* ── Sección bio / contenido ── */
+/* ── Secciones ── */
 .bio {
     border: solid #597091;
+    border-top: none;
+    border-bottom: none;
     padding: 40px;
     background: #ffffff;
 }
 
-/* ── Imágenes ── */
-.image-container {
-    text-align: center;
+.content {
+    border: solid #597091;
+    border-top: none;
+    border-bottom: none;
+    padding: 40px;
+    background: #ffffff;
 }
+
+.project-detail {
+    border: solid #597091;
+    border-top: none;
+    border-bottom: none;
+    padding: 40px;
+    background: #ffffff;
+}
+
+.contact {
+    border: solid #597091;
+    border-top: none;
+    padding: 32px 40px;
+    background: #ffffff;
+}
+
+.contact h2 { margin-top: 0; }
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+    margin-top: 1em;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    font-weight: normal;
+    border-bottom: none;
+    color: #181818;
+    width: fit-content;
+    padding: 2px 4px;
+}
+
+.contact-item:hover { color: #fff; background: #181818; border-bottom: none; }
+.contact-item:hover .contact-icon { color: #fff; border-color: #fff; }
+
+.contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border: 1px solid #597091;
+    font-size: 0.82em;
+    font-weight: bold;
+    color: #597091;
+    flex-shrink: 0;
+}
+
+/* ── Imágenes ── */
+.image-container { text-align: center; }
 
 img {
     max-width: 70%;
@@ -110,12 +145,8 @@ img {
     display: block;
 }
 
-.image-description {
-    font-style: italic;
-    margin: 0em 0.5em;
-}
+.image-description { font-style: italic; margin: 0em 0.5em; }
 
-/* ── Vídeo ── */
 video {
     max-width: 70%;
     height: auto;
@@ -127,13 +158,8 @@ video {
 }
 
 /* ── Selector de idioma ── */
-/* FIX: sacado del bloque @media donde estaba mal indentado */
-.language-switcher {
-    text-align: left;
-    margin-bottom: 0;
-}
+.language-switcher { text-align: left; margin-bottom: 0; }
 
-/* FIX: los botones de idioma heredan el estilo de <a> */
 .language-switcher button {
     font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
     font-weight: bold;
@@ -147,55 +173,20 @@ video {
     margin: 0;
 }
 
-.language-switcher button:hover {
-    color: #fff;
-    background: #181818;
-    border-bottom: none;
-}
+.language-switcher button:hover { color: #fff; background: #181818; border-bottom: none; }
 
-/* ── Sección de contenido genérica (usado en privacidad, etc.) ── */
-.content {
-    border: solid #597091;
-    padding: 40px;
-    background: #ffffff;
-}
-
+/* ── Tipografía ── */
 h2 {
     font-size: 1.25em;
     margin: 1.8em 0 0.4em;
     border-bottom: 1px solid #d6ceba;
     padding-bottom: 0.2em;
+    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
 h2:first-child { margin-top: 0; }
+.subtitle { font-style: italic; margin: 0.3em 0 1em; color: #444; }
 
-/* Subtítulo bajo el h1 del header */
-.subtitle {
-    font-style: italic;
-    margin: 0.3em 0 1em;
-    color: #444;
-}
-
-/* Bloque placeholder (contenido pendiente) */
-.placeholder {
-    border: 2px dashed #597091;
-    border-radius: 2px;
-    padding: 2em;
-    margin: 1.5em 0;
-    text-align: center;
-    color: #597091;
-    font-style: italic;
-    background: #f7f5f0;
-}
-
-.placeholder strong {
-    display: block;
-    font-size: 1.05em;
-    margin-bottom: 0.4em;
-    font-style: normal;
-}
-
-/* Pie de página con fecha de actualización */
 .meta {
     font-size: 0.85em;
     color: #666;
@@ -205,23 +196,154 @@ h2:first-child { margin-top: 0; }
     border-top: 1px solid #d6ceba;
 }
 
+/* ── Grid de tarjetas ── */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-left: 1px solid #597091;
+    border-right: 1px solid #597091;
+}
+
+.project-card {
+    background: #ffffff;
+    border-right: 1px solid #d6ceba;
+    border-bottom: 1px solid #597091;
+    text-decoration: none;
+    color: #181818;
+    display: flex;
+    flex-direction: column;
+    font-weight: normal;
+    transition: background 0.15s ease;
+}
+
+.project-card:last-child { border-right: none; }
+.project-card:hover { background: #f0ece3; }
+.project-card:hover .card-arrow { transform: translateX(4px); }
+
+.card-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #e8e3d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid #d6ceba;
+    flex-shrink: 0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+    margin: 0;
+}
+
+.card-image-placeholder {
+    color: #aaa;
+    font-size: 0.78em;
+    font-style: italic;
+    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+    text-align: center;
+    padding: 1em;
+}
+
+.card-body {
+    padding: 16px 18px 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tag {
+    font-size: 0.70em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #597091;
+    font-weight: bold;
+    margin-bottom: 0.35em;
+    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+.card-title {
+    font-size: 0.95em;
+    font-weight: bold;
+    margin: 0 0 0.45em;
+    line-height: 1.3;
+    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+.card-desc {
+    font-size: 0.85em;
+    color: #444;
+    margin: 0;
+    line-height: 1.4;
+    flex: 1;
+    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.8em;
+    color: #597091;
+}
+
+.card-arrow {
+    display: inline-block;
+    transition: transform 0.15s ease;
+    font-size: 1em;
+}
+
+/* ── Detalle de proyecto ── */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    font-size: 0.88em;
+    margin-bottom: 1.5em;
+    color: #597091;
+    border-bottom: 1px solid #d6ceba;
+    font-weight: bold;
+}
+
+.back-link:hover { color: #fff; background: #597091; border-bottom: none; }
+
+.project-badge {
+    display: inline-block;
+    margin: 0.8em 0;
+    font-size: 0.85em;
+    color: #597091;
+    font-style: italic;
+    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+.placeholder-note {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 0.5em;
+    font-style: italic;
+    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+.project-detail h2 { margin-top: 1.6em; }
+.project-detail .project-h2-main {
+    margin-top: 0.3em;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-size: 1.3em;
+}
+
 /* ── Responsive ── */
 @media only screen and (max-width: 600px) {
-    /* FIX: min-width en body ya está en 320px, aquí solo ajustes de layout */
-    .language-switcher {
-        position: static;
-        text-align: left;
-        margin: 10px 0;
-    }
+    .language-switcher { position: static; text-align: left; margin: 10px 0; }
 
-    header,
-    .bio,
-    .content {
-        padding: 24px 18px;
-    }
+    header, .bio, .content, .contact, .project-detail { padding: 24px 18px; }
 
-    img,
-    video {
-        max-width: 100%;
-    }
+    img, video { max-width: 100%; }
+
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card { border-right: none; }
+    .project-card:last-child { border-bottom: none; }
 }

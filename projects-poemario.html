@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poemario — Manuel Cobos Robles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="language-switcher">
+                <button id="btn-es" aria-label="Cambiar a Español">ES</button>
+                <span>|</span>
+                <button id="btn-en" aria-label="Switch to English">EN</button>
+            </div>
+            <h1 id="title">Manuel Cobos Robles</h1>
+            <p class="career" id="career">Ingeniero de la Energía</p>
+            <nav>
+                <p class="sitemap">
+                    <a href="./index.html" id="nav-about">Sobre mí</a> |
+                    <a href="./projects.html" id="nav-projects">Proyectos</a> |
+                    <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </p>
+            </nav>
+        </header>
+        <hr>
+        <section class="project-detail">
+            <a href="./projects.html" class="back-link" id="back">← Proyectos</a>
+            <span class="card-tag" id="p-tag">App Móvil · En curso</span>
+            <h2 class="project-h2-main" id="p-title">Poemario</h2>
+            <p id="p-desc">Aplicación móvil de <b>poesía</b> — completa esta descripción con tu contenido.</p>
+            <ul>
+                <li id="p-b1">Punto clave 1 — por completar.</li>
+                <li id="p-b2">Punto clave 2 — por completar.</li>
+                <li id="p-b3">Punto clave 3 — por completar.</li>
+            </ul>
+            <p><a href="./privacidad.html" id="p-privacy">Política de privacidad</a></p>
+        </section>
+        <hr>
+        <section class="contact">
+            <h2 id="contact-title">Contacto</h2>
+            <div class="contact-links">
+                <a href="mailto:manuelrr91@gmail.com" class="contact-item">
+                    <span class="contact-icon">✉</span><span>manuelrr91@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <span class="contact-icon">in</span><span>linkedin.com/in/manuel-cobos-robles</span>
+                </a>
+            </div>
+        </section>
+    </div>
+    <script>
+    window.PAGE_TRANSLATIONS = {
+        es: {
+            htmlLang:"es", pageTitle:"Poemario — Manuel Cobos Robles",
+            title:"Manuel Cobos Robles", career:"Ingeniero de la Energía",
+            "nav-about":"Sobre mí", "nav-projects":"Proyectos", back:"← Proyectos",
+            "p-tag":"App Móvil · En curso", "p-title":"Poemario",
+            "p-desc":"Aplicación móvil de <b>poesía</b> — completa esta descripción con tu contenido.",
+            "p-b1":"Punto clave 1 — por completar.",
+            "p-b2":"Punto clave 2 — por completar.",
+            "p-b3":"Punto clave 3 — por completar.",
+            "p-privacy":"Política de privacidad",
+            "contact-title":"Contacto",
+        },
+        en: {
+            htmlLang:"en", pageTitle:"Poemario — Manuel Cobos Robles",
+            title:"Manuel Cobos Robles", career:"Energy Engineer",
+            "nav-about":"About me", "nav-projects":"Projects", back:"← Projects",
+            "p-tag":"Mobile App · Ongoing", "p-title":"Poemario",
+            "p-desc":"<b>Poetry</b> mobile app — fill in your description here.",
+            "p-b1":"Key point 1 — to be completed.",
+            "p-b2":"Key point 2 — to be completed.",
+            "p-b3":"Key point 3 — to be completed.",
+            "p-privacy":"Privacy Policy",
+            "contact-title":"Contact",
+        }
+    };
+    </script>
+    <script src="lang.js"></script>
+</body>
+</html>
