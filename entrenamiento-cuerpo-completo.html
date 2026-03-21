@@ -456,28 +456,31 @@ body {
 }
 .muscle-diagram svg { display: block; padding: 0.3rem; }
 
-/* SERIES BLOCK */
+/* SERIES + TIMER PARALLEL BLOCK */
 .series-block {
   border-radius: 14px;
   overflow: hidden;
   margin-bottom: 0.8rem;
 }
-.series-header {
-  padding: 1rem 1.1rem 0.8rem;
+/* Two-column row: counter left, timer right */
+.series-timer-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.series-top-row {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 0.7rem;
+.series-col {
+  padding: 1rem 1.1rem 0.9rem;
+}
+.series-col + .series-col {
+  border-left: 1px solid rgba(255,255,255,0.08);
 }
 .series-label {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.4);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
 }
 .series-progress {
   font-family: 'DM Mono', monospace;
@@ -485,68 +488,37 @@ body {
   font-weight: 500;
   color: white;
   line-height: 1;
+  margin-bottom: 0.55rem;
 }
 .series-progress span { font-size: 0.9rem; opacity: 0.35; }
 .series-dots {
   display: flex;
-  gap: 0.45rem;
+  gap: 0.4rem;
   align-items: center;
 }
 .sdot-new {
-  width: 28px;
-  height: 6px;
+  flex: 1;
+  height: 5px;
   border-radius: 3px;
   background: rgba(255,255,255,0.12);
   transition: background 0.2s, transform 0.15s;
 }
 .sdot-new.done { background: rgba(255,255,255,0.85); }
 .sdot-new.active { background: rgba(255,255,255,0.45); transform: scaleY(1.6); }
-.series-btn {
-  width: calc(100% - 2.2rem);
-  margin: 0 1.1rem 1rem;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 11px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  font-family: 'Syne', sans-serif;
-  cursor: pointer;
-  letter-spacing: 0.05em;
-  transition: all 0.2s;
-  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-}
-.series-btn:active { transform: scale(0.97); }
-.series-btn.all-done { opacity: 0.45; cursor: default; }
-.series-timer-divider { display: none; }
-
-/* TIMER row */
-.timer-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.9rem 1.1rem 1rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-.timer-label {
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 0.25rem;
-  font-weight: 700;
-}
+/* Timer col */
 .timer-val {
   font-family: 'DM Mono', monospace;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: white;
   line-height: 1;
+  margin-bottom: 0.55rem;
 }
-.timer-ctrl { display: flex; gap: 0.45rem; align-items: center; }
+.timer-ctrl { display: flex; gap: 0.4rem; align-items: center; }
 .tctrl-btn {
-  padding: 0.4rem 0.9rem;
+  padding: 0.3rem 0.7rem;
   border: none;
-  border-radius: 9px;
-  font-size: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.72rem;
   font-weight: 700;
   font-family: 'Syne', sans-serif;
   cursor: pointer;
@@ -555,7 +527,32 @@ body {
 }
 .tctrl-btn:active { opacity: 0.7; }
 .tctrl-go { background: rgba(255,255,255,0.92); }
-.tctrl-rst { background: rgba(255,255,255,0.1); color: white; font-size: 1rem; padding: 0.4rem 0.7rem; }
+.tctrl-rst { background: rgba(255,255,255,0.1); color: white; font-size: 1rem; padding: 0.3rem 0.6rem; }
+/* Complete button - full width below */
+.series-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: 'Syne', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+}
+.series-btn:active { opacity: 0.85; }
+.series-btn.all-done { opacity: 0.4; cursor: default; }
+.series-timer-divider { display: none; }
+.timer-label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
 
 /* BLOCK INDEX NAV */
 .block-nav {
@@ -1549,42 +1546,42 @@ function buildExCard(ex, accentColor) {
     : '';
 
   const seriesCounter = (!isWarmup && !oneSerie) ? `
-      <div class="series-header">
-        <div class="series-top-row">
-          <div>
-            <div class="series-label">Series completadas</div>
-            <div class="series-progress" id="sprog-${ex.id}">0 <span>/ ${ex.sets}</span></div>
-          </div>
+      <div class="series-timer-row">
+        <div class="series-col">
+          <div class="series-label">Series</div>
+          <div class="series-progress" id="sprog-${ex.id}">0 <span>/ ${ex.sets}</span></div>
           <div class="series-dots">${dots}</div>
         </div>
-        <button class="series-btn" id="sbtn-${ex.id}"
-          style="background:rgba(255,255,255,0.9);color:${tcolor};width:100%;margin:0"
-          onclick="${btnAction}">
-          ${btnLabel}
-        </button>
+        <div class="series-col">
+          <div class="timer-label">${timerLabel}</div>
+          <div class="timer-val" id="tval-${ex.id}">${timerStr}</div>
+          <div class="timer-ctrl">
+            <button class="tctrl-btn tctrl-rst" onclick="resetTmr(event,'${ex.id}',${ex.timer})">↺</button>
+            <button class="tctrl-btn tctrl-go" id="tgo-${ex.id}" style="color:${tcolor}"
+              onclick="startTmr(event,'${ex.id}',${ex.timer})">▶ Start</button>
+          </div>
+        </div>
       </div>` : `
-      <div class="series-header">
-        <button class="series-btn" id="sbtn-${ex.id}"
-          style="background:rgba(255,255,255,0.9);color:${tcolor};width:100%;margin:0"
-          onclick="${btnAction}">
-          ${btnLabel}
-        </button>
+      <div class="series-timer-row">
+        <div class="series-col" style="grid-column:1/-1">
+          <div class="timer-label">${timerLabel}</div>
+          <div class="timer-val" id="tval-${ex.id}">${timerStr}</div>
+          <div class="timer-ctrl" style="margin-top:0.1rem">
+            <button class="tctrl-btn tctrl-rst" onclick="resetTmr(event,'${ex.id}',${ex.timer})">↺</button>
+            <button class="tctrl-btn tctrl-go" id="tgo-${ex.id}" style="color:${tcolor}"
+              onclick="startTmr(event,'${ex.id}',${ex.timer})">▶ Start</button>
+          </div>
+        </div>
       </div>`;
 
   const seriesHTML = `
     <div class="series-block" style="background:${tbg}">
       ${seriesCounter}
-      <div class="timer-row" id="trow-${ex.id}">
-        <div>
-          <div class="timer-label">${timerLabel}</div>
-          <div class="timer-val" id="tval-${ex.id}">${timerStr}</div>
-        </div>
-        <div class="timer-ctrl">
-          <button class="tctrl-btn tctrl-rst" onclick="resetTmr(event,'${ex.id}',${ex.timer})">↺</button>
-          <button class="tctrl-btn tctrl-go" id="tgo-${ex.id}" style="color:${tcolor}"
-            onclick="startTmr(event,'${ex.id}',${ex.timer})">▶ Start</button>
-        </div>
-      </div>
+      <button class="series-btn" id="sbtn-${ex.id}"
+        style="background:rgba(255,255,255,0.9);color:${tcolor}"
+        onclick="${btnAction}">
+        ${btnLabel}
+      </button>
     </div>`;
 
   card.innerHTML = `
