@@ -3,747 +3,321 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plan Total · Cuerpo Completo</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Entrena · Postura & Fuerza</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0F0F0F;
-  --surface: #181818;
-  --surface2: #222222;
-  --border: #2A2A2A;
+  --bg: #0C0C0C;
+  --surface: #161616;
+  --surface2: #1E1E1E;
+  --border: #272727;
   --text: #F0EDE8;
-  --muted: #666;
-  --muted2: #444;
-
-  --d1: #C8A96E; --d1d: #3D2E0E; --d1s: #7A5C1E;
-  --d2: #6E9FC8; --d2d: #0E2A3D; --d2s: #1E5A7A;
-  --d3: #6EC899; --d3d: #0E3D25; --d3s: #1E7A4A;
-  --d4: #C86E6E; --d4d: #3D0E0E; --d4s: #7A1E1E;
-  --d5: #A86EC8; --d5d: #2A0E3D; --d5s: #5A1E7A;
-
+  --muted: #5A5A5A;
+  --muted2: #333;
   --injury: #FF6B35;
-  --fixed: #52B788;
+  --postural: #52B788;
+  --d1: #C8A96E; --d1d: #3D2E0E;
+  --d2: #6E9FC8; --d2d: #0E2A3D;
+  --d3: #6EC899; --d3d: #0E3D25;
+  --d4: #C86E6E; --d4d: #3D0E0E;
+  --d5: #A86EC8; --d5d: #2A0E3D;
 }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
+/* ═══ VIEWS ═══ */
+.view{display:none;flex-direction:column;min-height:100vh}
+.view.active{display:flex}
 
-body {
-  font-family: 'Syne', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+/* ═══ HOME ═══ */
+.home-hero{padding:3rem 1.6rem 2rem;position:relative;overflow:hidden}
+.home-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(82,183,136,.08) 0%,transparent 70%);pointer-events:none}
+.home-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:.3rem .8rem;font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:1.2rem}
+.home-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--postural);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.home-title{font-size:2.6rem;font-weight:800;line-height:1.05;margin-bottom:.6rem}
+.home-title em{font-style:italic;color:var(--postural)}
+.home-sub{font-size:.88rem;color:var(--muted);line-height:1.6}
 
-/* ══════════════════════════════════
-   SPLASH
-══════════════════════════════════ */
-#splash { min-height: 100vh; display: flex; flex-direction: column; }
+/* ═══ SECTION CARDS ═══ */
+.section-cards{padding:0 1.2rem 2rem;display:flex;flex-direction:column;gap:1rem}
+.scard{border-radius:18px;padding:1.4rem 1.4rem 1.2rem;border:1px solid var(--border);cursor:pointer;transition:transform .15s,border-color .2s;position:relative;overflow:hidden}
+.scard:active{transform:scale(.98)}
+.scard-glow{position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;pointer-events:none}
+.scard-tag{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin-bottom:.5rem}
+.scard-title{font-size:1.5rem;font-weight:800;margin-bottom:.3rem}
+.scard-sub{font-size:.8rem;opacity:.55;line-height:1.5;margin-bottom:1rem}
+.scard-meta{display:flex;gap:.5rem;flex-wrap:wrap}
+.scard-chip{font-size:.65rem;font-weight:700;padding:.25rem .65rem;border-radius:20px;letter-spacing:.06em}
+.scard-arrow{position:absolute;bottom:1.2rem;right:1.4rem;font-size:1.2rem;opacity:.4}
 
-.splash-hero {
-  padding: 3rem 1.8rem 2rem;
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-}
+/* POSTURAL card */
+.scard-postural{background:linear-gradient(135deg,#0f2318 0%,#0a1a10 100%)}
+.scard-postural .scard-glow{background:radial-gradient(circle,rgba(82,183,136,.15) 0%,transparent 70%)}
+/* TRAINING card */
+.scard-training{background:var(--surface)}
 
-.hero-grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-}
-.hero-glow {
-  position: absolute;
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(200,169,110,0.12) 0%, transparent 70%);
-  top: -80px; right: -80px;
-  pointer-events: none;
-}
+/* ═══ MODE SELECTOR (training only) ═══ */
+.mode-screen{padding:1.8rem 1.4rem;flex:1;display:flex;flex-direction:column}
+.mode-back{background:none;border:none;cursor:pointer;font-family:'Syne',sans-serif;font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:.4rem;padding:0;margin-bottom:2rem;transition:color .2s}
+.mode-back:hover{color:var(--text)}
+.mode-title{font-size:1.8rem;font-weight:800;margin-bottom:.4rem}
+.mode-sub{font-size:.85rem;color:var(--muted);margin-bottom:2rem;line-height:1.5}
+.mode-cards{display:flex;flex-direction:column;gap:.8rem;flex:1}
+.mcard{border-radius:16px;padding:1.3rem 1.4rem;border:1px solid var(--border);cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:1rem}
+.mcard:active{transform:scale(.98)}
+.mcard-icon{font-size:1.6rem;flex-shrink:0}
+.mcard-info{flex:1}
+.mcard-name{font-size:1rem;font-weight:700;margin-bottom:.2rem}
+.mcard-desc{font-size:.78rem;color:var(--muted);line-height:1.4}
+.mcard-time{font-family:'DM Mono',monospace;font-size:.85rem;font-weight:500;flex-shrink:0}
+.mcard-fast{background:linear-gradient(135deg,#1a1a0e,#12120a);border-color:#8B7A3044}
+.mcard-fast .mcard-name{color:#C8A96E}
+.mcard-normal{background:linear-gradient(135deg,#0e1a12,#091210);border-color:#52B78844}
+.mcard-normal .mcard-name{color:#52B788}
+.mcard-extensive{background:linear-gradient(135deg,#1a0e1a,#12091a);border-color:#A86EC844}
+.mcard-extensive .mcard-name{color:#A86EC8}
 
-.plan-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 0.3rem 0.8rem;
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 1.2rem;
-  position: relative; z-index: 1;
-}
-.plan-badge-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--fixed);
-  animation: pulse 2s infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+/* ═══ TRAINING VIEW ═══ */
+#view-training{flex-direction:column;overflow:hidden;height:100vh}
+.tr-header{position:sticky;top:0;z-index:60;background:var(--bg);border-bottom:1px solid var(--border);padding:.8rem 1.4rem}
+.tr-back{background:none;border:none;cursor:pointer;font-family:'Syne',sans-serif;font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:.4rem;padding:0;margin-bottom:.6rem;transition:color .2s}
+.tr-top{display:flex;justify-content:space-between;align-items:flex-start}
+.tr-day-tag{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem}
+.tr-title{font-size:1.15rem;font-weight:800}
+.tr-duration{font-size:.75rem;color:var(--muted);font-weight:600;margin-top:.2rem;background:var(--surface2);padding:.2rem .6rem;border-radius:8px}
+.tr-progress{display:flex;align-items:center;gap:.6rem;margin-top:.6rem}
+.tr-pbar{flex:1;height:3px;background:var(--border);border-radius:2px;overflow:hidden}
+.tr-pfill{height:100%;width:0%;border-radius:2px;transition:width .3s}
+.tr-plabel{font-size:.65rem;color:var(--muted);font-family:'DM Mono',monospace;flex-shrink:0}
 
-.hero-title {
-  font-family: 'Instrument Serif', serif;
-  font-size: clamp(2.6rem, 9vw, 4rem);
-  line-height: 1.0;
-  position: relative; z-index: 1;
-  margin-bottom: 0.5rem;
-}
-.hero-title em { font-style: italic; color: var(--d1); }
+/* block nav */
+.block-nav{display:flex;gap:.4rem;padding:.55rem 1.1rem;overflow-x:auto;background:var(--surface);border-bottom:1px solid var(--border);scrollbar-width:none;position:sticky;z-index:20}
+.block-nav::-webkit-scrollbar{display:none}
+.bnav-btn{flex-shrink:0;padding:.28rem .7rem;border-radius:20px;border:1px solid var(--border);background:var(--surface2);color:var(--muted);font-size:.65rem;font-weight:700;font-family:'Syne',sans-serif;cursor:pointer;white-space:nowrap;letter-spacing:.05em;transition:all .15s}
+.bnav-btn:active{opacity:.7}
 
-.hero-sub {
-  font-size: 0.8rem;
-  color: var(--muted);
-  line-height: 1.6;
-  position: relative; z-index: 1;
-  max-width: 320px;
-  font-weight: 400;
-}
+.tr-content{flex:1;overflow-y:auto;padding-bottom:100px}
 
-/* STATS ROW */
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  flex-shrink: 0;
-}
-.stat-cell {
-  background: var(--surface);
-  padding: 0.9rem 0.5rem;
-  text-align: center;
-}
-.stat-val {
-  font-family: 'DM Mono', monospace;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--text);
-  line-height: 1;
-  margin-bottom: 0.25rem;
-}
-.stat-lbl {
-  font-size: 0.58rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-}
+/* ═══ BLOCK HEADERS ═══ */
+.warmup-block-header,.fixed-block-header,.block-header-postural{margin:.6rem 1rem .3rem;padding:.45rem .8rem;border-radius:10px;display:flex;align-items:center;gap:.5rem;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.warmup-block-header{background:rgba(212,160,23,.07);border:1px solid rgba(212,160,23,.18);color:#D4A017}
+.fixed-block-header{background:rgba(82,183,136,.07);border:1px solid rgba(82,183,136,.18);color:var(--postural)}
+.block-header-postural{background:rgba(82,183,136,.07);border:1px solid rgba(82,183,136,.18);color:var(--postural)}
+.block-header{padding:.9rem 1rem .4rem;display:flex;align-items:center;gap:.6rem}
+.bh-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.bh-name{font-size:.78rem;font-weight:700;letter-spacing:.04em}
 
-/* WEEK BAR */
-.week-bar {
-  display: flex;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  flex-shrink: 0;
-}
-.wday {
-  flex: 1;
-  padding: 0.7rem 0.2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  position: relative;
-}
-.wday-name { font-size: 0.56rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted2); }
-.wday-num { font-size: 0.9rem; font-weight: 700; color: var(--muted); }
-.wday.is-today .wday-num { color: var(--text); }
-.wday.is-today::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 16px; height: 2px;
-  border-radius: 2px;
-  background: var(--d1);
-}
-.wday.is-done .wday-num { color: var(--fixed); }
-.wday.is-done .wday-name { color: var(--fixed); }
+/* ═══ EXERCISE CARD ═══ */
+.ex-card{margin:.3rem 1rem .4rem;border-radius:14px;background:var(--surface);border:1px solid var(--border);overflow:hidden;transition:opacity .3s}
+.ex-card.is-done{opacity:.5}
+.ex-head{display:flex;align-items:center;gap:.8rem;padding:.85rem 1rem;cursor:pointer}
+.ex-ico{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.ex-info{flex:1;min-width:0}
+.ex-name{font-size:.88rem;font-weight:700;line-height:1.2}
+.ex-spec{font-size:.7rem;color:var(--muted);margin-top:.15rem;font-weight:600}
+.ex-right{display:flex;align-items:center;gap:.4rem;flex-shrink:0}
+.injury-badge{font-size:.58rem;font-weight:700;padding:.18rem .45rem;border-radius:6px;background:rgba(255,107,53,.12);color:var(--injury);border:1px solid rgba(255,107,53,.2);white-space:nowrap}
+.ex-chevron{font-size:1.1rem;color:var(--muted);transition:transform .2s}
+.ex-card.is-open .ex-chevron{transform:rotate(180deg)}
+.ex-body{display:none;padding:0 1rem .8rem}
+.ex-card.is-open .ex-body{display:block}
+.ex-desc{font-size:.82rem;line-height:1.75;color:#AAA;padding:.6rem 0 .7rem}
+.injury-alert{display:flex;gap:.5rem;background:rgba(255,107,53,.07);border:1px solid rgba(255,107,53,.18);border-radius:10px;padding:.6rem .8rem;margin-bottom:.7rem;font-size:.76rem;line-height:1.5;color:#CCC}
+.injury-alert-icon{flex-shrink:0;color:var(--injury)}
+.ex-tip{display:flex;gap:.5rem;background:var(--surface2);border-radius:10px;padding:.6rem .8rem;margin-bottom:.7rem;font-size:.76rem;line-height:1.5;color:#999}
+.ex-muscles{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.8rem}
+.mtag{font-size:.6rem;padding:.18rem .5rem;border-radius:20px;font-weight:600}
 
-/* PROGRESS WEEK */
-.week-progress {
-  padding: 1rem 1.8rem;
-  flex-shrink: 0;
-}
-.wp-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-.wp-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; }
-.wp-val { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--text); }
-.wp-bar { height: 3px; background: var(--border); border-radius: 3px; overflow: hidden; }
-.wp-fill { height: 100%; background: linear-gradient(90deg, var(--fixed), var(--d1)); border-radius: 3px; transition: width 0.5s ease; }
+/* ═══ SERIES + TIMER BLOCK ═══ */
+.series-block{border-radius:13px;overflow:hidden;margin-bottom:.5rem}
+.series-timer-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,255,255,.07)}
+.series-col{padding:.9rem 1rem .85rem}
+.series-col+.series-col{border-left:1px solid rgba(255,255,255,.07)}
+.series-label,.timer-label{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.28rem}
+.series-progress,.timer-val{font-family:'DM Mono',monospace;font-size:1.9rem;font-weight:500;color:white;line-height:1;margin-bottom:.5rem}
+.series-progress span{font-size:.85rem;opacity:.32}
+.series-dots{display:flex;gap:.35rem}
+.sdot{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.12);transition:background .2s,transform .15s}
+.sdot.done{background:rgba(255,255,255,.85)}
+.sdot.active{background:rgba(255,255,255,.45);transform:scaleY(1.6)}
+.timer-ctrl{display:flex;gap:.35rem;align-items:center}
+.tctrl-btn{padding:.28rem .65rem;border:none;border-radius:8px;font-size:.7rem;font-weight:700;font-family:'Syne',sans-serif;cursor:pointer;transition:opacity .15s;letter-spacing:.04em}
+.tctrl-btn:active{opacity:.7}
+.tctrl-go{background:rgba(255,255,255,.9)}
+.tctrl-rst{background:rgba(255,255,255,.1);color:white;font-size:.95rem;padding:.28rem .55rem}
+.series-btn{width:100%;padding:.75rem;border:none;border-radius:0;font-size:.82rem;font-weight:700;font-family:'Syne',sans-serif;cursor:pointer;letter-spacing:.05em;transition:opacity .2s;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.series-btn:active{opacity:.8}
+.series-btn.all-done{opacity:.4;cursor:default}
 
-/* DAY LIST */
-.day-list { padding: 1rem 1.2rem 2rem; flex: 1; }
+/* ═══ MODE BADGE in header ═══ */
+.mode-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;font-weight:700;padding:.18rem .55rem;border-radius:8px;letter-spacing:.06em;margin-left:.5rem;vertical-align:middle}
 
-.day-item {
-  border-radius: 16px;
-  margin-bottom: 0.7rem;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.15s;
-  border: 1px solid var(--border);
-  position: relative;
-}
-.day-item:active { transform: scale(0.985); }
+/* ═══ BOTTOM BAR ═══ */
+.tr-bottom{position:fixed;bottom:0;left:0;right:0;background:var(--bg);border-top:1px solid var(--border);padding:.7rem 1.4rem .9rem;display:flex;justify-content:space-between;align-items:center;z-index:50}
+.tb-label{font-size:.6rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.2rem}
+.tb-count{font-family:'DM Mono',monospace;font-size:1.1rem;font-weight:500}
+.tb-pips{display:flex;flex-wrap:wrap;gap:.25rem;max-width:160px;margin-top:.3rem}
+.tb-pip{width:6px;height:6px;border-radius:50%;background:var(--border);transition:background .3s}
+.tb-time-label{font-size:.6rem;color:var(--muted);text-align:right;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.2rem}
+.tb-time{font-family:'DM Mono',monospace;font-size:1rem;font-weight:500;text-align:right}
 
-.di-inner {
-  display: flex;
-  align-items: center;
-  padding: 1.1rem 1.2rem;
-  gap: 1rem;
-}
-.di-num {
-  font-family: 'Instrument Serif', serif;
-  font-size: 2rem;
-  font-style: italic;
-  opacity: 0.2;
-  line-height: 1;
-  flex-shrink: 0;
-  width: 36px;
-}
-.di-info { flex: 1; min-width: 0; }
-.di-tag {
-  font-size: 0.58rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  opacity: 0.6;
-  margin-bottom: 0.2rem;
-}
-.di-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.25rem;
-}
-.di-meta { font-size: 0.72rem; opacity: 0.5; }
-.di-chips { display: flex; gap: 0.3rem; margin-top: 0.4rem; flex-wrap: wrap; }
-.di-chip {
-  font-size: 0.6rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 20px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  opacity: 0.85;
-}
-.di-arrow { font-size: 0.9rem; opacity: 0.4; flex-shrink: 0; }
-.di-done-mark {
-  display: none;
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  align-items: center; justify-content: center;
-  font-size: 0.75rem;
-  flex-shrink: 0;
-}
-.day-item.is-complete .di-done-mark { display: flex; }
-.day-item.is-complete .di-arrow { display: none; }
+/* ═══ COMPLETE BANNER ═══ */
+.complete-banner{display:none;margin:1rem;border-radius:18px;padding:2rem 1.5rem;text-align:center;background:var(--surface)}
+.complete-banner.show{display:block}
+.cb-big{font-size:2.5rem;margin-bottom:.8rem}
+.cb-title{font-size:1.3rem;font-weight:800;margin-bottom:.5rem}
+.cb-sub{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:1.2rem}
+.cb-back{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:.7rem 1.4rem;font-size:.82rem;font-weight:700;font-family:'Syne',sans-serif;cursor:pointer;color:var(--text)}
 
-/* ══════════════════════════════════
-   TRAINING VIEW
-══════════════════════════════════ */
-#training {
-  display: none;
-  min-height: 100vh;
-  flex-direction: column;
-}
-#training.active { display: flex; }
+/* ═══ POSTURAL COMPLETE ═══ */
+.postural-done{display:none;margin:1rem;border-radius:18px;padding:2rem 1.5rem;text-align:center;background:linear-gradient(135deg,#0f2318,#0a1a10);border:1px solid rgba(82,183,136,.2)}
+.postural-done.show{display:block}
 
-/* STICKY HEADER */
-.tr-header {
-  position: sticky; top: 0; z-index: 60;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  padding: 0.8rem 1.5rem;
-}
-.tr-back {
-  background: none; border: none; cursor: pointer;
-  font-family: 'Syne', sans-serif;
-  font-size: 0.75rem;
-  color: var(--muted);
-  display: flex; align-items: center; gap: 0.4rem;
-  padding: 0;
-  margin-bottom: 0.7rem;
-  transition: color 0.2s;
-}
-.tr-back:hover { color: var(--text); }
+/* splash week bar */
+.week-bar{display:flex;gap:.4rem;padding:.5rem 1.4rem}
+.wday{flex:1;display:flex;flex-direction:column;align-items:center;gap:.3rem;padding:.5rem .2rem;border-radius:10px;background:var(--surface2)}
+.wday.is-today{background:var(--surface2);box-shadow:0 0 0 1px var(--postural)44}
+.wday.is-done .wday-num{background:var(--postural);color:white;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center}
+.wday-name{font-size:.55rem;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.wday-num{font-size:.8rem;font-weight:700}
 
-.tr-top { display: flex; justify-content: space-between; align-items: flex-start; }
-.tr-day-tag {
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--muted);
-  margin-bottom: 0.2rem;
-}
-.tr-title {
-  font-family: 'Instrument Serif', serif;
-  font-size: 1.5rem;
-  font-style: italic;
-  line-height: 1.1;
-}
-.tr-duration {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.8rem;
-  color: var(--muted);
-  flex-shrink: 0;
-  margin-top: 0.3rem;
-}
+.week-progress{padding:.5rem 1.4rem 1rem}
+.wp-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem}
+.wp-label{font-size:.68rem;color:var(--muted);font-weight:600}
+.wp-val{font-size:.68rem;font-family:'DM Mono',monospace;color:var(--muted)}
+.wp-bar{height:3px;background:var(--border);border-radius:2px;overflow:hidden}
+.wp-fill{height:100%;background:var(--postural);border-radius:2px;transition:width .4s}
 
-/* PROGRESS */
-.tr-progress {
-  margin-top: 0.8rem;
-  display: flex; align-items: center; gap: 0.8rem;
-}
-.tr-pbar { flex: 1; height: 3px; background: var(--border); border-radius: 3px; overflow: hidden; }
-.tr-pfill { height: 100%; border-radius: 3px; transition: width 0.4s; }
-.tr-plabel { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted); flex-shrink: 0; }
-
-/* SCROLLABLE CONTENT */
-.tr-content { flex: 1; overflow-y: auto; padding-bottom: 80px; }
-
-/* BLOCK HEADER */
-.block-header {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 1.5rem 1.5rem 0.6rem;
-}
-.bh-icon {
-  width: 32px; height: 32px;
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1rem;
-  flex-shrink: 0;
-}
-.bh-text {}
-.bh-name {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--muted);
-  font-weight: 600;
-}
-.bh-sub { font-size: 0.68rem; color: var(--muted2); margin-top: 0.1rem; }
-
-/* EXERCISE CARD */
-.ex-card {
-  margin: 0 1rem 0.6rem;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  overflow: hidden;
-  transition: border-color 0.2s, opacity 0.2s;
-}
-.ex-card.is-done { opacity: 0.55; }
-
-.ex-head {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 0.9rem 1rem;
-  cursor: pointer;
-}
-.ex-ico {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem;
-  flex-shrink: 0;
-}
-.ex-info { flex: 1; min-width: 0; }
-.ex-name { font-size: 0.92rem; font-weight: 700; line-height: 1.2; }
-.ex-spec { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
-.ex-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem; flex-shrink: 0; }
-.ex-chevron { font-size: 0.8rem; color: var(--muted); transition: transform 0.25s; }
-.ex-card.is-open .ex-chevron { transform: rotate(180deg); }
-
-/* INJURY BADGE */
-.injury-badge {
-  font-size: 0.58rem;
-  padding: 0.15rem 0.45rem;
-  border-radius: 20px;
-  background: rgba(255,107,53,0.15);
-  color: var(--injury);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-.fixed-badge {
-  font-size: 0.58rem;
-  padding: 0.15rem 0.45rem;
-  border-radius: 20px;
-  background: rgba(82,183,136,0.15);
-  color: var(--fixed);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-
-/* EX BODY */
-.ex-body {
-  display: none;
-  padding: 0 1rem 1rem;
-  border-top: 1px solid var(--border);
-}
-.ex-card.is-open .ex-body { display: block; }
-
-.ex-desc {
-  font-size: 0.83rem;
-  line-height: 1.7;
-  color: #AAA;
-  padding: 0.8rem 0 0.8rem;
-}
-
-/* INJURY ALERT */
-.injury-alert {
-  display: flex;
-  gap: 0.5rem;
-  background: rgba(255,107,53,0.08);
-  border: 1px solid rgba(255,107,53,0.2);
-  border-radius: 10px;
-  padding: 0.6rem 0.8rem;
-  margin-bottom: 0.8rem;
-  font-size: 0.78rem;
-  line-height: 1.5;
-  color: #CCC;
-}
-.injury-alert-icon { flex-shrink: 0; color: var(--injury); }
-
-/* TIP */
-.ex-tip {
-  display: flex;
-  gap: 0.5rem;
-  background: var(--surface2);
-  border-radius: 10px;
-  padding: 0.6rem 0.8rem;
-  margin-bottom: 0.8rem;
-  font-size: 0.78rem;
-  line-height: 1.5;
-  color: #AAA;
-}
-.ex-tip-ico { flex-shrink: 0; }
-
-/* MUSCLES */
-.ex-muscles {
-  display: flex; flex-wrap: wrap; gap: 0.3rem;
-  margin-bottom: 0.8rem;
-}
-.mtag {
-  font-size: 0.63rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 20px;
-  font-weight: 600;
-}
-
-/* MUSCLE DIAGRAM */
-.muscle-diagram {
-  margin: 0.8rem 0;
-  background: #111;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #2a2a2a;
-}
-.muscle-diagram-title {
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #555;
-  padding: 0.5rem 0.8rem 0;
-  font-weight: 700;
-}
-.muscle-diagram svg { display: block; padding: 0.3rem; }
-
-/* SERIES + TIMER PARALLEL BLOCK */
-.series-block {
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 0.8rem;
-}
-/* Two-column row: counter left, timer right */
-.series-timer-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.series-col {
-  padding: 1rem 1.1rem 0.9rem;
-}
-.series-col + .series-col {
-  border-left: 1px solid rgba(255,255,255,0.08);
-}
-.series-label {
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 0.3rem;
-}
-.series-progress {
-  font-family: 'DM Mono', monospace;
-  font-size: 2rem;
-  font-weight: 500;
-  color: white;
-  line-height: 1;
-  margin-bottom: 0.55rem;
-}
-.series-progress span { font-size: 0.9rem; opacity: 0.35; }
-.series-dots {
-  display: flex;
-  gap: 0.4rem;
-  align-items: center;
-}
-.sdot-new {
-  flex: 1;
-  height: 5px;
-  border-radius: 3px;
-  background: rgba(255,255,255,0.12);
-  transition: background 0.2s, transform 0.15s;
-}
-.sdot-new.done { background: rgba(255,255,255,0.85); }
-.sdot-new.active { background: rgba(255,255,255,0.45); transform: scaleY(1.6); }
-/* Timer col */
-.timer-val {
-  font-family: 'DM Mono', monospace;
-  font-size: 2rem;
-  color: white;
-  line-height: 1;
-  margin-bottom: 0.55rem;
-}
-.timer-ctrl { display: flex; gap: 0.4rem; align-items: center; }
-.tctrl-btn {
-  padding: 0.3rem 0.7rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  font-family: 'Syne', sans-serif;
-  cursor: pointer;
-  transition: opacity 0.15s;
-  letter-spacing: 0.04em;
-}
-.tctrl-btn:active { opacity: 0.7; }
-.tctrl-go { background: rgba(255,255,255,0.92); }
-.tctrl-rst { background: rgba(255,255,255,0.1); color: white; font-size: 1rem; padding: 0.3rem 0.6rem; }
-/* Complete button - full width below */
-.series-btn {
-  width: 100%;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 0;
-  font-size: 0.85rem;
-  font-weight: 700;
-  font-family: 'Syne', sans-serif;
-  cursor: pointer;
-  letter-spacing: 0.05em;
-  transition: all 0.2s;
-  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-}
-.series-btn:active { opacity: 0.85; }
-.series-btn.all-done { opacity: 0.4; cursor: default; }
-.series-timer-divider { display: none; }
-.timer-label {
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 0.3rem;
-  font-weight: 700;
-}
-
-/* BLOCK INDEX NAV */
-.block-nav {
-  display: flex;
-  gap: 0.4rem;
-  padding: 0.6rem 1rem;
-  overflow-x: auto;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  scrollbar-width: none;
-  position: sticky;
-  top: 0;
-  z-index: 20;
-}
-.block-nav::-webkit-scrollbar { display: none; }
-.bnav-btn {
-  flex-shrink: 0;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: var(--surface2);
-  color: var(--muted);
-  font-size: 0.68rem;
-  font-weight: 700;
-  font-family: 'Syne', sans-serif;
-  cursor: pointer;
-  white-space: nowrap;
-  letter-spacing: 0.05em;
-  transition: all 0.15s;
-}
-.bnav-btn.active { color: white; }
-.bnav-btn:active { opacity: 0.7; }
-
-.mark-btn.marked { color: white !important; }
-
-/* COMPLETE BANNER */
-.complete-banner {
-  display: none;
-  margin: 1rem;
-  border-radius: 16px;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-}
-.complete-banner.show { display: block; }
-.cb-big { font-size: 3rem; margin-bottom: 0.8rem; }
-.cb-title {
-  font-family: 'Instrument Serif', serif;
-  font-size: 1.6rem;
-  font-style: italic;
-  margin-bottom: 0.4rem;
-}
-.cb-sub { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
-.cb-back {
-  margin-top: 1.2rem;
-  padding: 0.65rem 1.6rem;
-  background: var(--text);
-  color: var(--bg);
-  border: none;
-  border-radius: 10px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  font-family: 'Syne', sans-serif;
-  cursor: pointer;
-  letter-spacing: 0.05em;
-}
-
-/* BOTTOM BAR */
-.tr-bottom {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  padding: 0.8rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 50;
-  backdrop-filter: blur(10px);
-}
-.tb-left {}
-.tb-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.2rem; }
-.tb-count { font-family: 'DM Mono', monospace; font-size: 1rem; font-weight: 500; }
-.tb-pips { display: flex; gap: 0.25rem; margin-top: 0.35rem; flex-wrap: wrap; max-width: 200px; }
-.tb-pip { width: 16px; height: 3px; border-radius: 2px; background: var(--border); }
-.tb-right { text-align: right; }
-.tb-time-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.2rem; }
-.tb-time { font-family: 'DM Mono', monospace; font-size: 1rem; }
-
-/* FIXED BLOCK STYLE */
-.fixed-block-header {
-  margin: 0 1rem 0.4rem;
-  padding: 0.5rem 0.8rem;
-  background: rgba(82,183,136,0.08);
-  border: 1px solid rgba(82,183,136,0.2);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.68rem;
-  color: var(--fixed);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.warmup-block-header {
-  margin: 0 1rem 0.4rem;
-  padding: 0.5rem 0.8rem;
-  background: rgba(212,160,23,0.08);
-  border: 1px solid rgba(212,160,23,0.2);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.68rem;
-  color: #D4A017;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
+.day-list{padding:.5rem 1.2rem 2rem;display:flex;flex-direction:column;gap:.6rem}
+.day-item{border-radius:14px;border:1px solid var(--border);cursor:pointer;transition:transform .15s;overflow:hidden}
+.day-item:active{transform:scale(.98)}
+.di-inner{display:flex;align-items:center;gap:.8rem;padding:1rem 1.1rem}
+.di-num{font-size:1.6rem;font-weight:800;font-family:'DM Mono',monospace;flex-shrink:0;width:28px}
+.di-info{flex:1;min-width:0}
+.di-tag{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.15rem}
+.di-title{font-size:.95rem;font-weight:700;margin-bottom:.3rem}
+.di-chips{display:flex;gap:.3rem;flex-wrap:wrap}
+.di-chip{font-size:.6rem;font-weight:700;padding:.18rem .5rem;border-radius:8px;letter-spacing:.05em}
+.di-arrow{font-size:1rem;flex-shrink:0}
+.di-done-mark{display:none;width:28px;height:28px;border-radius:50%;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+.day-item.is-complete .di-done-mark{display:flex}
+.day-item.is-complete .di-arrow{display:none}
 
 @media(max-width:380px){
-  .splash-hero { padding: 2rem 1.2rem 1.5rem; }
-  .day-list { padding: 0.8rem; }
-  .tr-header { padding: 0.7rem 1rem; }
-  .ex-card { margin: 0 0.7rem 0.5rem; }
-  .block-header { padding: 1.2rem 1rem 0.5rem; }
+  .home-title{font-size:2.1rem}
+  .series-progress,.timer-val{font-size:1.6rem}
 }
 </style>
 </head>
 <body>
 
-<!-- ══════════════ SPLASH ══════════════ -->
-<div id="splash">
-  <div class="splash-hero">
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
-    <div class="plan-badge"><div class="plan-badge-dot"></div>Plan activo · 5 días</div>
-    <h1 class="hero-title">Cuerpo<br><em>Completo</em></h1>
-    <p class="hero-sub">Postura · Fuerza · Movilidad · 60–90 min/día<br>Adaptado para lesión en mano derecha</p>
-  </div>
-
-  <div class="stats-row">
-    <div class="stat-cell"><div class="stat-val">5</div><div class="stat-lbl">Días</div></div>
-    <div class="stat-cell"><div class="stat-val">36</div><div class="stat-lbl">Ejercicios</div></div>
-    <div class="stat-cell"><div class="stat-val">65'</div><div class="stat-lbl">Duración</div></div>
-    <div class="stat-cell"><div class="stat-val">2×</div><div class="stat-lbl">Frecuencia</div></div>
+<!-- ══════════════ HOME ══════════════ -->
+<div id="view-home" class="view active">
+  <div class="home-hero">
+    <div class="home-badge"><div class="home-badge-dot"></div>Plan activo · 5 días</div>
+    <h1 class="home-title">Postura &<br><em>Fuerza</em></h1>
+    <p class="home-sub">Dos rutinas independientes · Entrena cuando quieras</p>
   </div>
 
   <div class="week-bar" id="week-bar"></div>
-
   <div class="week-progress">
-    <div class="wp-row">
-      <span class="wp-label">Progreso semanal</span>
-      <span class="wp-val" id="wp-val">0/5 días</span>
-    </div>
+    <div class="wp-row"><span class="wp-label">Sesiones esta semana</span><span class="wp-val" id="wp-val">0/7</span></div>
     <div class="wp-bar"><div class="wp-fill" id="wp-fill" style="width:0%"></div></div>
   </div>
 
-  <div class="day-list" id="day-list"></div>
+  <div class="section-cards">
+    <!-- POSTURAL -->
+    <div class="scard scard-postural" onclick="openPostural()">
+      <div class="scard-glow"></div>
+      <div class="scard-tag" style="color:#52B788">Rutina diaria</div>
+      <div class="scard-title" style="color:#52B788">Postura</div>
+      <div class="scard-sub">Cuello · Core profundo · Trapecio · ~10 min siempre igual</div>
+      <div class="scard-meta">
+        <span class="scard-chip" style="background:rgba(82,183,136,.12);color:#52B788">4 ejercicios</span>
+        <span class="scard-chip" style="background:rgba(82,183,136,.08);color:#52B788AA">Sin selector de modo</span>
+      </div>
+      <div class="scard-arrow">→</div>
+    </div>
+
+    <!-- TRAINING -->
+    <div class="scard scard-training" onclick="goToModeSelect()">
+      <div class="scard-tag" style="color:var(--muted)">5 días · Elige tu modo</div>
+      <div class="scard-title">Entrenamiento</div>
+      <div class="scard-sub">Fuerza · Movilidad · Adaptado para mano derecha</div>
+      <div class="scard-meta" id="home-day-chips"></div>
+      <div class="scard-arrow">→</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ MODE SELECT ══════════════ -->
+<div id="view-mode" class="view">
+  <div class="mode-screen">
+    <button class="mode-back" onclick="showView('view-home')">← Volver</button>
+    <div class="mode-title">¿Cuánto tiempo tienes?</div>
+    <div class="mode-sub">Elige el modo de hoy. Las series cambian, los ejercicios son siempre los mismos.</div>
+    <div class="mode-cards">
+      <div class="mcard mcard-fast" onclick="selectMode('fast')">
+        <div class="mcard-icon">⚡</div>
+        <div class="mcard-info">
+          <div class="mcard-name">Rápido</div>
+          <div class="mcard-desc">2 series por ejercicio · Ideal para días con poco tiempo</div>
+        </div>
+        <div class="mcard-time" style="color:#C8A96E">~25 min</div>
+      </div>
+      <div class="mcard mcard-normal" onclick="selectMode('normal')">
+        <div class="mcard-icon">✦</div>
+        <div class="mcard-info">
+          <div class="mcard-name">Normal</div>
+          <div class="mcard-desc">3 series por ejercicio · El estímulo óptimo</div>
+        </div>
+        <div class="mcard-time" style="color:#52B788">~55 min</div>
+      </div>
+      <div class="mcard mcard-extensive" onclick="selectMode('extensive')">
+        <div class="mcard-icon">◆</div>
+        <div class="mcard-info">
+          <div class="mcard-name">Extensivo</div>
+          <div class="mcard-desc">4 series por ejercicio · Máximo volumen</div>
+        </div>
+        <div class="mcard-time" style="color:#A86EC8">~75 min</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day list inside mode screen -->
+  <div class="day-list" id="mode-day-list" style="padding-top:0"></div>
 </div>
 
 <!-- ══════════════ TRAINING ══════════════ -->
-<div id="training">
+<div id="view-training" class="view">
   <div class="tr-header" id="tr-header">
-    <button class="tr-back" onclick="goBack()">← Plan semanal</button>
+    <button class="tr-back" onclick="backFromTraining()">← Plan semanal</button>
     <div class="tr-top">
       <div>
         <div class="tr-day-tag" id="tr-tag"></div>
         <div class="tr-title" id="tr-title"></div>
       </div>
-      <div class="tr-duration" id="tr-dur"></div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+        <div class="tr-duration" id="tr-dur"></div>
+        <div class="mode-badge" id="tr-mode-badge"></div>
+      </div>
     </div>
     <div class="tr-progress">
       <div class="tr-pbar"><div class="tr-pfill" id="tr-pfill"></div></div>
       <div class="tr-plabel" id="tr-plabel">0/0</div>
     </div>
   </div>
-
   <div class="block-nav" id="block-nav"></div>
-  <div class="tr-content" id="tr-content"></div>
-
-  <div class="complete-banner" id="complete-banner">
-    <div class="cb-big">🏆</div>
-    <div class="cb-title">Sesión completada</div>
-    <div class="cb-sub">Cada sesión es un ladrillo. La postura cambia<br>en semanas, el cuerpo en meses.</div>
-    <button class="cb-back" onclick="goBack()">← Volver al plan</button>
+  <div class="tr-content" id="tr-content">
+    <div class="complete-banner" id="complete-banner">
+      <div class="cb-big">🏆</div>
+      <div class="cb-title">Sesión completada</div>
+      <div class="cb-sub">Cada sesión es un ladrillo.<br>La postura cambia en semanas, el cuerpo en meses.</div>
+      <button class="cb-back" onclick="backFromTraining()">← Volver al plan</button>
+    </div>
   </div>
-
   <div class="tr-bottom">
     <div class="tb-left">
       <div class="tb-label">Progreso de hoy</div>
@@ -757,124 +331,128 @@ body {
   </div>
 </div>
 
+<!-- ══════════════ POSTURAL ══════════════ -->
+<div id="view-postural" class="view">
+  <div class="tr-header" style="border-bottom-color:rgba(82,183,136,.25)">
+    <button class="tr-back" onclick="showView('view-home')">← Inicio</button>
+    <div class="tr-top">
+      <div>
+        <div class="tr-day-tag" style="color:var(--postural)">Rutina diaria</div>
+        <div class="tr-title">Postura</div>
+      </div>
+      <div class="tr-duration">~10 min</div>
+    </div>
+    <div class="tr-progress">
+      <div class="tr-pbar"><div class="tr-pfill" id="post-pfill" style="background:var(--postural)"></div></div>
+      <div class="tr-plabel" id="post-plabel">0/4</div>
+    </div>
+  </div>
+  <div class="tr-content" id="post-content">
+    <div class="postural-done" id="postural-done">
+      <div class="cb-big">🌿</div>
+      <div class="cb-title" style="color:var(--postural)">Rutina completada</div>
+      <div class="cb-sub">Hazla cada día. En semanas notarás la diferencia en la barbilla y la postura.</div>
+      <button class="cb-back" onclick="showView('view-home')">← Volver</button>
+    </div>
+  </div>
+  <div class="tr-bottom">
+    <div class="tb-left">
+      <div class="tb-label">Progreso</div>
+      <div class="tb-count" id="post-count">0/4</div>
+      <div class="tb-pips" id="post-pips"></div>
+    </div>
+    <div class="tb-right">
+      <div class="tb-time-label">Duración</div>
+      <div class="tb-time">~10 min</div>
+    </div>
+  </div>
+</div>
+
 <script>
 // ════════════════════════════════════════
 // DATA
 // ════════════════════════════════════════
 
-// ── Calentamiento global (2 ejercicios siempre iguales)
-const WARMUP_COMMON = [
+const POSTURAL_EXERCISES = [
   {
-    id:'wc1', emoji:'🚶', name:'Marcha en el sitio con brazos',
-    spec:'1 serie · 2 minutos',
-    timer:120, sets:1,
-    muscles:['Frecuencia cardíaca','Coordinación','Hombros','Cadera'],
-    mc:'rgba(255,200,80,0.12)', mt:'#D4A017', tbg:'#2A1F00', ac:'#D4A017',
-    desc:'Marcha elevando las rodillas a la altura de la cadera. Los brazos se balancean de forma contralateral (brazo izquierdo sube con rodilla derecha). Aumenta gradualmente el ritmo durante los 2 minutos. Sin impacto, sin carga en las manos. Eleva la temperatura muscular y la frecuencia cardíaca de forma suave antes de cualquier esfuerzo.',
-    tip:'No es un paseo — las rodillas deben llegar a 90° y los brazos balancear con energía. Si los 2 minutos son fáciles, añade elevación de talones al subir la rodilla.',
+    id:'p1', emoji:'👆', name:'Chin Tuck',
+    spec:'3 series · 12 reps · 3 seg hold', timer:90, sets:3,
+    muscles:['Cervicales profundos','Platisma','Submentoniano'],
+    mc:'rgba(82,183,136,.15)', mt:'#52B788', tbg:'#0f2318', ac:'#52B788',
+    desc:'Espalda recta. Sin mover hombros, empuja la barbilla hacia atrás haciendo una "doble barbilla". Mantén 3 s notando tensión en la nuca y estiramiento en la garganta. Vuelve y repite. Contrarresta directamente el text neck y tonifica el área submentoniana.',
+    tip:'Hazlo también en la oficina cada 45 min. 10 reps discretas frente al monitor tienen más impacto acumulado que este bloque.',
     injured:false
   },
   {
-    id:'wc2', emoji:'🌀', name:'Círculos de cadera de pie',
-    spec:'1 serie · 10 círculos cada sentido',
-    timer:60, sets:1,
-    muscles:['Cadera','Psoas','Glúteo medio','Cuadrado lumbar'],
-    mc:'rgba(255,200,80,0.12)', mt:'#D4A017', tbg:'#2A1F00', ac:'#D4A017',
-    desc:'De pie con pies al ancho de hombros y manos en las caderas. Realiza círculos amplios con la pelvis — 10 en sentido horario, 10 en antihorario. El movimiento debe ser fluido y máximamente amplio. Despierta la articulación de la cadera, la más afectada por el sedentarismo, antes de cualquier trabajo de piernas o core.',
-    tip:'Cuanto más amplios los círculos, mejor. Intenta que el círculo pase por la extensión posterior (pelvis hacia atrás), la lateral y la flexión anterior. No acortes el rango por vergüenza 😄',
+    id:'p2', emoji:'😮', name:'Lengua al paladar + boca abierta',
+    spec:'3 series · 10 reps · 5 seg hold', timer:100, sets:3,
+    muscles:['Platisma','Suelo de la boca','Digástrico','Milohioideo'],
+    mc:'rgba(82,183,136,.15)', mt:'#52B788', tbg:'#0f2318', ac:'#52B788',
+    desc:'Pega la lengua al paladar con fuerza máxima. Sin soltar la lengua, abre la boca lo máximo posible. Sentirás una resistencia firme justo bajo la barbilla — eso es el platisma y los músculos del suelo de la boca contrayéndose simultáneamente. Mantén 5 s, cierra la boca sin soltar la lengua, y repite.',
+    tip:'Si notas la tensión exactamente bajo la barbilla (zona submentoniana), lo estás haciendo perfecto. Es el ejercicio más específico que existe para reducir la papada sin equipamiento.',
+    injured:false
+  },
+  {
+    id:'p3', emoji:'🌬️', name:'Respiración diafragmática 360°',
+    spec:'2 series · 8 respiraciones', timer:90, sets:2,
+    muscles:['Diafragma','Transverso abdominal','Suelo pélvico'],
+    mc:'rgba(82,183,136,.15)', mt:'#52B788', tbg:'#0f2318', ac:'#52B788',
+    desc:'Siéntate en el borde de una silla o túmbate boca arriba con rodillas dobladas. Pon la mano izquierda en el abdomen (ombligo). ANTES de inhalar: suelta completamente el abdomen. Inhala lento 4 s por la nariz: primero se expande hacia adelante, luego hacia los costados (flancos abrirse), luego hacia la espalda baja. El pecho NO sube. Pausa 1 s. Exhala 6 s: primero el suelo pélvico sube, luego el abdomen se hunde, luego los costados se cierran. Al final mete el ombligo hacia dentro para vaciar el 100% del aire.',
+    tip:'El error más común: solo inflar el abdomen hacia adelante y olvidar los costados y la espalda — de ahí viene el "360°". Pon las manos en los costados y siente cómo se separan al inhalar. El ligero mareo inicial es normal — significa que ventilan bien.',
+    injured:false
+  },
+  {
+    id:'p4', emoji:'⬇️', name:'Depresión escapular activa',
+    spec:'3 series · 15 reps · 2 seg hold', timer:90, sets:3,
+    muscles:['Trapecio inferior','Serrato anterior','Romboides'],
+    mc:'rgba(82,183,136,.15)', mt:'#52B788', tbg:'#0f2318', ac:'#52B788',
+    desc:'Sentado o de pie. Sube los hombros hacia las orejas (encogimiento). Luego bájalos lentamente y activamente lo máximo posible, como si quisieras que los omóplatos tocasen los glúteos. Mantén 2 s abajo. Sube y repite. Activa el trapecio inferior, el músculo más inhibido en personas con postura encorvada.',
+    tip:'El movimiento de bajada debe ser activo y exagerado. Si sientes los omóplatos "anclarse" hacia abajo, lo estás haciendo bien.',
     injured:false
   }
 ];
 
-// ── Activaciones específicas por día
-const WARMUP_SPECIFIC = {
-  1: [ // Empuje + Pecho → calienta hombros y muñeca
-    {
-      id:'ws1a', emoji:'💫', name:'Péndulo de hombro (brazo izquierdo)',
-      spec:'1 serie · 30 seg cada dirección',
-      timer:30, sets:1,
-      muscles:['Cápsula articular hombro','Manguito rotador','Bíceps'],
-      mc:'rgba(255,200,80,0.12)', mt:'#D4A017', tbg:'#2A1F00', ac:'#D4A017',
-      desc:'Inclinado hacia adelante apoyando el brazo derecho en una mesa o silla. El brazo izquierdo cuelga libre. Deja que oscile hacia adelante/atrás, luego en círculos. La gravedad tracciona suavemente la articulación del hombro abriendo el espacio subacromial. Prepara el hombro para todo el trabajo de empuje que viene.',
-      tip:'El movimiento viene del balanceo del tronco, no del esfuerzo del brazo. El brazo debe estar completamente relajado — como un péndulo pasivo.',
-      injured:false
-    },
-    {
-      id:'ws1b', emoji:'🤸', name:'Rotaciones escapulares lentas',
-      spec:'1 serie · 10 círculos completos',
-      timer:60, sets:1,
-      muscles:['Trapecio','Serrato anterior','Romboides'],
-      mc:'rgba(255,200,80,0.12)', mt:'#D4A017', tbg:'#2A1F00', ac:'#D4A017',
-      desc:'De pie. Sube los hombros hacia las orejas, lleva hacia atrás apretando omóplatos, baja y lleva hacia adelante. Círculo completo lento. Es el calentamiento más directo para la cadena de empuje: activa el serrato y los romboides que estabilizan la escápula durante las flexiones.',
-      tip:'El círculo debe ser amplísimo y muy lento — 4-5 segundos por vuelta. Siente cada fase: arriba, atrás, abajo, adelante.',
-      injured:false
-    }
-  ],
-  2: [ // Tirón + Espalda → activa escapular y cuello
-    {
-      id:'ws2a', emoji:'🔄', name:'Retracción escapular activa',
-      spec:'1 serie · 15 reps lentas',
-      timer:60, sets:1,
-      muscles:['Romboides','Trapecio medio','Serrato anterior'],
-      mc:'rgba(255,200,80,0.12)', mt:'#D4A017', tbg:'#2A1F00', ac:'#D4A017',
-      desc:'De pie con brazos a los lados. Junta los omóplatos hacia la columna sin encoger los hombros. Mantén 2 s. Suelta y repite. Activa los romboides y el trapecio medio antes del trabajo de tirón para garantizar que la escápula se mueve correctamente durante el remo y los ejercicios de espalda.',
-      tip:'Los hombros no suben — solo los omóplatos se acercan entre sí. Si los hombros suben, es el trapecio superior tomando el control. Intenta separar los dos movimientos.',
-      injured:false
-    },
-    {
-      id:'ws2b', emoji:'🌊', name:'Rotación cervical lenta',
-      spec:'1 serie · 8 reps por lado muy lentas',
-      timer:60, sets:1,
-      muscles:['Esternocleidomastoideo','Esplenio','Escalenos'],
-      mc:'rgba(255,200,80,0.12)', mt:'#D4A017', tbg:'#2A1F00', ac:'#D4A017',
-      desc:'Sentado con espalda recta. Gira la cabeza lentamente hacia la derecha hasta donde llegues sin tensión. Mantén 2 s. Vuelve al centro lentamente. Repite a la izquierda. Prepara la musculatura cervical para el trabajo de cuello avanzado del día 2, aumentando la circulación en los tejidos blandos del cuello.',
-      tip:'La velocidad de este ejercicio importa mucho — extremadamente lento. El cuello no tiene inercia muscular protectora si se calienta con movimientos rápidos.',
-      injured:false
-    }
-  ],
-  3: [ // Piernas anterior → activa rodillas y tobillos
-  ],
-  4: [ // Piernas posterior → activa isquios y glúteos
-  ],
-  5: [ // Integración → movilidad global
-  ]
-};
+const WARMUP_COMMON = [
+  {
+    id:'wc1', emoji:'🚶', name:'Marcha en el sitio con brazos',
+    spec:'1 serie · 2 minutos', timer:120, sets:1,
+    muscles:['Frecuencia cardíaca','Coordinación','Hombros','Cadera'],
+    mc:'rgba(212,160,23,.12)', mt:'#D4A017', tbg:'#1a1400', ac:'#D4A017',
+    desc:'Marcha elevando las rodillas a la altura de la cadera. Los brazos se balancean de forma contralateral (brazo izquierdo sube con rodilla derecha). Aumenta gradualmente el ritmo durante los 2 minutos. Sin impacto, sin carga en las manos.',
+    tip:'No es un paseo — las rodillas deben llegar a 90° y los brazos balancear con energía.',
+    injured:false
+  },
+  {
+    id:'wc2', emoji:'🌀', name:'Círculos de cadera de pie',
+    spec:'1 serie · 10 círculos cada sentido', timer:60, sets:1,
+    muscles:['Cadera','Psoas','Glúteo medio','Cuadrado lumbar'],
+    mc:'rgba(212,160,23,.12)', mt:'#D4A017', tbg:'#1a1400', ac:'#D4A017',
+    desc:'De pie con pies al ancho de hombros y manos en las caderas. Realiza círculos amplios con la pelvis — 10 en sentido horario, 10 en antihorario. El movimiento debe ser fluido y máximamente amplio.',
+    tip:'Cuanto más amplios los círculos, mejor. Intenta que el círculo pase por la extensión posterior, la lateral y la flexión anterior.',
+    injured:false
+  }
+];
 
-// ════════════════════════════════════════
-const FIXED_BLOCK = {
-  name: 'Bloque fijo diario', icon: '🔁', note: 'Aparece todos los días — alta frecuencia, baja fatiga',
-  iconBg: 'rgba(82,183,136,0.15)',
-  exercises: [
-    {
-      id:'fx1', emoji:'👆', name:'Chin Tuck',
-      spec:'3 series · 12 reps · 3 seg hold',
-      timer:90, sets:3,
-      muscles:['Cervicales profundos','Platisma','Submentoniano'],
-      mc:'rgba(82,183,136,0.15)', mt:'#52B788', tbg:'#1A3D2A', ac:'#52B788',
-      desc:'Espalda recta. Sin mover hombros, empuja la barbilla hacia atrás haciendo una "doble barbilla". Mantén 3 s notando tensión en la nuca y estiramiento en la garganta. Vuelve y repite. Contrarresta directamente el text neck y tonifica el área submentoniana.',
-      tip:'Hazlo también en la oficina cada 45 min. 10 reps discretas frente al monitor tienen más impacto acumulado que este bloque.',
-      injured: false
-    },
-    {
-      id:'fx2', emoji:'🌬️', name:'Respiración diafragmática 360°',
-      spec:'2 series · 8 respiraciones',
-      timer:90, sets:2,
-      muscles:['Diafragma','Transverso abdominal','Suelo pélvico'],
-      mc:'rgba(82,183,136,0.15)', mt:'#52B788', tbg:'#1A3D2A', ac:'#52B788',
-      desc:'Siéntate en el borde de una silla o túmbate boca arriba con rodillas dobladas. Pon la mano izquierda en el abdomen (ombligo) y la derecha en el pecho lateral o déjala reposar. ANTES de inhalar: suelta completamente el abdomen — muchos lo tenemos contraído sin saberlo. Boca cerrada. Inhala lento 4 s por la nariz imaginando que inflas un globo dentro del abdomen: primero se expande hacia adelante (sientes la mano subir), luego hacia los costados (sientes los flancos abrirse a izquierda y derecha), luego hacia la espalda baja (como si la lumbar empujase hacia el suelo). El pecho NO sube — si sube, estás usando los escalenos y el pecho en vez del diafragma. Pausa 1 s arriba. Exhala 6 s por la boca entreabierta: primero el suelo pélvico sube suavemente (como si retuvieras el pipí), luego el abdomen se hunde, luego los costados se cierran. Al final de la exhala mete ligeramente el ombligo hacia dentro para vaciar el 100% del aire. Eso es 1 respiración completa.',
-      tip:'El error más común: solo inflar el abdomen hacia adelante y olvidar los costados y la espalda — de ahí viene el "360°". Pon las manos en los costados y siente cómo se separan hacia los lados al inhalar. Si tras 3 respiraciones sientes un ligero mareo, es normal al principio — significa que estás ventilando bien por primera vez.',
-      injured: false
-    },
-    {
-      id:'fx4', emoji:'⬇️', name:'Depresión escapular activa',
-      spec:'3 series · 15 reps · 2 seg hold',
-      timer:90, sets:3,
-      muscles:['Trapecio inferior','Serrato anterior','Romboides'],
-      mc:'rgba(82,183,136,0.15)', mt:'#52B788', tbg:'#1A3D2A', ac:'#52B788',
-      desc:'Sentado o de pie. Sube los hombros hacia las orejas (encogimiento). Luego bájalos lentamente y activamente lo máximo posible, como si quisieras que los omóplatos tocasen los glúteos. Mantén 2 s abajo. Sube y repite. Activa el trapecio inferior, el músculo más inhibido en personas con postura encorvada.',
-      tip:'El movimiento de bajada debe ser activo y exagerado. Si sientes los omóplatos "anclarse" hacia abajo, lo estás haciendo bien. Eso es exactamente lo que buscamos.',
-      injured: false
-    }
+const WARMUP_SPECIFIC = {
+  1:[
+    { id:'ws1a', emoji:'💫', name:'Péndulo de hombro', spec:'1 serie · 30 seg cada lado', timer:30, sets:1, muscles:['Cápsula articular hombro','Manguito rotador'], mc:'rgba(212,160,23,.12)', mt:'#D4A017', tbg:'#1a1400', ac:'#D4A017', desc:'Inclinado hacia adelante apoyando la mano derecha en una mesa. El brazo izquierdo cuelga libre y oscila hacia adelante/atrás, luego en círculos. La gravedad tracciona suavemente la articulación. Prepara el hombro para el trabajo de empuje.', tip:'El movimiento viene del balanceo del tronco, no del esfuerzo del brazo. El brazo debe estar completamente relajado.', injured:false },
+    { id:'ws1b', emoji:'🤸', name:'Rotaciones escapulares lentas', spec:'1 serie · 10 círculos', timer:60, sets:1, muscles:['Trapecio','Serrato anterior','Romboides'], mc:'rgba(212,160,23,.12)', mt:'#D4A017', tbg:'#1a1400', ac:'#D4A017', desc:'Sube los hombros hacia las orejas, lleva atrás apretando omóplatos, baja y lleva hacia adelante. Círculo completo lento.', tip:'El círculo debe ser amplísimo y muy lento — 4-5 segundos por vuelta.', injured:false }
+  ],
+  2:[
+    { id:'ws2a', emoji:'🔄', name:'Retracción escapular activa', spec:'1 serie · 15 reps', timer:60, sets:1, muscles:['Romboides','Trapecio medio','Serrato anterior'], mc:'rgba(212,160,23,.12)', mt:'#D4A017', tbg:'#1a1400', ac:'#D4A017', desc:'Junta los omóplatos hacia la columna sin encoger los hombros. Mantén 2 s. Suelta y repite.', tip:'Los hombros no suben — solo los omóplatos se acercan entre sí.', injured:false },
+    { id:'ws2b', emoji:'🌊', name:'Rotación cervical lenta', spec:'1 serie · 8 reps por lado', timer:60, sets:1, muscles:['Esternocleidomastoideo','Esplenio','Escalenos'], mc:'rgba(212,160,23,.12)', mt:'#D4A017', tbg:'#1a1400', ac:'#D4A017', desc:'Sentado con espalda recta. Gira la cabeza lentamente hacia la derecha hasta donde llegues sin tensión. Mantén 2 s. Vuelve al centro lentamente. Repite a la izquierda.', tip:'Extremadamente lento. El cuello no tiene inercia muscular protectora si se calienta con movimientos rápidos.', injured:false }
+  ],
+  3:[
+    { id:'ws3a', emoji:'🦵', name:'Sentadilla parcial (lubricación)', spec:'1 serie · 15 reps', timer:60, sets:1, muscles:['Cuádriceps','Glúteo mayor','Tobillo'], mc:'rgba(212,160,23,.12)', mt:'#D4A017', tbg:'#1a1400', ac:'#D4A017', desc:'Baja solo un tercio del camino como si fueras a sentarte pero te arrepientes. Mantén 1 s. Sube. Lleva sangre al cuádriceps y lubrica la rodilla con líquido sinovial.', tip:'Los talones no se levantan. El objetivo es lubricar, no cargar.', injured:false },
+    { id:'ws3b', emoji:'⭕', name:'Círculos de tobillo', spec:'1 serie · 10 por pie y sentido', timer:60, sets:1, muscles:['Tibial anterior','Peroneo','Sóleo'], mc:'rgba(212,160,23,.12)', mt:'#D4A017', tbg:'#1a1400', ac:'#D4A017', desc:'Sentado o de pie con un pie elevado. Realiza círculos amplios con el tobillo — 10 hacia adentro, 10 hacia afuera. Repite con el otro pie.', tip:'Máxima amplitud en cada dirección.', injured:false }
+  ],
+  4:[
+    { id:'ws4a', emoji:'🌉', name:'Puente glúteo de activación', spec:'1 serie · 10 reps · 5 seg arriba', timer:90, sets:1, muscles:['Glúteo mayor','Isquiotibial','Suelo pélvico'], mc:'rgba(212,160,23,.12)', mt:'#D4A017', tbg:'#1a1400', ac:'#D4A017', desc:'Sube muy despacio (4 s), mantén 5 s apretando el glúteo conscientemente, baja 4 s. Pura activación neuromuscular antes de cargar la cadena posterior.', tip:'Pon la mano en el glúteo para sentir cuándo se activa.', injured:false },
+    { id:'ws4b', emoji:'🦅', name:'Extensión lumbar suave', spec:'1 serie · 10 reps suaves', timer:60, sets:1, muscles:['Erector espinal','Glúteo mayor'], mc:'rgba(212,160,23,.12)', mt:'#D4A017', tbg:'#1a1400', ac:'#D4A017', desc:'Tumbado boca abajo, brazos a los lados. Levanta solo el pecho del suelo 5-10 cm. Mantén 2 s. Baja. Sin esfuerzo, solo activando la cadena posterior suavemente.', tip:'La altura es mínima — no es un Superman completo. Cuello neutro, mirada al suelo.', injured:false }
+  ],
+  5:[
+    { id:'ws5a', emoji:'🌟', name:'Sun salutation simplificado', spec:'1 serie · 5 ciclos', timer:120, sets:1, muscles:['Cadena anterior','Cadena posterior','Hombros','Cadera'], mc:'rgba(212,160,23,.12)', mt:'#D4A017', tbg:'#1a1400', ac:'#D4A017', desc:'De pie → inclínate hacia adelante con mano izquierda al suelo → zancada baja con cadera abajo → vuelve a la zancada → inclínate → de pie. 5 ciclos alternando pierna. Activa cuerpo completo de forma fluida.', tip:'El ritmo es tu respiración: un movimiento por inhala, uno por exhala.', injured:true, injuryNote:'Al apoyarte usa solo la mano izquierda. La derecha puede descansar en la cadera.' },
+    { id:'ws5b', emoji:'🧘', name:'Respiración de activación (3-0-6)', spec:'1 serie · 6 respiraciones', timer:60, sets:1, muscles:['Diafragma','Sistema nervioso','Transverso'], mc:'rgba(212,160,23,.12)', mt:'#D4A017', tbg:'#1a1400', ac:'#D4A017', desc:'Inhala 3 s por la nariz. Sin pausa, exhala 6 s por la boca. Repite 6 veces. Activa el sistema nervioso parasimpático antes de la sesión de integración.', tip:'La exhala es audible — un susurro suave. El abdomen se hunde en la exhala.', injured:false }
   ]
 };
 
@@ -882,427 +460,101 @@ const DAYS = [
   {
     id:1, label:'Día 1', title:'Empuje + Pecho',
     sub:'Pectoral · Hombros · Tríceps · Movilidad torácica',
-    color:'#C8A96E', dark:'#3D2E0E', mid:'#7A5C1E', accent:'#C8A96E',
-    duration:'55–65 min',
-    sections: [
-      {
-        name:'Activación de hombros', icon:'🔄', iconBg:'rgba(200,169,110,0.12)',
-        exercises:[
-          {
-            id:'d1e1', emoji:'🔄', name:'Rotación de manguito (una mano)',
-            spec:'3 series · 15 reps cada dirección',
-            timer:90, sets:3,
-            muscles:['Manguito rotador','Infraespinoso','Supraespinoso'],
-            mc:'rgba(200,169,110,0.12)', mt:'#C8A96E', tbg:'#3D2E0E', ac:'#C8A96E',
-            desc:'Codo derecho pegado al costado, flexionado 90°. Con el puño (suave, sin apretar) o simplemente el antebrazo, rota hacia fuera (rotación externa) y hacia dentro (rotación interna). Repite con el brazo izquierdo igual. Activa el manguito rotador y previene el impingement de hombro.',
-            tip:'El codo no se despega del costado en ningún momento. Si se mueve, estás compensando con el trapecio superior.',
-            injured:true,
-            injuryNote:'Mano derecha: realiza el movimiento con el antebrazo sin apretar el puño. Si hay dolor articular en muñeca, mantén la mano en posición neutra colgando.'
-          },
-          {
-            id:'d1e2', emoji:'🙌', name:'Wall Angels',
-            spec:'3 series · 10 reps lentas',
-            timer:120, sets:3,
-            muscles:['Trapecio inferior','Serrato anterior','Romboides','Deltoides posterior'],
-            mc:'rgba(200,169,110,0.12)', mt:'#C8A96E', tbg:'#3D2E0E', ac:'#C8A96E',
-            desc:'Pegado a la pared: cabeza, espalda, codos y dorsos de manos tocando la superficie. Desliza los brazos hacia arriba como un ángel de nieve, manteniendo todo el contacto. Baja lentamente. Si los codos se despegan antes de llegar arriba, reduce el rango.',
-            tip:'La zona lumbar no se puede despegar de la pared. Si se arquea, dobla un poco las rodillas para aplanar la espalda baja.',
-            injured:true,
-            injuryNote:'Mano derecha: el dorso de la mano simplemente apoya en la pared sin presionar. El movimiento lo lidera el brazo izquierdo. Completamente válido hacerlo así.'
-          }
-        ]
-      },
-      {
-        name:'Pectoral adaptado', icon:'💪', iconBg:'rgba(200,169,110,0.12)',
-        exercises:[
-          {
-            id:'d1e3', emoji:'🤸', name:'Flexión inclinada en pared (un brazo)',
-            spec:'3 series · 12 reps',
-            timer:90, sets:3,
-            muscles:['Pectoral mayor','Tríceps','Deltoides anterior'],
-            mc:'rgba(200,169,110,0.12)', mt:'#C8A96E', tbg:'#3D2E0E', ac:'#C8A96E',
-            desc:'De pie frente a la pared, a unos 60 cm. Apoya solo la mano izquierda en la pared a altura de hombro. El codo derecho puede apoyar levemente como soporte secundario o colgar al costado. Dobla el codo izquierdo acercando el pecho a la mano y empuja para volver. El ángulo inclinado activa el pectoral superior con menor carga que el suelo.',
-            tip:'Cuanto más lejos estés de la pared, más difícil. Empieza cerca y aleja los pies progresivamente conforme ganes fuerza.',
-            injured:true,
-            injuryNote:'Ejercicio diseñado específicamente para la lesión. El brazo derecho NO apoya con la mano — solo el codo como soporte opcional, o libre al costado. Todo el trabajo lo hace el brazo izquierdo.'
-          },
-          {
-            id:'d1e4', emoji:'🦋', name:'Apertura en suelo (un brazo)',
-            spec:'3 series · 15 reps',
-            timer:90, sets:3,
-            muscles:['Pectoral mayor','Pectoral menor','Coracobraquial'],
-            mc:'rgba(200,169,110,0.12)', mt:'#C8A96E', tbg:'#3D2E0E', ac:'#C8A96E',
-            desc:'Tumbado boca arriba. Brazo izquierdo extendido a 90° del cuerpo con el codo ligeramente flexionado. Lleva el brazo en arco hacia el centro del pecho (como abrazando un árbol enorme). Vuelve lentamente. El brazo derecho descansa en el abdomen. Aísla el pectoral sin carga en la muñeca derecha.',
-            tip:'El movimiento es en arco, no en recto. Imagina que rodeas algo circular con el brazo. El codo nunca se extiende completamente — siempre ligeramente flexionado.',
-            injured:false
-          },
-        ]
-      },
-      {
-        name:'Hombros & Tríceps', icon:'⚡', iconBg:'rgba(200,169,110,0.12)',
-        exercises:[
-          {
-            id:'d1e6', emoji:'🏔️', name:'Pike push-up (codo derecho)',
-            spec:'3 series · 10 reps',
-            timer:90, sets:3,
-            muscles:['Deltoides','Trapecio superior','Tríceps'],
-            mc:'rgba(200,169,110,0.12)', mt:'#C8A96E', tbg:'#3D2E0E', ac:'#C8A96E',
-            desc:'En posición de V invertida (caderas arriba, cuerpo en pico). Mano izquierda en el suelo, codo derecho apoyado en el suelo. Dobla el codo izquierdo y el hombro derecho simultáneamente bajando la cabeza entre los apoyos. Empuja para volver. Trabaja deltoides con gran intensidad.',
-            tip:'La cabeza va entre los apoyos, no delante. El movimiento es vertical, no diagonal como en las flexiones normales.',
-            injured:true,
-            injuryNote:'Codo derecho apoya en el suelo, mano derecha libre. Toda la carga va al hombro izquierdo y el deltoides bilateral. Válido y muy efectivo.'
-          },
-        ]
-      },
-      {
-        name:'Movilidad torácica', icon:'🌿', iconBg:'rgba(200,169,110,0.12)',
-        exercises:[
-          {
-            id:'d1e8', emoji:'🥨', name:'Rotación torácica en suelo',
-            spec:'3 series · 10 reps por lado',
-            timer:90, sets:3,
-            muscles:['Rotadores torácicos','Romboides','Intercostales'],
-            mc:'rgba(200,169,110,0.12)', mt:'#C8A96E', tbg:'#3D2E0E', ac:'#C8A96E',
-            desc:'Tumbado de lado en posición fetal, rodillas a 90°. Brazo izquierdo extendido al frente. Lleva el brazo izquierdo en arco por encima abriendo el pecho hacia el techo, siguiendo la mano con la mirada. El brazo derecho puede descansar sobre el costado. Vuelve lentamente. Trabaja la movilidad torácica sin carga.',
-            tip:'El movimiento viene de la columna torácica, no de la lumbar. Las rodillas permanecen apiladas en el suelo durante todo el movimiento.',
-            injured:false
-          }
-        ]
-      }
+    color:'#C8A96E', dark:'#3D2E0E', accent:'#C8A96E',
+    durations:{ fast:'~25 min', normal:'~55 min', extensive:'~70 min' },
+    sections:[
+      { name:'Activación de hombros', icon:'🔄', iconBg:'rgba(200,169,110,.12)', exercises:[
+        { id:'d1e1', emoji:'🔄', name:'Rotación de manguito (una mano)', spec:'{S} series · 15 reps cada dirección', timer:90, sets:3, muscles:['Manguito rotador','Infraespinoso','Supraespinoso'], mc:'rgba(200,169,110,.12)', mt:'#C8A96E', tbg:'#3D2E0E', ac:'#C8A96E', desc:'Codo derecho pegado al costado, flexionado 90°. Con el puño (suave, sin apretar) o simplemente el antebrazo, rota hacia fuera (rotación externa) y hacia dentro (rotación interna). Repite con el brazo izquierdo igual.', tip:'El codo no se despega del costado en ningún momento. Si se mueve, estás compensando con el trapecio superior.', injured:true, injuryNote:'Mano derecha: realiza el movimiento con el antebrazo sin apretar el puño.' },
+        { id:'d1e2', emoji:'🙌', name:'Wall Angels', spec:'{S} series · 10 reps lentas', timer:120, sets:3, muscles:['Trapecio inferior','Serrato anterior','Romboides','Deltoides posterior'], mc:'rgba(200,169,110,.12)', mt:'#C8A96E', tbg:'#3D2E0E', ac:'#C8A96E', desc:'Pegado a la pared: cabeza, espalda, codos y dorsos de manos tocando la superficie. Desliza los brazos hacia arriba como un ángel de nieve. Baja lentamente.', tip:'La zona lumbar no se puede despegar de la pared. Si se arquea, dobla un poco las rodillas.', injured:true, injuryNote:'Mano derecha: el dorso apoya en la pared sin presionar. El movimiento lo lidera el brazo izquierdo.' }
+      ]},
+      { name:'Pectoral adaptado', icon:'💪', iconBg:'rgba(200,169,110,.12)', exercises:[
+        { id:'d1e3', emoji:'🤸', name:'Flexión inclinada en pared (un brazo)', spec:'{S} series · 12 reps', timer:90, sets:3, muscles:['Pectoral mayor','Tríceps','Deltoides anterior'], mc:'rgba(200,169,110,.12)', mt:'#C8A96E', tbg:'#3D2E0E', ac:'#C8A96E', desc:'De pie frente a la pared, a unos 60 cm. Apoya solo la mano izquierda en la pared a altura de hombro. Dobla el codo izquierdo acercando el pecho y empuja para volver.', tip:'Cuanto más lejos estés de la pared, más difícil. Empieza cerca y aleja los pies progresivamente.', injured:true, injuryNote:'El brazo derecho NO apoya con la mano — solo el codo como soporte opcional. Todo el trabajo lo hace el brazo izquierdo.' },
+        { id:'d1e4', emoji:'🦋', name:'Apertura en suelo (un brazo)', spec:'{S} series · 15 reps', timer:90, sets:3, muscles:['Pectoral mayor','Pectoral menor','Coracobraquial'], mc:'rgba(200,169,110,.12)', mt:'#C8A96E', tbg:'#3D2E0E', ac:'#C8A96E', desc:'Tumbado boca arriba. Brazo izquierdo extendido a 90° con el codo ligeramente flexionado. Lleva el brazo en arco hacia el centro del pecho. Vuelve lentamente. El brazo derecho descansa en el abdomen.', tip:'El movimiento es en arco, no en recto. El codo nunca se extiende completamente.', injured:false }
+      ]},
+      { name:'Hombros & Tríceps', icon:'⚡', iconBg:'rgba(200,169,110,.12)', exercises:[
+        { id:'d1e6', emoji:'🏔️', name:'Pike push-up (codo derecho)', spec:'{S} series · 10 reps', timer:90, sets:3, muscles:['Deltoides','Trapecio superior','Tríceps'], mc:'rgba(200,169,110,.12)', mt:'#C8A96E', tbg:'#3D2E0E', ac:'#C8A96E', desc:'En V invertida. Mano izquierda en el suelo, codo derecho apoyado. Dobla el codo izquierdo bajando la cabeza entre los apoyos. Empuja para volver.', tip:'La cabeza va entre los apoyos, no delante. El movimiento es vertical.', injured:true, injuryNote:'Codo derecho apoya en el suelo, mano derecha libre.' }
+      ]},
+      { name:'Movilidad torácica', icon:'🌿', iconBg:'rgba(200,169,110,.12)', exercises:[
+        { id:'d1e8', emoji:'🥨', name:'Rotación torácica en suelo', spec:'{S} series · 10 reps por lado', timer:90, sets:3, muscles:['Rotadores torácicos','Romboides','Intercostales'], mc:'rgba(200,169,110,.12)', mt:'#C8A96E', tbg:'#3D2E0E', ac:'#C8A96E', desc:'Tumbado de lado en posición fetal, rodillas a 90°. Brazo izquierdo extendido al frente. Lleva el brazo izquierdo en arco por encima abriendo el pecho hacia el techo. Vuelve lentamente.', tip:'El movimiento viene de la columna torácica, no de la lumbar. Las rodillas permanecen apiladas.', injured:false }
+      ]}
     ]
   },
   {
     id:2, label:'Día 2', title:'Tirón + Espalda',
     sub:'Dorsal ancho · Romboides · Bíceps · Cuello avanzado',
-    color:'#6E9FC8', dark:'#0E2A3D', mid:'#1E5A7A', accent:'#6E9FC8',
-    duration:'55–65 min',
+    color:'#6E9FC8', dark:'#0E2A3D', accent:'#6E9FC8',
+    durations:{ fast:'~25 min', normal:'~55 min', extensive:'~70 min' },
     sections:[
-      {
-        name:'Dorsal & Romboides', icon:'🦅', iconBg:'rgba(110,159,200,0.12)',
-        exercises:[
-          {
-            id:'d2e1', emoji:'🦅', name:'Superman con pausa (patrón Y-T-W)',
-            spec:'3 series · 8 reps cada patrón',
-            timer:120, sets:3,
-            muscles:['Dorsal ancho','Trapecio inferior','Romboides','Erector espinal'],
-            mc:'rgba(110,159,200,0.12)', mt:'#6E9FC8', tbg:'#0E2A3D', ac:'#6E9FC8',
-            desc:'Tumbado boca abajo. Realiza 3 patrones: Y (brazos a 45° arriba), T (brazos a 90°), W (codos a 90° doblados). En cada posición levanta los brazos del suelo apretando los omóplatos y mantén 2 s. El brazo derecho se eleva todo lo que permita la mano — no hay carga en la muñeca tumbado boca abajo.',
-            tip:'La secuencia Y→T→W en la misma serie trabaja el trapecio en todas sus fibras. Es el ejercicio de espalda más completo sin equipamiento.',
-            injured:false
-          },
-          {
-            id:'d2e2', emoji:'🏊', name:'Remo en suelo (un brazo)',
-            spec:'3 series · 12 reps por lado',
-            timer:120, sets:3,
-            muscles:['Dorsal ancho','Romboides','Bíceps','Trapecio medio'],
-            mc:'rgba(110,159,200,0.12)', mt:'#6E9FC8', tbg:'#0E2A3D', ac:'#6E9FC8',
-            desc:'Tumbado boca abajo, brazo izquierdo extendido al frente con una botella de agua (1-2L). Lleva el codo hacia la cadera doblándolo, apretando el omóplato izquierdo hacia la columna. Mantén 1 s y extiende lentamente. Cambia de lado: el brazo derecho puede hacer el movimiento con la botella apoyada en el dorso de la mano o sin carga si hay dolor.',
-            tip:'El codo sigue la línea del cuerpo, no abre hacia fuera. El omóplato se mueve antes que el codo — eso garantiza que el dorsal trabaja y no solo el bíceps.',
-            injured:true,
-            injuryNote:'Brazo derecho: usa el dorso de la mano (sin agarrar) para empujar una botella, o haz el movimiento sin carga. La activación muscular sigue siendo significativa incluso sin peso.'
-          },
-        ]
-      },
-      {
-        name:'Bíceps & Tirón funcional', icon:'💪', iconBg:'rgba(110,159,200,0.12)',
-        exercises:[
-          {
-            id:'d2e5', emoji:'🚪', name:'Remo isométrico en puerta',
-            spec:'3 series · 30 seg',
-            timer:30, sets:3,
-            muscles:['Dorsal ancho','Romboides','Bíceps','Trapecio medio'],
-            mc:'rgba(110,159,200,0.12)', mt:'#6E9FC8', tbg:'#0E2A3D', ac:'#6E9FC8',
-            desc:'Agarra el marco de una puerta con la mano izquierda a altura de cadera. Inclínate ligeramente atrás y tira del marco hacia ti (el marco no se mueve — es isométrico). Mantén 30 s con máxima tensión. El dorsal trabaja con intensidad real sin equipamiento. Luego con la mano derecha si tolera el agarre.',
-            tip:'Cuanto más te inclines hacia atrás, mayor la carga. Empieza a 20° y progresa. El omóplato izquierdo debe pegarse a la columna durante los 30 s.',
-            injured:true,
-            injuryNote:'Mano derecha: agarra el marco con lo que puedas (dedos, palma, lo que tolere). Incluso un agarre parcial genera activación del dorsal. Si hay dolor, haz solo el lado izquierdo con 2× tiempo.'
-          }
-        ]
-      },
-      {
-        name:'Cuello avanzado', icon:'👆', iconBg:'rgba(110,159,200,0.12)',
-        exercises:[
-          {
-            id:'d2e6', emoji:'💆', name:'Flexión cervical con resistencia manual',
-            spec:'3 series · 10 reps · 5 seg isométrico',
-            timer:120, sets:3,
-            muscles:['Esternocleidomastoideo','Escalenos anteriores','Platisma'],
-            mc:'rgba(110,159,200,0.12)', mt:'#6E9FC8', tbg:'#0E2A3D', ac:'#6E9FC8',
-            desc:'Mano izquierda en la frente. Intenta doblar el cuello hacia adelante (llevar la barbilla al pecho) mientras la mano resiste el movimiento — el cuello no se mueve. 5 s de contracción isométrica. Descansa 3 s. Luego mano en la nuca resistiendo la extensión. Esto fortalece los músculos cervicales en ambas direcciones sin movimiento articular, ideal para quienes tienen tensión cervical.',
-            tip:'La presión de la mano debe ser moderada. No es una competencia de fuerza — es una contracción muscular sostenida. El cuello no se mueve en ningún caso.',
-            injured:true,
-            injuryNote:'Usa la mano izquierda para todos los ejercicios de resistencia cervical. La mano derecha puede descansar en el regazo.'
-          },
-          {
-            id:'d2e7', emoji:'🔁', name:'Rotación cervical con resistencia manual',
-            spec:'3 series · 10 reps por lado · 4 seg hold',
-            timer:120, sets:3,
-            muscles:['Esternocleidomastoideo','Esplenio del cuello','Rotadores cervicales profundos'],
-            mc:'rgba(110,159,200,0.12)', mt:'#6E9FC8', tbg:'#0E2A3D', ac:'#6E9FC8',
-            desc:'Sentado con espalda recta. Coloca la mano izquierda en la sien izquierda. Intenta girar la cabeza hacia la izquierda mientras la mano resiste — el cuello no se mueve (isométrico). Mantén 4 s. Descansa 2 s. Cambia: mano izquierda en la sien derecha resistiendo la rotación a la derecha. Alterna 10 veces por lado. Luego repite con la mano en la parte posterior-lateral de la cabeza para resistir la rotación en el plano opuesto. Cubre los rotadores cervicales en ambos sentidos, el único vector que faltaba en el plan.',
-            tip:'La fuerza de la mano es moderada, no máxima. El objetivo es sentir la contracción del músculo del cuello, no ganar la lucha. El cuello permanece completamente quieto.',
-            injured:true,
-            injuryNote:'Usa siempre la mano izquierda para todas las resistencias. La mano derecha descansa en el muslo. Puedes trabajar ambos lados de la rotación usando solo la mano izquierda cambiando su posición.'
-          }
-        ]
-      }
+      { name:'Dorsal & Romboides', icon:'🦅', iconBg:'rgba(110,159,200,.12)', exercises:[
+        { id:'d2e1', emoji:'🦅', name:'Superman con pausa (patrón Y-T-W)', spec:'{S} series · 8 reps cada patrón', timer:120, sets:3, muscles:['Dorsal ancho','Trapecio inferior','Romboides','Erector espinal'], mc:'rgba(110,159,200,.12)', mt:'#6E9FC8', tbg:'#0E2A3D', ac:'#6E9FC8', desc:'Tumbado boca abajo. 3 patrones: Y (brazos a 45° arriba), T (brazos a 90°), W (codos a 90° doblados). En cada posición levanta los brazos apretando los omóplatos y mantén 2 s.', tip:'La secuencia Y→T→W trabaja el trapecio en todas sus fibras. El ejercicio de espalda más completo sin equipamiento.', injured:false },
+        { id:'d2e2', emoji:'🏊', name:'Remo en suelo (un brazo)', spec:'{S} series · 12 reps por lado', timer:120, sets:3, muscles:['Dorsal ancho','Romboides','Bíceps','Trapecio medio'], mc:'rgba(110,159,200,.12)', mt:'#6E9FC8', tbg:'#0E2A3D', ac:'#6E9FC8', desc:'Tumbado boca abajo, brazo izquierdo extendido con botella (1-2L). Lleva el codo hacia la cadera doblándolo, apretando el omóplato hacia la columna. Mantén 1 s y extiende lentamente.', tip:'El codo sigue la línea del cuerpo, no abre hacia fuera. El omóplato se mueve antes que el codo.', injured:true, injuryNote:'Brazo derecho: usa el dorso de la mano para empujar la botella, o haz el movimiento sin carga.' }
+      ]},
+      { name:'Bíceps & Tirón funcional', icon:'💪', iconBg:'rgba(110,159,200,.12)', exercises:[
+        { id:'d2e5', emoji:'🚪', name:'Remo isométrico en puerta', spec:'{S} series · 30 seg', timer:30, sets:3, muscles:['Dorsal ancho','Romboides','Bíceps','Trapecio medio'], mc:'rgba(110,159,200,.12)', mt:'#6E9FC8', tbg:'#0E2A3D', ac:'#6E9FC8', desc:'Agarra el marco de una puerta con la mano izquierda a altura de cadera. Inclínate ligeramente atrás y tira del marco hacia ti (isométrico). Mantén 30 s con máxima tensión.', tip:'Cuanto más te inclines hacia atrás, mayor la carga. El omóplato izquierdo debe pegarse a la columna.', injured:true, injuryNote:'Mano derecha: agarra con lo que puedas. Si hay dolor, haz solo el lado izquierdo con 2× tiempo.' }
+      ]},
+      { name:'Cuello avanzado', icon:'👆', iconBg:'rgba(110,159,200,.12)', exercises:[
+        { id:'d2e6', emoji:'💆', name:'Flexión cervical con resistencia manual', spec:'{S} series · 10 reps · 5 seg isométrico', timer:120, sets:3, muscles:['Esternocleidomastoideo','Escalenos anteriores','Platisma'], mc:'rgba(110,159,200,.12)', mt:'#6E9FC8', tbg:'#0E2A3D', ac:'#6E9FC8', desc:'Mano izquierda en la frente. Intenta doblar el cuello hacia adelante mientras la mano resiste — el cuello no se mueve. 5 s de contracción isométrica. Luego mano en la nuca resistiendo la extensión.', tip:'La presión de la mano debe ser moderada. No es una competencia de fuerza. El cuello no se mueve.', injured:true, injuryNote:'Usa la mano izquierda para todos los ejercicios. La derecha descansa en el regazo.' },
+        { id:'d2e7', emoji:'🔁', name:'Rotación cervical con resistencia manual', spec:'{S} series · 10 reps por lado · 4 seg hold', timer:120, sets:3, muscles:['Esternocleidomastoideo','Esplenio del cuello','Rotadores cervicales profundos'], mc:'rgba(110,159,200,.12)', mt:'#6E9FC8', tbg:'#0E2A3D', ac:'#6E9FC8', desc:'Mano izquierda en la sien izquierda. Intenta girar la cabeza mientras la mano resiste — el cuello no se mueve. 4 s. Cambia: mano en sien derecha resistiendo la rotación a la derecha.', tip:'La fuerza de la mano es moderada. El objetivo es sentir la contracción. El cuello permanece quieto.', injured:true, injuryNote:'Usa siempre la mano izquierda. La derecha descansa en el muslo.' }
+      ]}
     ]
   },
   {
     id:3, label:'Día 3', title:'Piernas Anterior',
     sub:'Cuádriceps · Rodilla · Movilidad de cadera · Core',
-    color:'#6EC899', dark:'#0E3D25', mid:'#1E7A4A', accent:'#6EC899',
-    duration:'60–70 min',
+    color:'#6EC899', dark:'#0E3D25', accent:'#6EC899',
+    durations:{ fast:'~25 min', normal:'~60 min', extensive:'~75 min' },
     sections:[
-      {
-        name:'Activación de cadera', icon:'🦵', iconBg:'rgba(110,200,153,0.12)',
-        exercises:[
-          {
-            id:'d3e1', emoji:'🌀', name:'Círculos de cadera 90/90',
-            spec:'3 series · 8 reps por lado',
-            timer:120, sets:3,
-            muscles:['Piriforme','Rotadores externos','Psoas','Iliotibial'],
-            mc:'rgba(110,200,153,0.12)', mt:'#6EC899', tbg:'#0E3D25', ac:'#6EC899',
-            desc:'Sentado en el suelo, pierna derecha doblada a 90° frente a ti, izquierda a 90° detrás. Sin usar las manos, cambia las piernas al otro 90/90 pasando por el centro. Explora la rotación interna y externa activa de la cadera — la capacidad más deteriorada en sedentarios.',
-            tip:'Al principio apoya las manos en el suelo. El objetivo es hacerlo sin apoyo. Nota qué lado es más rígido — ese necesita más trabajo.',
-            injured:false
-          },
-          {
-            id:'d3e2', emoji:'🦵', name:'Hip flexor stretch en media luna',
-            spec:'3 series · 45 seg por lado',
-            timer:45, sets:3,
-            muscles:['Psoas','Ilíaco','Recto femoral'],
-            mc:'rgba(110,200,153,0.12)', mt:'#6EC899', tbg:'#0E3D25', ac:'#6EC899',
-            desc:'Arrodillado, adelanta el pie derecho. Rodilla izquierda en el suelo. Lleva la cadera hacia adelante y abajo hasta sentir estiramiento en la parte frontal de la cadera izquierda. Eleva el brazo izquierdo para profundizar. 45 s respirando. El psoas acortado es la causa #1 de dolor lumbar en sedentarios.',
-            tip:'El abdomen contraído evita que la pelvis se vaya hacia adelante compensando. Si el estiramiento está en el cuádriceps y no en la cadera, mueve el pie adelante un poco más.',
-            injured:false
-          }
-        ]
-      },
-      {
-        name:'Cuádriceps & Rodilla', icon:'🏋️', iconBg:'rgba(110,200,153,0.12)',
-        exercises:[
-          {
-            id:'d3e3', emoji:'🏋️', name:'Sentadilla profunda lenta',
-            spec:'4 series · 15 reps · tempo 3-1-3',
-            timer:150, sets:4,
-            muscles:['Cuádriceps','Glúteo mayor','Isquiotibial','Pantorrilla'],
-            mc:'rgba(110,200,153,0.12)', mt:'#6EC899', tbg:'#0E3D25', ac:'#6EC899',
-            desc:'Pies al ancho de hombros, punteras ligeramente abiertas. Baja en 3 s manteniendo el pecho erguido y las rodillas sobre los pies. Mantén 1 s abajo (cuanto más profundo mejor para movilidad de cadera). Sube en 3 s empujando desde los talones. Los brazos pueden extenderse al frente para equilibrio — el derecho sin cargar la muñeca.',
-            tip:'Las rodillas siguen la línea de los dedos del pie — ni hacia dentro ni fuera. Si los talones se levantan, pon un libro debajo de ellos hasta ganar movilidad de tobillo.',
-            injured:false
-          },
-          {
-            id:'d3e4', emoji:'🦩', name:'Sentadilla búlgara (un solo apoyo)',
-            spec:'3 series · 10 reps por pierna',
-            timer:120, sets:3,
-            muscles:['Cuádriceps','Glúteo mayor','Isquiotibial','Estabilizadores de tobillo'],
-            mc:'rgba(110,200,153,0.12)', mt:'#6EC899', tbg:'#0E3D25', ac:'#6EC899',
-            desc:'De pie a unos 60 cm de una silla. Apoya el empeine del pie izquierdo en el asiento detrás de ti. La pierna derecha hace el trabajo. Baja hasta que la rodilla trasera casi toque el suelo. Empuja desde el talón delantero para subir. Los brazos al frente para equilibrio — la mano derecha puede apoyar en una pared lateralmente si necesitas estabilidad.',
-            tip:'El tronco se inclina ligeramente hacia adelante (normal). Si el peso cae en la rodilla delantera y no en el talón, adelanta más el pie delantero.',
-            injured:false
-          },
-        ]
-      },
-      {
-        name:'Pantorrilla & Tibial', icon:'🦶', iconBg:'rgba(110,200,153,0.12)',
-        exercises:[
-          {
-            id:'d3e6', emoji:'🦶', name:'Elevación de talones + flexión dorsal',
-            spec:'3 series · 20 reps cada movimiento',
-            timer:120, sets:3,
-            muscles:['Gastrocnemio','Sóleo','Tibial anterior','Peroneo'],
-            mc:'rgba(110,200,153,0.12)', mt:'#6EC899', tbg:'#0E3D25', ac:'#6EC899',
-            desc:'De pie junto a una pared (mano izquierda para equilibrio). Primero: 20 elevaciones de talones (subir de puntillas lentamente, bajar lento). Luego: 20 flexiones dorsales (levantar la punta del pie mientras el talón queda en el suelo). El tibial anterior es el gran olvidado y esencial para la cadena postural desde el pie.',
-            tip:'En la elevación de talones, el descenso lento (3 s) activa mucho más que la subida. En la flexión dorsal, aguanta 2 s arriba.',
-            injured:false
-          }
-        ]
-      },
-      {
-        name:'Core integrado', icon:'🧱', iconBg:'rgba(110,200,153,0.12)',
-        exercises:[
-          {
-            id:'d3e7', emoji:'🧱', name:'Dead bug (adaptado)',
-            spec:'3 series · 8 reps por lado',
-            timer:120, sets:3,
-            muscles:['Transverso abdominal','Multífido','Psoas','Recto abdominal'],
-            mc:'rgba(110,200,153,0.12)', mt:'#6EC899', tbg:'#0E3D25', ac:'#6EC899',
-            desc:'Tumbado boca arriba. Brazo izquierdo perpendicular al techo. El brazo derecho descansa en el pecho. Rodillas a 90° en el aire. Espalda baja pegada al suelo. Baja simultáneamente el brazo izquierdo hacia atrás y la pierna contraria hacia el suelo. Vuelve al centro. El core profundo trabaja igual de intensamente.',
-            tip:'Si la espalda se arquea antes de completar el movimiento, reduce el rango. La espalda pegada al suelo es innegociable.',
-            injured:true,
-            injuryNote:'Brazo derecho: descansa en el pecho durante todo el ejercicio. El dead bug funciona perfectamente con un solo brazo activo — la demanda anti-rotacional al core es incluso mayor.'
-          },
-        ]
-      }
+      { name:'Activación de cadera', icon:'🦵', iconBg:'rgba(110,200,153,.12)', exercises:[
+        { id:'d3e1', emoji:'🌀', name:'Círculos de cadera 90/90', spec:'{S} series · 8 reps por lado', timer:120, sets:3, muscles:['Piriforme','Rotadores externos','Psoas','Iliotibial'], mc:'rgba(110,200,153,.12)', mt:'#6EC899', tbg:'#0E3D25', ac:'#6EC899', desc:'Sentado en el suelo, pierna derecha doblada a 90° frente a ti, izquierda a 90° detrás. Sin usar las manos, cambia las piernas al otro 90/90 pasando por el centro.', tip:'Al principio apoya las manos en el suelo. El objetivo es hacerlo sin apoyo.', injured:false },
+        { id:'d3e2', emoji:'🦵', name:'Hip flexor stretch en media luna', spec:'{S} series · 45 seg por lado', timer:45, sets:3, muscles:['Psoas','Ilíaco','Recto femoral'], mc:'rgba(110,200,153,.12)', mt:'#6EC899', tbg:'#0E3D25', ac:'#6EC899', desc:'Arrodillado, adelanta el pie derecho. Rodilla izquierda en el suelo. Lleva la cadera hacia adelante y abajo. Eleva el brazo izquierdo para profundizar. 45 s respirando.', tip:'El abdomen contraído evita que la pelvis se vaya hacia adelante.', injured:false }
+      ]},
+      { name:'Cuádriceps & Rodilla', icon:'🏋️', iconBg:'rgba(110,200,153,.12)', exercises:[
+        { id:'d3e3', emoji:'🏋️', name:'Sentadilla profunda lenta', spec:'{S} series · 15 reps · tempo 3-1-3', timer:150, sets:3, muscles:['Cuádriceps','Glúteo mayor','Isquiotibial','Pantorrilla'], mc:'rgba(110,200,153,.12)', mt:'#6EC899', tbg:'#0E3D25', ac:'#6EC899', desc:'Pies al ancho de hombros, punteras ligeramente abiertas. Baja en 3 s manteniendo el pecho erguido. Mantén 1 s abajo. Sube en 3 s empujando desde los talones.', tip:'Las rodillas siguen la línea de los dedos del pie. Si los talones se levantan, pon un libro debajo.', injured:false },
+        { id:'d3e4', emoji:'🦩', name:'Sentadilla búlgara', spec:'{S} series · 10 reps por pierna', timer:120, sets:3, muscles:['Cuádriceps','Glúteo mayor','Isquiotibial','Estabilizadores de tobillo'], mc:'rgba(110,200,153,.12)', mt:'#6EC899', tbg:'#0E3D25', ac:'#6EC899', desc:'De pie a 60 cm de una silla. Apoya el empeine del pie trasero en el asiento. Baja hasta que la rodilla trasera casi toque el suelo. Empuja desde el talón delantero.', tip:'El tronco se inclina ligeramente hacia adelante (normal). Si el peso cae en la rodilla, adelanta más el pie.', injured:false }
+      ]},
+      { name:'Pantorrilla & Tibial', icon:'🦶', iconBg:'rgba(110,200,153,.12)', exercises:[
+        { id:'d3e6', emoji:'🦶', name:'Elevación de talones + flexión dorsal', spec:'{S} series · 20 reps cada movimiento', timer:120, sets:3, muscles:['Gastrocnemio','Sóleo','Tibial anterior','Peroneo'], mc:'rgba(110,200,153,.12)', mt:'#6EC899', tbg:'#0E3D25', ac:'#6EC899', desc:'De pie junto a una pared. 20 elevaciones de talones (sube de puntillas lentamente, baja lento). Luego 20 flexiones dorsales (levanta la punta del pie mientras el talón queda en el suelo).', tip:'En la elevación el descenso lento (3 s) activa mucho más. En la flexión dorsal aguanta 2 s arriba.', injured:false }
+      ]},
+      { name:'Core integrado', icon:'🧱', iconBg:'rgba(110,200,153,.12)', exercises:[
+        { id:'d3e7', emoji:'🧱', name:'Dead bug (adaptado)', spec:'{S} series · 8 reps por lado', timer:120, sets:3, muscles:['Transverso abdominal','Multífido','Psoas','Recto abdominal'], mc:'rgba(110,200,153,.12)', mt:'#6EC899', tbg:'#0E3D25', ac:'#6EC899', desc:'Tumbado boca arriba. Brazo izquierdo perpendicular al techo, derecho en el pecho. Rodillas a 90° en el aire. Baja el brazo izquierdo hacia atrás y la pierna contraria al suelo. Espalda pegada al suelo siempre.', tip:'Si la espalda se arquea, reduce el rango. La espalda pegada al suelo es innegociable.', injured:true, injuryNote:'Brazo derecho descansa en el pecho durante todo el ejercicio.' }
+      ]}
     ]
   },
   {
     id:4, label:'Día 4', title:'Piernas Posterior',
     sub:'Isquiotibiales · Glúteos · Lumbar · Cadera profunda',
-    color:'#C86E6E', dark:'#3D0E0E', mid:'#7A1E1E', accent:'#C86E6E',
-    duration:'60–70 min',
+    color:'#C86E6E', dark:'#3D0E0E', accent:'#C86E6E',
+    durations:{ fast:'~25 min', normal:'~55 min', extensive:'~70 min' },
     sections:[
-      {
-        name:'Cadena posterior', icon:'🌿', iconBg:'rgba(200,110,110,0.12)',
-        exercises:[
-          {
-            id:'d4e2', emoji:'🦢', name:'Puente glúteo unilateral',
-            spec:'3 series · 10 reps por pierna',
-            timer:120, sets:3,
-            muscles:['Glúteo mayor','Glúteo medio','Isquiotibial','Estabilizadores lumbares'],
-            mc:'rgba(200,110,110,0.12)', mt:'#C86E6E', tbg:'#3D0E0E', ac:'#C86E6E',
-            desc:'Como el puente bilateral pero levanta una pierna extendida horizontal. Empuja solo con el pie del suelo. La pelvis permanece nivelada — no debe caer hacia el lado de la pierna levantada. Corrige asimetrías entre hemicuerpos, muy comunes en personas que cruzan las piernas al sentarse.',
-            tip:'Si la cadera cae hacia el lado de la pierna levantada, vuelve al puente bilateral hasta ganar más fuerza en el glúteo medio.',
-            injured:false
-          },
-          {
-            id:'d4e3', emoji:'🦢', name:'Peso muerto rumano a una pierna',
-            spec:'3 series · 10 reps por pierna',
-            timer:120, sets:3,
-            muscles:['Isquiotibial','Glúteo mayor','Erector espinal','Estabilizadores lumbares'],
-            mc:'rgba(200,110,110,0.12)', mt:'#C86E6E', tbg:'#3D0E0E', ac:'#C86E6E',
-            desc:'De pie sobre la pierna derecha, rodilla ligeramente flexionada (nunca bloqueada). Inclina el tronco hacia adelante manteniendo la espalda completamente recta — como una bisagra en la cadera, no en la columna. La pierna izquierda sube hacia atrás en línea con el tronco como contrapeso. Baja hasta sentir tensión firme en el isquiotibial de la pierna de apoyo (normalmente muslo posterior). Para equilibrio, la mano izquierda puede tocar suavemente una pared lateral. Vuelve empujando la cadera hacia adelante — el glúteo es el motor, no la espalda. Es el sustituto más efectivo del nórdico sin necesitar ningún punto de anclaje: mismo trabajo de isquiotibial, añade estabilidad de cadera y core.',
-            tip:'Si el tronco rota (hombro izquierdo cae hacia abajo al bajar), reduce el rango. La clave es mantener caderas completamente cuadradas durante todo el movimiento. El pie de la pierna elevada apunta hacia el suelo — no hacia afuera.',
-            injured:false
-          }
-        ]
-      },
-      {
-        name:'Glúteo medio & Estabilización', icon:'🍑', iconBg:'rgba(200,110,110,0.12)',
-        exercises:[
-          {
-            id:'d4e4', emoji:'🦀', name:'Clamshell con progresión',
-            spec:'3 series · 20 reps por lado',
-            timer:90, sets:3,
-            muscles:['Glúteo medio','Piriforme','Rotadores externos de cadera'],
-            mc:'rgba(200,110,110,0.12)', mt:'#C86E6E', tbg:'#3D0E0E', ac:'#C86E6E',
-            desc:'Tumbado de lado, caderas apiladas, rodillas a 60°. Sin mover la pelvis, levanta la rodilla superior. En las series 2 y 3 añade una pausa de 3 s en el punto más alto antes de bajar. El glúteo medio es el músculo más inhibido en sedentarios y el más importante para estabilidad postural y prevención de dolor de rodilla.',
-            tip:'Coloca la mano izquierda en el glúteo para sentir cuándo se activa. Si sientes más el piriforme (zona profunda de la nalga), perfecto — ambos trabajan.',
-            injured:false
-          },
-          {
-            id:'d4e5', emoji:'🦩', name:'Fire hydrant',
-            spec:'3 series · 15 reps por lado',
-            timer:90, sets:3,
-            muscles:['Glúteo medio','Tensor fascia lata','Piriforme'],
-            mc:'rgba(200,110,110,0.12)', mt:'#C86E6E', tbg:'#3D0E0E', ac:'#C86E6E',
-            desc:'A cuatro patas (apoya el codo derecho en lugar de la mano). Con la rodilla doblada a 90°, levanta la pierna derecha hacia el lado como un perro en una farola. Sube hasta justo antes de que la cadera rote. Baja lento. Abre la cadera activamente y trabaja el glúteo medio en rotación externa.',
-            tip:'La espalda no se hunde ni se arquea. El movimiento es puro de cadera. Si el tronco se inclina al lado contrario, reduce el rango.',
-            injured:true,
-            injuryNote:'A cuatro patas: apoya el codo derecho en el suelo en lugar de la mano. La posición de codo es completamente estable para este ejercicio.'
-          }
-        ]
-      },
-      {
-        name:'Lumbar & Movilidad posterior', icon:'🌀', iconBg:'rgba(200,110,110,0.12)',
-        exercises:[
-          {
-            id:'d4e7', emoji:'🥨', name:'Torsión espinal tumbado',
-            spec:'2 series · 45 seg por lado',
-            timer:45, sets:2,
-            muscles:['Piriforme','Cuadrado lumbar','Glúteo mayor','Rotadores torácicos'],
-            mc:'rgba(200,110,110,0.12)', mt:'#C86E6E', tbg:'#3D0E0E', ac:'#C86E6E',
-            desc:'Tumbado boca arriba. Dobla la rodilla derecha y déjala caer al lado izquierdo. El brazo derecho se extiende hacia la derecha, mirada a la derecha. Respira profundo y con cada exhala deja que la rodilla caiga un poco más sin forzar. 45 s. Cambia. El mejor estiramiento para la tensión lumbar acumulada.',
-            tip:'Si la rodilla no llega al suelo, pon un cojín debajo para que puedas relajarte completamente. La relajación es el objetivo, no el rango.',
-            injured:false
-          }
-        ]
-      }
+      { name:'Cadena posterior', icon:'🌿', iconBg:'rgba(200,110,110,.12)', exercises:[
+        { id:'d4e2', emoji:'🦢', name:'Puente glúteo unilateral', spec:'{S} series · 10 reps por pierna', timer:120, sets:3, muscles:['Glúteo mayor','Glúteo medio','Isquiotibial','Estabilizadores lumbares'], mc:'rgba(200,110,110,.12)', mt:'#C86E6E', tbg:'#3D0E0E', ac:'#C86E6E', desc:'Puente bilateral pero levanta una pierna extendida horizontal. Empuja solo con el pie del suelo. La pelvis permanece nivelada — no debe caer hacia el lado de la pierna levantada.', tip:'Si la cadera cae, vuelve al puente bilateral hasta ganar más fuerza en el glúteo medio.', injured:false },
+        { id:'d4e3', emoji:'🦢', name:'Peso muerto rumano a una pierna', spec:'{S} series · 10 reps por pierna', timer:120, sets:3, muscles:['Isquiotibial','Glúteo mayor','Erector espinal','Estabilizadores lumbares'], mc:'rgba(200,110,110,.12)', mt:'#C86E6E', tbg:'#3D0E0E', ac:'#C86E6E', desc:'De pie sobre una pierna, rodilla ligeramente flexionada. Inclina el tronco hacia adelante como una bisagra en la cadera. La otra pierna sube hacia atrás como contrapeso. Baja hasta sentir tensión firme en el isquiotibial.', tip:'Si el tronco rota, reduce el rango. Las caderas deben estar completamente cuadradas durante todo el movimiento.', injured:false }
+      ]},
+      { name:'Glúteo medio & Estabilización', icon:'🍑', iconBg:'rgba(200,110,110,.12)', exercises:[
+        { id:'d4e4', emoji:'🦀', name:'Clamshell con progresión', spec:'{S} series · 20 reps por lado', timer:90, sets:3, muscles:['Glúteo medio','Piriforme','Rotadores externos de cadera'], mc:'rgba(200,110,110,.12)', mt:'#C86E6E', tbg:'#3D0E0E', ac:'#C86E6E', desc:'Tumbado de lado, caderas apiladas, rodillas a 60°. Sin mover la pelvis, levanta la rodilla superior. En series 2 y 3 añade pausa de 3 s en el punto más alto.', tip:'Pon la mano en el glúteo para sentir cuándo se activa.', injured:false },
+        { id:'d4e5', emoji:'🦩', name:'Fire hydrant', spec:'{S} series · 15 reps por lado', timer:90, sets:3, muscles:['Glúteo medio','Tensor fascia lata','Piriforme'], mc:'rgba(200,110,110,.12)', mt:'#C86E6E', tbg:'#3D0E0E', ac:'#C86E6E', desc:'A cuatro patas (codo derecho en lugar de mano). Con la rodilla doblada a 90°, levanta la pierna hacia el lado. Sube hasta justo antes de que la cadera rote. Baja lento.', tip:'La espalda no se hunde ni se arquea. El movimiento es puro de cadera.', injured:true, injuryNote:'A cuatro patas: apoya el codo derecho en el suelo en lugar de la mano.' }
+      ]},
+      { name:'Lumbar & Movilidad posterior', icon:'🌀', iconBg:'rgba(200,110,110,.12)', exercises:[
+        { id:'d4e7', emoji:'🥨', name:'Torsión espinal tumbado', spec:'{S} series · 45 seg por lado', timer:45, sets:2, muscles:['Piriforme','Cuadrado lumbar','Glúteo mayor','Rotadores torácicos'], mc:'rgba(200,110,110,.12)', mt:'#C86E6E', tbg:'#3D0E0E', ac:'#C86E6E', desc:'Tumbado boca arriba. Dobla la rodilla derecha y déjala caer al lado izquierdo. Brazo derecho extendido hacia la derecha, mirada a la derecha. Con cada exhala deja que la rodilla caiga un poco más.', tip:'Si la rodilla no llega al suelo, pon un cojín debajo. La relajación es el objetivo.', injured:false }
+      ]}
     ]
   },
   {
     id:5, label:'Día 5', title:'Integración & Movilidad',
-    sub:'Cuerpo completo · Respiración · World\'s Greatest · Reset postural',
-    color:'#A86EC8', dark:'#2A0E3D', mid:'#5A1E7A', accent:'#A86EC8',
-    duration:'55–65 min',
+    sub:"Cuerpo completo · Respiración · World's Greatest · Reset postural",
+    color:'#A86EC8', dark:'#2A0E3D', accent:'#A86EC8',
+    durations:{ fast:'~25 min', normal:'~55 min', extensive:'~70 min' },
     sections:[
-      {
-        name:'Movilidad completa de cadera', icon:'⭐', iconBg:'rgba(168,110,200,0.12)',
-        exercises:[
-          {
-            id:'d5e1', emoji:'🌟', name:"World's Greatest Stretch",
-            spec:'3 series · 5 reps por lado, muy lento',
-            timer:150, sets:3,
-            muscles:['Psoas','Pectoral','Rotadores torácicos','Isquiotibial','Glúteo mayor'],
-            mc:'rgba(168,110,200,0.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8',
-            desc:'Zancada profunda con pie derecho adelante. Mano izquierda en el suelo junto al pie derecho. Codo derecho al suelo junto al pie (estiramiento de cadera). Luego brazo izquierdo hacia el techo rotando el tronco. Extiende la pierna delantera (isquiotibial). Vuelve y repite. 8 grupos musculares en un movimiento fluido.',
-            tip:'Ve lento. No hay "correcto" en cuánto llegas — es hasta donde llegues hoy. Respira en cada posición antes de moverse.',
-            injured:true,
-            injuryNote:'En la fase de codo al suelo: usa el codo derecho, no la mano. En la rotación hacia el techo: eleva el brazo izquierdo. El brazo derecho puede descansar o apoyar el codo si necesitas equilibrio.'
-          },
-          {
-            id:'d5e2', emoji:'🦋', name:'Mariposa activa con respiración',
-            spec:'3 series · 20 pulsaciones + 30 seg hold',
-            timer:90, sets:3,
-            muscles:['Aductor largo','Aductor corto','Pectíneo','Suelo pélvico'],
-            mc:'rgba(168,110,200,0.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8',
-            desc:'Sentado, plantas de los pies juntas cerca de la entrepierna. Codo izquierdo (o ambos) en los muslos. 20 pulsaciones suaves hacia abajo (sin rebotes). Luego mantén 30 s: en cada exhala, las rodillas ceden un poco más. El aductor acortado en sedentarios limita la movilidad de cadera y sobrecargas las rodillas.',
-            tip:'Espalda recta — si se redondea, aleja los pies. El estiramiento en la cara interna del muslo, no en las rodillas.',
-            injured:false
-          },
-          {
-            id:'d5e3', emoji:'🌊', name:'Ola lateral de cadera (lateral lunge)',
-            spec:'3 series · 10 reps por lado',
-            timer:90, sets:3,
-            muscles:['Aductores','Glúteo mayor','Cuádriceps','Isquiotibial'],
-            mc:'rgba(168,110,200,0.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8',
-            desc:'De pie, pies al doble del ancho de hombros. Desplaza el peso al lado derecho doblando esa rodilla. Pierna izquierda extendida, pie plano. Empuja desde el talón derecho para volver. Los brazos se extienden al frente para equilibrio. Trabaja aductores y glúteo en patrón funcional.',
-            tip:'El pie de la pierna extendida permanece plano en el suelo. Si el talón se levanta, abre más los pies.',
-            injured:false
-          }
-        ]
-      },
-      {
-        name:'Full body funcional', icon:'🔥', iconBg:'rgba(168,110,200,0.12)',
-        exercises:[
-          {
-            id:'d5e6', emoji:'🦘', name:'Sentadilla con desplazamiento lateral',
-            spec:'3 series · 10 reps por lado',
-            timer:120, sets:3,
-            muscles:['Cuádriceps','Glúteo mayor','Glúteo medio','Aductores'],
-            mc:'rgba(168,110,200,0.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8',
-            desc:'Desde la posición de sentadilla (muslos paralelos al suelo), da un paso lateral con el pie derecho, sigue con el izquierdo, y vuelve. 10 pasos a la derecha, 10 a la izquierda, siempre en posición de sentadilla. Trabaja glúteo medio y cuádriceps bajo carga continua con componente de movilidad.',
-            tip:'Los brazos se extienden al frente para contrarrestar el peso. Mantén la profundidad de sentadilla constante — no subas entre pasos.',
-            injured:false
-          }
-        ]
-      },
-      {
-        name:'Reset postural & respiración', icon:'🧘', iconBg:'rgba(168,110,200,0.12)',
-        exercises:[
-          {
-            id:'d5e7', emoji:'🌬️', name:'Respiración 4-7-8 con activación',
-            spec:'3 series · 8 ciclos',
-            timer:120, sets:3,
-            muscles:['Diafragma','Transverso','Suelo pélvico','Intercostales'],
-            mc:'rgba(168,110,200,0.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8',
-            desc:'Tumbado boca arriba. Inhala 4 s expandiendo 360°. Aguanta 7 s con el suelo pélvico activo. Exhala 8 s completamente. En la retención: nota cómo el diafragma crea presión intraabdominal — eso es el "core natural" que el cuerpo debería activar siempre. Esta respiración activa el sistema nervioso parasimpático y consolida todos los patrones de movimiento del día.',
-            tip:'Si el 4-7-8 es demasiado, empieza con 4-4-6. El ratio es lo importante: siempre la exhala más larga que la inhala.',
-            injured:false
-          },
-          {
-            id:'d5e8', emoji:'🌟', name:'Depresión escapular + chin tuck integrados',
-            spec:'3 series · 10 reps combinadas',
-            timer:90, sets:3,
-            muscles:['Trapecio inferior','Cervicales profundos','Platisma','Serrato'],
-            mc:'rgba(168,110,200,0.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8',
-            desc:'De pie o sentado. Realiza simultáneamente: baja los omóplatos activamente (depresión escapular) Y empuja la barbilla hacia atrás (chin tuck). Mantén 5 s. Suelta y repite. Este ejercicio combina los dos patrones más importantes del plan: trapecio inferior + cervicales profundos. Es el resumen postural de toda la semana.',
-            tip:'Al principio es difícil coordinar los dos movimientos. Empieza haciendo uno y luego el otro, hasta que el patrón combinado se vuelva automático.',
-            injured:false
-          },
-          {
-            id:'d5e9', emoji:'🧖', name:'Estiramiento cervical profundo con respiración',
-            spec:'3 series · 40 seg por dirección',
-            timer:40, sets:3,
-            muscles:['Escalenos','Esplenio','Elevador de la escápula','Esternocleidomastoideo'],
-            mc:'rgba(168,110,200,0.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8',
-            desc:'Sentado o de pie. Realiza 4 direcciones, 40 s cada una con respiración profunda: 1) Oreja derecha al hombro (mano izquierda añade peso suave en la sien si quieres profundizar). 2) Oreja izquierda al hombro. 3) Barbilla al pecho (estiramiento de la nuca). 4) Rotación: nariz hacia la axila derecha, luego izquierda. En cada posición, inhala normalmente y en cada exhala cede un poco más sin forzar. Este bloque de movilidad pasiva es la contraparte necesaria de todos los ejercicios de fuerza cervical de la semana.',
-            tip:'El cuello nunca se lleva hacia atrás en extensión pura — es el único movimiento cervical que puede ser lesivo. Las otras 4 direcciones son completamente seguras con intensidad moderada. Si notas hormigueo en el brazo, reduce el rango inmediatamente.',
-            injured:false
-          }
-        ]
-      }
+      { name:'Movilidad completa de cadera', icon:'⭐', iconBg:'rgba(168,110,200,.12)', exercises:[
+        { id:'d5e1', emoji:'🌟', name:"World's Greatest Stretch", spec:'{S} series · 5 reps por lado', timer:150, sets:3, muscles:['Psoas','Pectoral','Rotadores torácicos','Isquiotibial','Glúteo mayor'], mc:'rgba(168,110,200,.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8', desc:'Zancada profunda con pie derecho adelante. Mano izquierda en el suelo. Codo derecho al suelo junto al pie. Luego brazo izquierdo hacia el techo rotando el tronco. Extiende la pierna delantera. Vuelve y repite.', tip:'Ve lento. Respira en cada posición antes de moverse.', injured:true, injuryNote:'Fase de codo al suelo: usa el codo derecho. En la rotación eleva el brazo izquierdo.' },
+        { id:'d5e2', emoji:'🦋', name:'Mariposa activa con respiración', spec:'{S} series · 20 pulsaciones + 30 seg hold', timer:90, sets:3, muscles:['Aductor largo','Aductor corto','Pectíneo','Suelo pélvico'], mc:'rgba(168,110,200,.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8', desc:'Sentado, plantas de los pies juntas. Codo izquierdo en los muslos. 20 pulsaciones suaves hacia abajo. Luego mantén 30 s: en cada exhala las rodillas ceden un poco más.', tip:'Espalda recta — si se redondea, aleja los pies.', injured:false },
+        { id:'d5e3', emoji:'🌊', name:'Ola lateral de cadera (lateral lunge)', spec:'{S} series · 10 reps por lado', timer:90, sets:3, muscles:['Aductores','Glúteo mayor','Cuádriceps','Isquiotibial'], mc:'rgba(168,110,200,.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8', desc:'De pie, pies al doble del ancho de hombros. Desplaza el peso al lado doblando esa rodilla. Pierna contraria extendida, pie plano. Empuja desde el talón para volver.', tip:'El pie de la pierna extendida permanece plano. Si el talón se levanta, abre más los pies.', injured:false }
+      ]},
+      { name:'Reset postural & respiración', icon:'🧘', iconBg:'rgba(168,110,200,.12)', exercises:[
+        { id:'d5e7', emoji:'🌬️', name:'Respiración 4-7-8 con activación', spec:'{S} series · 8 ciclos', timer:120, sets:3, muscles:['Diafragma','Transverso','Suelo pélvico','Intercostales'], mc:'rgba(168,110,200,.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8', desc:'Tumbado boca arriba. Inhala 4 s expandiendo 360°. Aguanta 7 s con el suelo pélvico activo. Exhala 8 s completamente. En la retención nota cómo el diafragma crea presión intraabdominal.', tip:'Si 4-7-8 es demasiado, empieza con 4-4-6. La exhala siempre más larga que la inhala.', injured:false },
+        { id:'d5e8', emoji:'🌟', name:'Depresión escapular + chin tuck integrados', spec:'{S} series · 10 reps combinadas', timer:90, sets:3, muscles:['Trapecio inferior','Cervicales profundos','Platisma','Serrato'], mc:'rgba(168,110,200,.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8', desc:'Simultáneamente: baja los omóplatos activamente Y empuja la barbilla hacia atrás. Mantén 5 s. Suelta y repite. Combina los dos patrones más importantes del plan.', tip:'Al principio es difícil coordinar los dos movimientos. Empieza haciendo uno y luego el otro.', injured:false },
+        { id:'d5e9', emoji:'🧖', name:'Estiramiento cervical profundo con respiración', spec:'{S} series · 40 seg por dirección', timer:40, sets:3, muscles:['Escalenos','Esplenio','Elevador de la escápula','Esternocleidomastoideo'], mc:'rgba(168,110,200,.12)', mt:'#A86EC8', tbg:'#2A0E3D', ac:'#A86EC8', desc:'4 direcciones, 40 s cada una: 1) Oreja derecha al hombro. 2) Oreja izquierda al hombro. 3) Barbilla al pecho. 4) Nariz hacia la axila derecha, luego izquierda. En cada exhala cede un poco más.', tip:'El cuello nunca se lleva hacia atrás en extensión pura. Si notas hormigueo en el brazo, reduce el rango.', injured:false }
+      ]}
     ]
   }
 ];
@@ -1310,27 +562,55 @@ const DAYS = [
 // ════════════════════════════════════════
 // STATE
 // ════════════════════════════════════════
+const MODE_CONFIG = {
+  fast:      { sets:2, label:'⚡ Rápido',  color:'#C8A96E', bg:'rgba(200,169,110,.15)' },
+  normal:    { sets:3, label:'✦ Normal',   color:'#52B788',  bg:'rgba(82,183,136,.15)' },
+  extensive: { sets:4, label:'◆ Extensivo',color:'#A86EC8', bg:'rgba(168,110,200,.15)' }
+};
+
 const S = {
-  done: JSON.parse(localStorage.getItem('ct_done')||'{}'),
+  done: JSON.parse(localStorage.getItem('et_done')||'{}'),
+  mode: 'normal',
   currentDay: null,
   doneEx: new Set(),
   timers: {},
   serieState: {}
 };
-const save = () => localStorage.setItem('ct_done', JSON.stringify(S.done));
+const save = () => localStorage.setItem('et_done', JSON.stringify(S.done));
 
 // ════════════════════════════════════════
-// RENDER SPLASH
+// VIEW ROUTING
 // ════════════════════════════════════════
-function renderSplash() {
-  renderWeekBar();
-  renderWeekProgress();
-  renderDayList();
+function showView(id) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
 }
 
-function renderWeekBar() {
-  const el = document.getElementById('week-bar');
-  el.innerHTML = '';
+function goToModeSelect() {
+  renderModeScreen();
+  showView('view-mode');
+}
+
+function openPostural() {
+  renderPostural();
+  showView('view-postural');
+}
+
+function backFromTraining() {
+  Object.values(S.timers).forEach(t=>clearInterval(t));
+  S.timers = {};
+  renderHome();
+  showView('view-home');
+}
+
+// ════════════════════════════════════════
+// HOME
+// ════════════════════════════════════════
+function renderHome() {
+  // Week bar
+  const wb = document.getElementById('week-bar');
+  wb.innerHTML = '';
   const days = ['D','L','M','X','J','V','S'];
   const today = new Date();
   const start = new Date(today);
@@ -1342,55 +622,57 @@ function renderWeekBar() {
     if(d.toDateString()===today.toDateString()) div.classList.add('is-today');
     if(S.done[d.toDateString()]) div.classList.add('is-done');
     div.innerHTML = `<span class="wday-name">${days[d.getDay()]}</span><span class="wday-num">${d.getDate()}</span>`;
-    el.appendChild(div);
+    wb.appendChild(div);
   }
-}
-
-function renderWeekProgress() {
-  const total = 5;
-  const done = Object.values(S.done).filter(Boolean).length;
-  const pct = Math.min(done/total*100,100);
-  document.getElementById('wp-val').textContent = done+'/'+total+' días';
+  // Week progress
+  const doneKeys = Object.keys(S.done).filter(k => S.done[k]);
+  const pct = Math.min(doneKeys.length/7*100,100);
+  document.getElementById('wp-val').textContent = doneKeys.length+'/7';
   document.getElementById('wp-fill').style.width = pct+'%';
+  // Day chips on training card
+  const chips = document.getElementById('home-day-chips');
+  chips.innerHTML = DAYS.map(d => {
+    const done = S.done['day'+d.id];
+    return `<span class="scard-chip" style="background:${done?d.dark:'var(--surface2)'};color:${done?d.color:'var(--muted)'};border:1px solid ${d.color}33">${done?'✓ ':''} ${d.label}</span>`;
+  }).join('');
 }
 
-function renderDayList() {
-  const el = document.getElementById('day-list');
+// ════════════════════════════════════════
+// MODE SCREEN
+// ════════════════════════════════════════
+function renderModeScreen() {
+  const el = document.getElementById('mode-day-list');
   el.innerHTML = '';
-
   DAYS.forEach(day => {
-    const specificWarmup = WARMUP_SPECIFIC[day.id] || [];
-    const totalEx = day.sections.reduce((a,s)=>a+s.exercises.length,0) + FIXED_BLOCK.exercises.length + WARMUP_COMMON.length + specificWarmup.length;
     const isDone = S.done['day'+day.id];
     const card = document.createElement('div');
-    card.className = 'day-item' + (isDone ? ' is-complete' : '');
+    card.className = 'day-item' + (isDone?' is-complete':'');
     card.style.background = day.dark;
     card.style.borderColor = isDone ? day.accent+'44' : 'var(--border)';
-
-    // Count injury-adapted exercises
-    const allEx = [...WARMUP_COMMON, ...specificWarmup, ...FIXED_BLOCK.exercises, ...day.sections.flatMap(s=>s.exercises)];
-    const injuredCount = allEx.filter(e=>e.injured).length;
-
+    const allEx = [...(WARMUP_SPECIFIC[day.id]||[]), ...WARMUP_COMMON, ...day.sections.flatMap(s=>s.exercises)];
+    const injCount = allEx.filter(e=>e.injured).length;
     card.innerHTML = `
       <div class="di-inner">
         <div class="di-num" style="color:${day.color}">${day.id}</div>
         <div class="di-info">
-          <div class="di-tag" style="color:${day.color}88">${day.label} · ${day.duration}</div>
+          <div class="di-tag" style="color:${day.color}88">${day.label}</div>
           <div class="di-title" style="color:${day.color}">${day.title}</div>
-          <div class="di-meta">${totalEx} ejercicios · ${day.sub}</div>
           <div class="di-chips">
-            <span class="di-chip" style="background:${day.dark};color:${day.color};border:1px solid ${day.color}44">${totalEx} ejercicios</span>
-            ${injuredCount>0?`<span class="di-chip" style="background:rgba(255,107,53,0.1);color:var(--injury)">${injuredCount} adaptados ✋</span>`:''}
-            ${isDone?`<span class="di-chip" style="background:rgba(82,183,136,0.1);color:var(--fixed)">✓ Completado</span>`:''}
+            ${injCount>0?`<span class="di-chip" style="background:rgba(255,107,53,.1);color:var(--injury)">${injCount} adaptados ✋</span>`:''}
+            ${isDone?`<span class="di-chip" style="background:rgba(82,183,136,.1);color:var(--postural)">✓ Completado</span>`:''}
           </div>
         </div>
         <div class="di-done-mark" style="background:${day.accent}22;color:${day.accent}">✓</div>
         <div class="di-arrow" style="color:${day.color}">→</div>
-      </div>
-    `;
+      </div>`;
     card.onclick = () => openDay(day.id);
     el.appendChild(card);
   });
+}
+
+function selectMode(mode) {
+  S.mode = mode;
+  renderModeScreen();
 }
 
 // ════════════════════════════════════════
@@ -1404,113 +686,133 @@ function openDay(dayId) {
   Object.values(S.timers).forEach(t=>clearInterval(t));
   S.timers = {};
 
+  const mc = MODE_CONFIG[S.mode];
+  const setsCount = mc.sets;
+
   document.getElementById('tr-tag').textContent = day.label + ' · ' + day.sub;
   document.getElementById('tr-title').textContent = day.title;
-  document.getElementById('tr-dur').textContent = day.duration;
+  document.getElementById('tr-dur').textContent = day.durations[S.mode];
   document.getElementById('tr-pfill').style.background = day.accent;
   document.getElementById('tr-header').style.borderBottomColor = day.accent+'33';
+  const badge = document.getElementById('tr-mode-badge');
+  badge.textContent = mc.label;
+  badge.style.background = mc.bg;
+  badge.style.color = mc.color;
 
   const content = document.getElementById('tr-content');
+  // Keep banner at end
+  const banner = document.getElementById('complete-banner');
+  banner.classList.remove('show');
   content.innerHTML = '';
+  content.appendChild(banner);
 
   let allIds = [];
 
-  // ── Block nav
+  // Block nav
   const nav = document.getElementById('block-nav');
   nav.innerHTML = '';
   const navItems = [
-    { label: '🔥 Calentamiento', anchor: 'block-warmup' },
-    { label: '🔁 Bloque fijo', anchor: 'block-fixed' },
-    ...day.sections.map(s => ({ label: s.icon + ' ' + s.name, anchor: 'block-' + s.name.replace(/\s+/g,'_') }))
+    { label:'🔥 Calentamiento', anchor:'bn-warmup' },
+    ...day.sections.map(s=>({ label:s.icon+' '+s.name, anchor:'bn-'+s.name.replace(/\s+/g,'_') }))
   ];
   navItems.forEach(item => {
     const btn = document.createElement('button');
     btn.className = 'bnav-btn';
     btn.textContent = item.label;
-    btn.style.borderColor = day.accent + '44';
-    btn.onclick = () => {
-      const el = document.getElementById(item.anchor);
-      if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
+    btn.style.borderColor = day.accent+'33';
+    btn.onclick = () => { const el=document.getElementById(item.anchor); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); };
     nav.appendChild(btn);
   });
 
-  // ── Warmup block
+  // Warmup
   const wuDiv = document.createElement('div');
-  wuDiv.id = 'block-warmup';
-  const wuHeader = document.createElement('div');
-  wuHeader.className = 'warmup-block-header';
-  wuHeader.innerHTML = `🔥 Calentamiento · 5–7 min`;
-  wuDiv.appendChild(wuHeader);
+  wuDiv.id = 'bn-warmup';
+  const wuHdr = document.createElement('div');
+  wuHdr.className = 'warmup-block-header';
+  wuHdr.innerHTML = '🔥 Calentamiento · 5–7 min';
+  wuDiv.appendChild(wuHdr);
   const specificWarmup = WARMUP_SPECIFIC[day.id] || [];
   [...WARMUP_COMMON, ...specificWarmup].forEach(ex => {
     allIds.push(ex.id);
-    wuDiv.appendChild(buildExCard(ex, '#D4A017'));
+    wuDiv.appendChild(buildExCard(ex, '#D4A017', 1, true));
   });
-  content.appendChild(wuDiv);
-  const fbDiv = document.createElement('div');
-  fbDiv.id = 'block-fixed';
-  const fbHeader = document.createElement('div');
-  fbHeader.className = 'fixed-block-header';
-  fbHeader.innerHTML = `🔁 Bloque fijo diario — se repite todos los días`;
-  fbDiv.appendChild(fbHeader);
-  FIXED_BLOCK.exercises.forEach(ex => {
-    allIds.push(ex.id);
-    fbDiv.appendChild(buildExCard(ex, day.accent));
-  });
-  content.appendChild(fbDiv);
+  content.insertBefore(wuDiv, banner);
 
   // Day sections
   day.sections.forEach(sec => {
     const secDiv = document.createElement('div');
-    secDiv.id = 'block-' + sec.name.replace(/\s+/g,'_');
-
+    secDiv.id = 'bn-'+sec.name.replace(/\s+/g,'_');
     const bh = document.createElement('div');
     bh.className = 'block-header';
-    bh.innerHTML = `
-      <div class="bh-icon" style="background:${sec.iconBg}">${sec.icon}</div>
-      <div class="bh-text">
-        <div class="bh-name">${sec.name}</div>
-      </div>
-    `;
+    bh.innerHTML = `<div class="bh-icon" style="background:${sec.iconBg}">${sec.icon}</div><div class="bh-text"><div class="bh-name">${sec.name}</div></div>`;
     secDiv.appendChild(bh);
-
     sec.exercises.forEach(ex => {
       allIds.push(ex.id);
-      secDiv.appendChild(buildExCard(ex, day.accent));
+      // Override sets with mode
+      const effectiveSets = ex.id==='d4e7' ? Math.min(setsCount,2) : setsCount; // torsión espinal max 2
+      secDiv.appendChild(buildExCard(ex, day.accent, effectiveSets, false));
     });
-
-    content.appendChild(secDiv);
+    content.insertBefore(secDiv, banner);
   });
 
-  // Bottom pips
   window._allIds = allIds;
   const pips = document.getElementById('tb-pips');
   pips.innerHTML = allIds.map(id=>`<div class="tb-pip" id="pip-${id}"></div>`).join('');
-  document.getElementById('tb-count').textContent = '0/' + allIds.length;
-  document.getElementById('tb-time').textContent = day.duration;
+  document.getElementById('tb-count').textContent = '0/'+allIds.length;
+  document.getElementById('tb-time').textContent = day.durations[S.mode];
   document.getElementById('tr-pfill').style.width = '0%';
   document.getElementById('tr-plabel').textContent = '0/'+allIds.length;
-  document.getElementById('complete-banner').classList.remove('show');
 
-  document.getElementById('splash').style.display = 'none';
-  const tv = document.getElementById('training');
-  tv.style.display = 'flex';
-  window.scrollTo(0,0);
-  tv.scrollTo(0,0);
-  // Stick block-nav right below the sticky tr-header
-  requestAnimationFrame(() => {
+  showView('view-training');
+  requestAnimationFrame(()=>{
     const hdr = document.getElementById('tr-header');
-    const nav = document.getElementById('block-nav');
-    if(hdr && nav) nav.style.top = hdr.offsetHeight + 'px';
+    const nav2 = document.getElementById('block-nav');
+    if(hdr&&nav2) nav2.style.top = hdr.offsetHeight+'px';
+    document.getElementById('view-training').scrollTo(0,0);
   });
 }
-function buildExCard(ex, accentColor) {
-  // Determine block type from id prefix
-  const isWarmup  = ex.id.startsWith('wc') || ex.id.startsWith('ws');
-  const isFixed   = ex.id.startsWith('fx');
-  // strength = day exercises (d1e1 etc)
+
+// ════════════════════════════════════════
+// POSTURAL
+// ════════════════════════════════════════
+function renderPostural() {
+  S.doneEx = new Set();
+  S.serieState = {};
+  Object.values(S.timers).forEach(t=>clearInterval(t));
+  S.timers = {};
+
+  const content = document.getElementById('post-content');
+  const doneBanner = document.getElementById('postural-done');
+  doneBanner.classList.remove('show');
+  content.innerHTML = '';
+  content.appendChild(doneBanner);
+
+  const hdr = document.createElement('div');
+  hdr.className = 'block-header-postural';
+  hdr.innerHTML = '🌿 Rutina postural diaria';
+  content.insertBefore(hdr, doneBanner);
+
+  const allIds = [];
+  POSTURAL_EXERCISES.forEach(ex => {
+    allIds.push(ex.id);
+    content.insertBefore(buildExCard(ex, '#52B788', ex.sets, false, true), doneBanner);
+  });
+
+  window._postIds = allIds;
+  const pips = document.getElementById('post-pips');
+  pips.innerHTML = allIds.map(id=>`<div class="tb-pip" id="pip-${id}"></div>`).join('');
+  document.getElementById('post-count').textContent = '0/'+allIds.length;
+  document.getElementById('post-pfill').style.width = '0%';
+  document.getElementById('post-plabel').textContent = '0/'+allIds.length;
+}
+
+// ════════════════════════════════════════
+// BUILD EXERCISE CARD
+// ════════════════════════════════════════
+function buildExCard(ex, accentColor, setsOverride, isWarmup, isPostural=false) {
+  const sets = setsOverride || ex.sets;
   const isStrength = ex.id.startsWith('d');
+  const oneSerie = sets === 1;
 
   const card = document.createElement('div');
   card.className = 'ex-card';
@@ -1521,67 +823,38 @@ function buildExCard(ex, accentColor) {
   ).join('');
 
   const injuredBadge = ex.injured ? `<span class="injury-badge">✋ Adaptado</span>` : '';
-  const injuryAlert  = ex.injured && ex.injuryNote
-    ? `<div class="injury-alert"><span class="injury-alert-icon">✋</span><span><strong style="color:var(--injury)">Adaptación mano derecha:</strong> ${ex.injuryNote}</span></div>`
-    : '';
+  const injuryAlert = ex.injured && ex.injuryNote
+    ? `<div class="injury-alert"><span class="injury-alert-icon">✋</span><span><strong style="color:var(--injury)">Adaptación mano derecha:</strong> ${ex.injuryNote}</span></div>` : '';
 
-  // ── Unified series + timer block for ALL exercises
-  const oneSerie = ex.sets === 1;
-  const timerLabel = (isFixed || isWarmup || oneSerie) ? '⏱ Duración' : '⏱ Descanso entre series';
-  const timerStr = fmt(ex.timer);
-  const tbg = ex.tbg || 'rgba(255,200,80,0.15)';
-  const tcolor = ex.tbg ? ex.tbg : '#2A1F00';
-
-  // Button label and action
+  const timerLabel = (isPostural || isWarmup || oneSerie) ? '⏱ Duración' : '⏱ Descanso entre series';
+  const tbg = ex.tbg || '#1a1a1a';
+  const tcolor = ex.tbg || '#111';
   const btnLabel = isWarmup ? '✓ Hecho, continuar' : oneSerie ? '✓ Completado' : '✓ Completar serie 1';
-  const btnAction = isWarmup
-    ? `completeSerie(event,'${ex.id}',1,'${accentColor}',${ex.timer},false)`
-    : `completeSerie(event,'${ex.id}',${ex.sets},'${ex.ac}',${ex.timer},${isStrength})`;
+  const btnAction = `completeSerie(event,'${ex.id}',${sets},'${accentColor}',${ex.timer},${isStrength},${isPostural})`;
 
-  // Dots for multi-set non-warmup exercises
-  const dots = (!isWarmup && !oneSerie)
-    ? Array.from({length: ex.sets}, (_,i) =>
-        `<div class="sdot-new${i===0?' active':''}" id="sdot-${ex.id}-${i}"></div>`
-      ).join('')
-    : '';
+  const dots = (!oneSerie)
+    ? Array.from({length:sets},(_,i)=>
+        `<div class="sdot${i===0?' active':''}" id="sdot-${ex.id}-${i}"></div>`
+      ).join('') : '';
 
-  const seriesCounter = (!isWarmup && !oneSerie) ? `
-      <div class="series-timer-row">
-        <div class="series-col">
-          <div class="series-label">Series</div>
-          <div class="series-progress" id="sprog-${ex.id}">0 <span>/ ${ex.sets}</span></div>
-          <div class="series-dots">${dots}</div>
-        </div>
-        <div class="series-col">
-          <div class="timer-label">${timerLabel}</div>
-          <div class="timer-val" id="tval-${ex.id}">${timerStr}</div>
-          <div class="timer-ctrl">
-            <button class="tctrl-btn tctrl-rst" onclick="resetTmr(event,'${ex.id}',${ex.timer})">↺</button>
-            <button class="tctrl-btn tctrl-go" id="tgo-${ex.id}" style="color:${tcolor}"
-              onclick="startTmr(event,'${ex.id}',${ex.timer})">▶ Start</button>
-          </div>
-        </div>
-      </div>` : `
-      <div class="series-timer-row">
-        <div class="series-col" style="grid-column:1/-1">
-          <div class="timer-label">${timerLabel}</div>
-          <div class="timer-val" id="tval-${ex.id}">${timerStr}</div>
-          <div class="timer-ctrl" style="margin-top:0.1rem">
-            <button class="tctrl-btn tctrl-rst" onclick="resetTmr(event,'${ex.id}',${ex.timer})">↺</button>
-            <button class="tctrl-btn tctrl-go" id="tgo-${ex.id}" style="color:${tcolor}"
-              onclick="startTmr(event,'${ex.id}',${ex.timer})">▶ Start</button>
-          </div>
-        </div>
-      </div>`;
+  const specDisplay = ex.spec.replace('{S}', sets);
 
-  const seriesHTML = `
-    <div class="series-block" style="background:${tbg}">
-      ${seriesCounter}
-      <button class="series-btn" id="sbtn-${ex.id}"
-        style="background:rgba(255,255,255,0.9);color:${tcolor}"
-        onclick="${btnAction}">
-        ${btnLabel}
-      </button>
+  const counterCol = !oneSerie ? `
+    <div class="series-col">
+      <div class="series-label">Series</div>
+      <div class="series-progress" id="sprog-${ex.id}">0 <span>/ ${sets}</span></div>
+      <div class="series-dots">${dots}</div>
+    </div>` : '';
+
+  const timerCol = `
+    <div class="series-col" ${oneSerie?'style="grid-column:1/-1"':''}>
+      <div class="timer-label">${timerLabel}</div>
+      <div class="timer-val" id="tval-${ex.id}">${fmt(ex.timer)}</div>
+      <div class="timer-ctrl">
+        <button class="tctrl-btn tctrl-rst" onclick="resetTmr(event,'${ex.id}',${ex.timer})">↺</button>
+        <button class="tctrl-btn tctrl-go" id="tgo-${ex.id}" style="color:${tcolor}"
+          onclick="startTmr(event,'${ex.id}',${ex.timer})">▶ Start</button>
+      </div>
     </div>`;
 
   card.innerHTML = `
@@ -1589,21 +862,27 @@ function buildExCard(ex, accentColor) {
       <div class="ex-ico" style="background:${ex.mc}">${ex.emoji}</div>
       <div class="ex-info">
         <div class="ex-name">${ex.name}</div>
-        <div class="ex-spec">${ex.spec}</div>
+        <div class="ex-spec">${specDisplay}</div>
       </div>
-      <div class="ex-right">
-        ${injuredBadge}
-        <div class="ex-chevron">⌄</div>
-      </div>
+      <div class="ex-right">${injuredBadge}<div class="ex-chevron">⌄</div></div>
     </div>
     <div class="ex-body">
       <div class="ex-desc">${ex.desc}</div>
       ${injuryAlert}
-      <div class="ex-tip"><span class="ex-tip-ico">💡</span><span>${ex.tip}</span></div>
+      <div class="ex-tip"><span style="flex-shrink:0">💡</span><span>${ex.tip}</span></div>
       <div class="ex-muscles">${muscles}</div>
-      ${seriesHTML}
-    </div>
-  `;
+      <div class="series-block" style="background:${tbg}">
+        <div class="series-timer-row">
+          ${counterCol}
+          ${timerCol}
+        </div>
+        <button class="series-btn" id="sbtn-${ex.id}"
+          style="background:rgba(255,255,255,.9);color:${tcolor}"
+          onclick="${btnAction}">
+          ${btnLabel}
+        </button>
+      </div>
+    </div>`;
   return card;
 }
 
@@ -1614,77 +893,74 @@ function toggleEx(id) {
   document.getElementById('card-'+id).classList.toggle('is-open');
 }
 
-// Mark warmup exercise done (no series)
-function markWarmup(e, id, color) {
+function completeSerie(e, id, totalSets, color, timerDur, isStrength, isPostural=false) {
   e.stopPropagation();
-  const btn = document.getElementById('sbtn-'+id);
-  const card = document.getElementById('card-'+id);
-  if(!S.doneEx.has(id)){
-    S.doneEx.add(id);
-    card.classList.add('is-done');
-    btn.textContent = '✓ Completado';
-    btn.style.background = color;
-    btn.style.color = 'white';
-    btn.style.border = '2px solid '+color;
-    const pip = document.getElementById('pip-'+id);
-    if(pip) pip.style.background = color;
-    updateProgress();
-  }
-}
-
-// Complete one serie
-function completeSerie(e, id, totalSets, color, timerDur, isStrength) {
-  e.stopPropagation();
-  if(!S.serieState) S.serieState = {};
   if(!S.serieState[id]) S.serieState[id] = 0;
-
   const current = S.serieState[id];
   if(current >= totalSets) return;
 
-  // Mark dot done
   const dot = document.getElementById(`sdot-${id}-${current}`);
   if(dot){ dot.classList.remove('active'); dot.classList.add('done'); }
 
   const next = current + 1;
   S.serieState[id] = next;
 
-  // Activate next dot
   const nextDot = document.getElementById(`sdot-${id}-${next}`);
   if(nextDot) nextDot.classList.add('active');
 
-  // Update progress number
   const prog = document.getElementById('sprog-'+id);
   if(prog) prog.innerHTML = `${next} <span>/ ${totalSets}</span>`;
 
   const btn = document.getElementById('sbtn-'+id);
 
   if(next >= totalSets) {
-    // All series done → mark exercise complete
     btn.textContent = '✓ Ejercicio completado';
     btn.classList.add('all-done');
-
-    const card = document.getElementById('card-'+id);
-    card.classList.add('is-done');
+    document.getElementById('card-'+id).classList.add('is-done');
     const pip = document.getElementById('pip-'+id);
     if(pip) pip.style.background = color;
-
-    // Stop any running timer
     if(S.timers[id]){ clearInterval(S.timers[id]); S.timers[id]=null; }
-
+    resetTmr({stopPropagation:()=>{}}, id, timerDur);
     if(!S.doneEx.has(id)){
       S.doneEx.add(id);
-      updateProgress();
+      isPostural ? updatePosturalProgress() : updateProgress();
     }
   } else {
-    btn.textContent = `✓ Completar serie ${next + 1}`;
-
-    // For strength: auto-start rest timer on serie complete
+    btn.textContent = `✓ Completar serie ${next+1}`;
     if(isStrength){
       resetTmr({stopPropagation:()=>{}}, id, timerDur);
       startTmr({stopPropagation:()=>{}}, id, timerDur);
-    } else {
-      resetTmr({stopPropagation:()=>{}}, id, timerDur);
     }
+  }
+}
+
+function updateProgress() {
+  const total = window._allIds ? window._allIds.length : 0;
+  const done = S.doneEx.size;
+  document.getElementById('tb-count').textContent = done+'/'+total;
+  document.getElementById('tr-pfill').style.width = (total ? done/total*100 : 0)+'%';
+  document.getElementById('tr-plabel').textContent = done+'/'+total;
+  if(done===total && total>0){
+    const banner = document.getElementById('complete-banner');
+    banner.classList.add('show');
+    banner.scrollIntoView({behavior:'smooth'});
+    S.done[new Date().toDateString()] = true;
+    S.done['day'+S.currentDay.id] = true;
+    save();
+  }
+}
+
+function updatePosturalProgress() {
+  const total = window._postIds ? window._postIds.length : 0;
+  const done = S.doneEx.size;
+  document.getElementById('post-count').textContent = done+'/'+total;
+  document.getElementById('post-pfill').style.width = (total ? done/total*100 : 0)+'%';
+  document.getElementById('post-plabel').textContent = done+'/'+total;
+  if(done===total && total>0){
+    document.getElementById('postural-done').classList.add('show');
+    document.getElementById('postural-done').scrollIntoView({behavior:'smooth'});
+    S.done[new Date().toDateString()+'-postural'] = true;
+    save();
   }
 }
 
@@ -1697,12 +973,9 @@ function startTmr(e, id, dur) {
   e.stopPropagation();
   if(S.timers[id]) return;
   const disp = document.getElementById('tval-'+id);
-  const btn  = document.getElementById('tgo-'+id);
+  const btn = document.getElementById('tgo-'+id);
   if(!disp||!btn) return;
-  let rem = (() => {
-    const parts = disp.textContent.split(':');
-    return parts.length===2 ? +parts[0]*60 + +parts[1] : dur;
-  })();
+  let rem = (() => { const p=disp.textContent.split(':'); return p.length===2?+p[0]*60+ +p[1]:dur; })();
   btn.textContent = '⏸';
   btn.onclick = ev => { ev.stopPropagation(); pauseTmr(id, btn, dur); };
   S.timers[id] = setInterval(()=>{
@@ -1730,39 +1003,13 @@ function resetTmr(e, id, dur) {
   const disp = document.getElementById('tval-'+id);
   if(disp) disp.textContent = fmt(dur);
   const btn = document.getElementById('tgo-'+id);
-  if(btn){ btn.textContent='▶ Start'; btn.onclick = ev=>{ ev.stopPropagation(); startTmr(ev,id,dur); }; }
-}
-
-function updateProgress() {
-  const total = window._allIds ? window._allIds.length : 0;
-  const done = S.doneEx.size;
-  document.getElementById('tb-count').textContent = done+'/'+total;
-  document.getElementById('tr-pfill').style.width = (total ? done/total*100 : 0)+'%';
-  document.getElementById('tr-plabel').textContent = done+'/'+total;
-
-  if(done===total && total>0){
-    document.getElementById('complete-banner').classList.add('show');
-    document.getElementById('complete-banner').scrollIntoView({behavior:'smooth'});
-    const key = new Date().toDateString();
-    S.done[key]=true;
-    S.done['day'+S.currentDay.id]=true;
-    save();
-  }
-}
-
-function goBack() {
-  Object.values(S.timers).forEach(t=>clearInterval(t));
-  S.timers={};
-  document.getElementById('training').style.display='none';
-  document.getElementById('splash').style.display='flex';
-  renderSplash();
-  window.scrollTo(0,0);
+  if(btn){ btn.textContent='▶ Start'; btn.onclick=ev=>{ev.stopPropagation();startTmr(ev,id,dur);}; }
 }
 
 // ════════════════════════════════════════
 // INIT
 // ════════════════════════════════════════
-renderSplash();
+renderHome();
 </script>
 </body>
 </html>
