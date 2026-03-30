@@ -20,54 +20,66 @@
                 <p class="sitemap">
                     <a href="./index.html" id="nav-about">Sobre mí</a> |
                     <a href="./projects.html" id="nav-projects">Proyectos</a> |
-                    <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank"
+                        rel="noopener noreferrer">LinkedIn</a>
                 </p>
             </nav>
         </header>
         <hr>
         <section class="project-detail">
             <a href="./projects.html" class="back-link" id="back">← Proyectos</a>
-            <span class="card-tag" id="p-tag">IoT · En curso</span>
-            <h2 class="project-h2-main" id="p-title">Sistema de Riego Automático y Monitorización con Grafana</h2>
-            <p id="p-desc">Sistema de <b>riego automatizado</b> para una finca, con monitorización en tiempo real mediante <b>Grafana</b>.</p>
+            <span class="card-tag" id="p-tag">Proyecto Personal · 2023</span>
+            <h2 class="project-h2-main" id="p-title">Control y Monitorización Remota de una Finca</h2>
+            <p id="p-desc">Este proyecto consiste en el desarrollo de un sistema para programar y supervisar
+                remotamente el riego y condiciones ambientales de una finca.</p>
             <ul>
-                <li id="p-b1">Automatización del riego mediante sensores de humedad y temperatura.</li>
-                <li id="p-b2">Panel de monitorización en <b>Grafana</b> con datos en tiempo real.</li>
-                <li id="p-b3">Arquitectura basada en hardware embebido y comunicación IoT.</li>
+                <li id="p-b1">Programación de riego por zona, días, hora de inicio y duración.</li>
+                <li id="p-b2">Monitorización del estado del depósito, bomba y zonas de riego.</li>
+                <li id="p-b3">Integración de sensores meteorológicos y de suelo para evaluar necesidades de riego.</li>
             </ul>
-            <p class="placeholder-note" id="p-wip">⚙ <i>Proyecto en desarrollo — próximamente más detalles e imágenes.</i></p>
+            <p id="p-video-desc">El vídeo muestra cómo se configuran los riegos y se supervisa el estado general de la
+                finca.</p>
+            <video controls aria-label="Demostración del sistema de monitorización y riego remoto">
+                <source src="resources/riego.mp4" type="video/mp4">
+            </video>
+            <p id="p-data">Los datos se pueden consultar en tiempo real, permitiendo ajustes eficientes del riego según
+                las condiciones de la finca.</p>
+            
         </section>
     </div>
     <script>
-    window.PAGE_TRANSLATIONS = {
-        es: {
-            htmlLang:"es", pageTitle:"Riego Automático — Manuel Cobos Robles",
-            title:"Manuel Cobos Robles", career:"Ingeniero de la Energía",
-            "nav-about":"Sobre mí", "nav-projects":"Proyectos",
-            back:"← Proyectos",
-            "p-tag":"IoT · En curso",
-            "p-title":"Sistema de Riego Automático y Monitorización con Grafana",
-            "p-desc":"Sistema de <b>riego automatizado</b> para una finca, con monitorización en tiempo real mediante <b>Grafana</b>.",
-            "p-b1":"Automatización del riego mediante sensores de humedad y temperatura.",
-            "p-b2":"Panel de monitorización en <b>Grafana</b> con datos en tiempo real.",
-            "p-b3":"Arquitectura basada en hardware embebido y comunicación IoT.",
-            "p-wip":"⚙ <i>Proyecto en desarrollo — próximamente más detalles e imágenes.</i>",
-        },
-        en: {
-            htmlLang:"en", pageTitle:"Automated Irrigation — Manuel Cobos Robles",
-            title:"Manuel Cobos Robles", career:"Energy Engineer",
-            "nav-about":"About me", "nav-projects":"Projects",
-            back:"← Projects",
-            "p-tag":"IoT · Ongoing",
-            "p-title":"Automated Irrigation System and Grafana Monitoring",
-            "p-desc":"<b>Automated irrigation</b> system for a farm, with real-time monitoring via <b>Grafana</b>.",
-            "p-b1":"Irrigation automation using humidity and temperature sensors.",
-            "p-b2":"Real-time monitoring dashboard built with <b>Grafana</b>.",
-            "p-b3":"Architecture based on embedded hardware and IoT communication.",
-            "p-wip":"⚙ <i>Project under development — more details and images coming soon.</i>",
-        }
-    };
+        window.PAGE_TRANSLATIONS = {
+            es: {
+                htmlLang: "es", pageTitle: "Finca — Manuel Cobos Robles",
+                title: "Manuel Cobos Robles", career: "Ingeniero de la Energía",
+                "nav-about": "Sobre mí", "nav-projects": "Proyectos",
+                back: "← Proyectos",
+                "p-tag": "Proyecto Personal · 2023",
+                "p-title": "Control y Monitorización Remota de una Finca",
+                "p-desc": "Este proyecto consiste en el desarrollo de un sistema para programar y supervisar remotamente el riego y condiciones ambientales de una finca.",
+                "p-b1": "Programación de riego por zona, días, hora de inicio y duración.",
+                "p-b2": "Monitorización del estado del depósito, bomba y zonas de riego.",
+                "p-b3": "Integración de sensores meteorológicos y de suelo para evaluar necesidades de riego.",
+                "p-video-desc": "El vídeo muestra cómo se configuran los riegos y se supervisa el estado general de la finca.",
+                "p-data": "Los datos se pueden consultar en tiempo real, permitiendo ajustes eficientes del riego según las condiciones de la finca.",
+                
+            },
+            en: {
+                htmlLang: "en", pageTitle: "Remote plantation Control — Manuel Cobos Robles",
+                title: "Manuel Cobos Robles", career: "Energy Engineer",
+                "nav-about": "About me", "nav-projects": "Projects",
+                back: "← Projects",
+                "p-tag": "Personal Project · 2023",
+                "p-title": "Remote Plantation Control and Monitoring",
+                "p-desc": "This project involves developing a system to remotely schedule irrigation and monitor environmental conditions on a plantation.",
+                "p-b1": "Irrigation scheduling by zone, days, start time, and duration.",
+                "p-b2": "Monitoring of reservoir, pump, and irrigation zones status.",
+                "p-b3": "Integration of weather and soil sensors to assess irrigation needs.",
+                "p-video-desc": "The video demonstrates irrigation configuration and overall plantation monitoring.",
+                "p-data": "Data can be accessed in real time, enabling efficient irrigation adjustments based on plantation conditions.",
+                
+            }
+        };
     </script>
     <script src="lang.js"></script>
 </body>
-</html>
