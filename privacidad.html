@@ -4,17 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad — Poemario</title>
+    <meta name="description" content="Política de privacidad de la aplicación Poemario: qué datos guarda en tu dispositivo y qué permisos solicita.">
+    <link rel="canonical" href="https://mastercobos.github.io/website/privacidad.html">
+    <link rel="alternate" hreflang="x-default" href="https://mastercobos.github.io/website/privacidad.html">
+    <link rel="alternate" hreflang="es" href="https://mastercobos.github.io/website/privacidad.html?lang=es">
+    <link rel="alternate" hreflang="en" href="https://mastercobos.github.io/website/privacidad.html?lang=en">
+    <link rel="alternate" hreflang="fr" href="https://mastercobos.github.io/website/privacidad.html?lang=fr">
+    <link rel="icon" href="resources/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="resources/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Política de Privacidad — Poemario">
+    <meta property="og:description" content="Política de privacidad de la aplicación Poemario: qué datos guarda en tu dispositivo y qué permisos solicita.">
+    <meta property="og:url" content="https://mastercobos.github.io/website/privacidad.html">
+    <meta property="og:image" content="https://mastercobos.github.io/website/resources/og-image.jpg">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main" id="skipLink">Saltar al contenido</a>
 <div class="container">
     <header>
         <div class="language-switcher">
-            <button id="btn-es" aria-label="Cambiar a Español">ES</button>
+            <button id="btn-es" lang="es" aria-label="ES, español">ES</button>
             <span>|</span>
-            <button id="btn-en" aria-label="Switch to English">EN</button>
+            <button id="btn-en" lang="en" aria-label="EN, English">EN</button>
             <span>|</span>
-            <button id="btn-fr" aria-label="Passer au français">FR</button>
+            <button id="btn-fr" lang="fr" aria-label="FR, français">FR</button>
         </div>
         <h1 id="pageHeading">Política de Privacidad</h1>
         <p class="subtitle" id="appName">Poemario</p>
@@ -27,6 +43,7 @@
         </nav>
     </header>
     <hr>
+    <main id="main">
     <section class="content">
         <p id="intro">Poemario es una aplicación desarrollada por <b>Manuel Cobos Robles</b>. Esta política de privacidad describe cómo funciona la app en relación a tus datos.</p>
         <h2 id="sec1">Datos que recogemos</h2>
@@ -62,47 +79,14 @@
         <p id="sec8text">Si tienes alguna pregunta puedes escribir a: <b>manuelrr91@gmail.com</b></p>
         <p class="meta" id="lastUpdated">Última actualización: 31 de octubre de 2026</p>
     </section>
+    </main>
 </div>
 <script>
 window.PAGE_TRANSLATIONS = {
-    es: {
-        htmlLang:"es", pageTitle:"Política de Privacidad — Poemario",
-        "nav-about":"Sobre mí", "nav-projects":"Proyectos",
-        pageTitle:"Política de Privacidad — Poemario",
-        pageHeading:"Política de Privacidad",
-        appName:"Poemario",
-        intro:"Poemario es una aplicación desarrollada por <b>Manuel Cobos Robles</b>. Esta política de privacidad describe cómo funciona la app en relación a tus datos.",
-        sec1:"Datos que recogemos",
-        sec1text:"Poemario no recoge, almacena ni comparte ningún dato personal. No existe registro de usuario, ni seguimiento de actividad, ni conexión a servidores externos.",
-        sec2:"Datos almacenados localmente",
-        sec2text:"La app guarda en tu dispositivo únicamente:",
-        sec2li1:"Los poemas que marques como favoritos",
-        sec2li2:"Los autores que selecciones en la configuración",
-        sec2li3:"El tema de la app",
-        sec2li4:"Si el aviso diario está activado y a qué hora",
-        sec2li5:"Los autores mostrados recientemente, para variar los poemas del día",
-        sec2footer:"Estos datos no se envían nunca a nosotros ni a terceros, y se eliminan al desinstalar la app. Si tienes activadas las copias de seguridad de tu dispositivo (por ejemplo, de Google o de iCloud), pueden incluir estos datos y restaurarlos más adelante. Esas copias dependen de tu cuenta y nosotros no tenemos acceso a ellas.",
-        sec3:"Notificaciones",
-        sec3text:"Si activas el aviso diario, la app te pide permiso para mostrar notificaciones cuando tu dispositivo lo exige. Los avisos se programan en tu propio dispositivo, según su reloj y su zona horaria, y no pasan por ningún servidor. Puedes desactivarlos en cualquier momento.",
-        sec4:"Permisos en Android",
-        sec4text:"Desde la versión 1.1.0, Poemario solicita en Android únicamente estos permisos:",
-        sec4li1:"<b>Mostrar notificaciones</b> (<code>POST_NOTIFICATIONS</code>): para mostrar el aviso diario. Android 13 y posteriores te lo preguntan antes, y puedes leer los poemas aunque no lo concedas.",
-        sec4li2:"<b>Ejecutarse al iniciar el dispositivo</b> (<code>RECEIVE_BOOT_COMPLETED</code>): para volver a programar los avisos después de reiniciar, porque Android los borra.",
-        sec4li3:"<b>Controlar la vibración</b> (<code>VIBRATE</code>): para que el aviso pueda vibrar, según los ajustes de notificaciones de tu dispositivo.",
-        sec4internal:"Además, las bibliotecas de Android añaden un permiso interno (<code>com.manucobos.poemario.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>), que protege la comunicación dentro de la propia app y no da acceso a nada más.",
-        sec4footer:"Ninguno de estos permisos da acceso a tus contactos, fotos, archivos, ubicación, cámara o micrófono.",
-        sec5:"Compartir poemas",
-        sec5text:"Cuando compartes un poema, la app crea una imagen o un texto y lo entrega a la aplicación que elijas. A partir de ahí se aplica la política de privacidad de esa aplicación. Nosotros no recibimos ninguna información sobre lo que compartes.",
-        sec6:"Conexión a internet",
-        sec6text:"Poemario no requiere conexión a internet y no realiza ninguna comunicación con servidores externos. Desde la versión 1.1.0, en Android ni siquiera solicita el permiso de acceso a internet. El enlace a esta política que aparece en los ajustes se abre en tu navegador, fuera de la app.",
-        sec7:"Cambios en esta política",
-        sec7text:"Cualquier cambio futuro en esta política se publicará en esta misma página.",
-        sec8:"Contacto",
-        sec8text:"Si tienes alguna pregunta puedes escribir a: <b>manuelrr91@gmail.com</b>",
-        lastUpdated:"Última actualización: 31 de octubre de 2026",
-    },
     en: {
         htmlLang:"en", pageTitle:"Privacy Policy — Poemario",
+        metaDescription:"Privacy policy for the Poemario app: what data it stores on your device and which permissions it requests.",
+        skipLink:"Skip to content",
         "nav-about":"About me", "nav-projects":"Projects",
         pageHeading:"Privacy Policy",
         appName:"Poemario",
@@ -138,6 +122,8 @@ window.PAGE_TRANSLATIONS = {
     },
     fr: {
         htmlLang:"fr", pageTitle:"Politique de confidentialité — Poemario",
+        metaDescription:"Politique de confidentialité de l’application Poemario : données stockées sur votre appareil et autorisations demandées.",
+        skipLink:"Aller au contenu",
         "nav-about":"À propos", "nav-projects":"Projets",
         pageHeading:"Politique de confidentialité",
         appName:"Poemario",

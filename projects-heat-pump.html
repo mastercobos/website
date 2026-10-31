@@ -4,17 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bomba de Calor — Manuel Cobos Robles</title>
+    <meta name="description" content="Mejora del sistema de monitorización y adquisición de datos de una bomba de calor aerotérmica con un PLC Siemens S7-1500.">
+    <link rel="canonical" href="https://mastercobos.github.io/website/projects-heat-pump.html">
+    <link rel="alternate" hreflang="x-default" href="https://mastercobos.github.io/website/projects-heat-pump.html">
+    <link rel="alternate" hreflang="es" href="https://mastercobos.github.io/website/projects-heat-pump.html?lang=es">
+    <link rel="alternate" hreflang="en" href="https://mastercobos.github.io/website/projects-heat-pump.html?lang=en">
+    <link rel="icon" href="resources/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="resources/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bomba de Calor — Manuel Cobos Robles">
+    <meta property="og:description" content="Mejora del sistema de monitorización y adquisición de datos de una bomba de calor aerotérmica con un PLC Siemens S7-1500.">
+    <meta property="og:url" content="https://mastercobos.github.io/website/projects-heat-pump.html">
+    <meta property="og:image" content="https://mastercobos.github.io/website/resources/og-image.jpg">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main" id="skipLink">Saltar al contenido</a>
     <div class="container">
         <header>
             <div class="language-switcher">
-                <button id="btn-es" aria-label="Cambiar a Español">ES</button>
+                <button id="btn-es" lang="es" aria-label="ES, español">ES</button>
                 <span>|</span>
-                <button id="btn-en" aria-label="Switch to English">EN</button>
+                <button id="btn-en" lang="en" aria-label="EN, English">EN</button>
             </div>
-            <h1 id="title">Manuel Cobos Robles</h1>
+            <p class="site-name" id="title">Manuel Cobos Robles</p>
             <p class="career" id="career">Ingeniero de la Energía</p>
             <nav>
                 <p class="sitemap">
@@ -25,10 +40,11 @@
             </nav>
         </header>
         <hr>
+        <main id="main">
         <section class="project-detail">
             <a href="./projects.html" class="back-link" id="back">← Proyectos</a>
-            <span class="card-tag" id="p-tag">Tesis de Grado · 2023</span>
-            <h2 class="project-h2-main" id="p-title">Mejora del Sistema de Monitorización y Adquisición de Datos de una Bomba de Calor</h2>
+            <span class="card-tag" id="p-tag">Trabajo de Fin de Grado · 2023</span>
+            <h1 class="project-title" id="p-title">Mejora del Sistema de Monitorización y Adquisición de Datos de una Bomba de Calor Aerotérmica</h1>
             <p id="p-desc">Este proyecto implicó la modificación de una <b>bomba de calor aerotérmica</b> comercial para mejorar sus capacidades de monitorización y adquisición de datos.</p>
             <ul>
                 <li id="p-b1">Incremento del número y tipo de sensores en la bomba de calor.</li>
@@ -36,32 +52,20 @@
                 <li id="p-b3">Desarrollo del sistema de adquisición de datos y monitorización en <b>TIA Portal v17</b>.</li>
             </ul>
             <p id="p-video-desc">El siguiente vídeo muestra el sistema de monitorización en funcionamiento en una <b>pantalla HMI de Siemens</b>.</p>
-            <video controls aria-label="Demostración del sistema de monitorización en pantalla HMI de Siemens">
+            <video id="video" controls preload="none" poster="resources/HMI-poster.webp" width="1920" height="1080" aria-label="Demostración del sistema de monitorización en pantalla HMI de Siemens">
                 <source src="resources/HMI.mp4" type="video/mp4">
             </video>
             <p id="p-data">Los datos pueden consultarse a través del <b>servidor web del PLC</b>, permitiendo la descarga de un archivo CSV con los datos almacenados.</p>
-            <p class="project-badge" id="p-badge">🏆 Finalista — Premio de Eficiencia Energética · Nota: 9.5/10</p>
+            <p class="project-badge" id="p-badge">🏆 Finalista — Premio de Eficiencia Energética · Nota: 9,5/10</p>
         </section>
+        </main>
     </div>
     <script>
     window.PAGE_TRANSLATIONS = {
-        es: {
-            htmlLang:"es", pageTitle:"Bomba de Calor — Manuel Cobos Robles",
-            title:"Manuel Cobos Robles", career:"Ingeniero de la Energía",
-            "nav-about":"Sobre mí", "nav-projects":"Proyectos",
-            back:"← Proyectos",
-            "p-tag":"Tesis de Grado · 2023",
-            "p-title":"Mejora del Sistema de Monitorización y Adquisición de Datos de una Bomba de Calor",
-            "p-desc":"Este proyecto implicó la modificación de una <b>bomba de calor aerotérmica</b> comercial para mejorar sus capacidades de monitorización y adquisición de datos.",
-            "p-b1":"Incremento del número y tipo de sensores en la bomba de calor.",
-            "p-b2":"Implementación de sensores analógicos y <b>Modbus RTU</b> en un <b>Siemens PLC S7-1500</b>.",
-            "p-b3":"Desarrollo del sistema de adquisición de datos y monitorización en <b>TIA Portal v17</b>.",
-            "p-video-desc":"El siguiente vídeo muestra el sistema de monitorización en funcionamiento en una <b>pantalla HMI de Siemens</b>.",
-            "p-data":"Los datos pueden consultarse a través del <b>servidor web del PLC</b>, permitiendo la descarga de un archivo CSV con los datos almacenados.",
-            "p-badge":"🏆 Finalista — Premio de Eficiencia Energética · Nota: 9.5/10",
-        },
         en: {
             htmlLang:"en", pageTitle:"Heat Pump — Manuel Cobos Robles",
+            metaDescription:"Improvement of the monitoring and data acquisition system of an aerothermal heat pump using a Siemens S7-1500 PLC.",
+            skipLink:"Skip to content",
             title:"Manuel Cobos Robles", career:"Energy Engineer",
             "nav-about":"About me", "nav-projects":"Projects",
             back:"← Projects",
@@ -74,6 +78,9 @@
             "p-video-desc":"The following video demonstrates the monitoring system in action on a <b>Siemens HMI screen</b>.",
             "p-data":"Data can be accessed via the <b>PLC web server</b>, allowing CSV file downloads of stored data.",
             "p-badge":"🏆 Finalist — Energy Efficiency Award · Grade: 9.5/10",
+            attrs: {
+                video: { "aria-label":"Demonstration of the monitoring system on a Siemens HMI screen" },
+            },
         }
     };
     </script>

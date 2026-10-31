@@ -4,82 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poemario — Manuel Cobos Robles</title>
+    <meta name="description" content="Poemario, aplicación móvil que reúne miles de sonetos del Siglo de Oro español. Disponible en Google Play y App Store.">
+    <link rel="canonical" href="https://mastercobos.github.io/website/projects-poemario.html">
+    <link rel="alternate" hreflang="x-default" href="https://mastercobos.github.io/website/projects-poemario.html">
+    <link rel="alternate" hreflang="es" href="https://mastercobos.github.io/website/projects-poemario.html?lang=es">
+    <link rel="alternate" hreflang="en" href="https://mastercobos.github.io/website/projects-poemario.html?lang=en">
+    <link rel="icon" href="resources/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="resources/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Poemario — Manuel Cobos Robles">
+    <meta property="og:description" content="Poemario, aplicación móvil que reúne miles de sonetos del Siglo de Oro español. Disponible en Google Play y App Store.">
+    <meta property="og:url" content="https://mastercobos.github.io/website/projects-poemario.html">
+    <meta property="og:image" content="https://mastercobos.github.io/website/resources/og-image.jpg">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main" id="skipLink">Saltar al contenido</a>
     <div class="container">
         <header>
             <div class="language-switcher">
-                <button id="btn-es" aria-label="Cambiar a Español">ES</button>
+                <button id="btn-es" lang="es" aria-label="ES, español">ES</button>
                 <span>|</span>
-                <button id="btn-en" aria-label="Switch to English">EN</button>
+                <button id="btn-en" lang="en" aria-label="EN, English">EN</button>
             </div>
-            <h1 id="title">Manuel Cobos Robles</h1>
+            <p class="site-name" id="title">Manuel Cobos Robles</p>
             <p class="career" id="career">Ingeniero de la Energía</p>
             <nav>
                 <p class="sitemap">
                     <a href="./index.html" id="nav-about">Sobre mí</a> |
                     <a href="./projects.html" id="nav-projects">Proyectos</a> |
-                    <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank"
-                        rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </p>
             </nav>
         </header>
         <hr>
+        <main id="main">
         <section class="project-detail">
             <a href="./projects.html" class="back-link" id="back">← Proyectos</a>
             <span class="card-tag" id="p-tag">Aplicación Móvil · 2026</span>
-            <h2 class="project-h2-main" id="p-title">Poemario – Colección de Sonetos del Siglo de Oro Español</h2>
-            <p id="p-desc">Poemario es una aplicación que reúne miles sonetos del Siglo de Oro español, permitiendo
-                explorarlos y descubrir nuevos autores fácilmente.</p>
+            <h1 class="project-title" id="p-title">Poemario – Colección de Sonetos del Siglo de Oro Español</h1>
+            <p id="p-desc">Poemario es una aplicación que reúne miles de sonetos del Siglo de Oro español, permitiendo explorarlos y descubrir nuevos autores fácilmente.</p>
             <ul>
                 <li id="p-b1">Acceso a un índice con más de 50 autores y sus poemas.</li>
                 <li id="p-b2">Presentación de dos sonetos aleatorios cada día.</li>
                 <li id="p-b3">Guardado de poemas favoritos para consulta posterior.</li>
                 <li id="p-b4">Permite buscar palabras dentro de los títulos o poemas de la colección.</li>
             </ul>
-
-            <img src="resources/Poemario.jpeg" alt="Mockup de la aplicación"
-                style="max-width:100%; height:auto;">               
-            <p id="p-data">
-            La colección de poemas se ha extraído de la
-            <a class="header" href="https://www.cervantesvirtual.com/" target="_blank" rel="noopener noreferrer">
-                Biblioteca Virtual Miguel de Cervantes
-            </a>.
-            El enlace a la aplicación en <b>Google Play</b> permite instalarla y acceder a toda la colección.
-        </p>
+            <img id="mockup" class="img-full" src="resources/Poemario.jpeg" alt="Mockup de la aplicación" width="800" height="389" loading="lazy" decoding="async">
+            <p id="p-data">La colección de poemas se ha extraído de la <a href="https://www.cervantesvirtual.com/" target="_blank" rel="noopener noreferrer">Biblioteca Virtual Miguel de Cervantes</a>.</p>
+            <p id="p-links"><a href="https://play.google.com/store/apps/details?id=com.manucobos.poemario" target="_blank" rel="noopener noreferrer">Descargar en Google Play</a> · <a href="https://apps.apple.com/us/app/poemario-siglo-de-oro/id6762571196" target="_blank" rel="noopener noreferrer">Descargar en App Store</a> ·<a href="./privacidad.html">Política de privacidad</a> · <a href="./support.html">Soporte</a></p>
+            <h2 id="p-editions">Otras ediciones</h2>
+            <p id="p-editions-text">Próximamente, la misma aplicación en otros idiomas:</p>
+            <ul>
+                <li id="p-ed1"><b>English Verse</b>, poesía en inglés: <a href="./privacy-english-verse.html">privacidad</a> · <a href="./support-english-verse.html">soporte</a></li>
+                <li id="p-ed2"><b>Poésie française</b>, poesía en francés: <a href="./confidentialite-poesie-francaise.html">privacidad</a> · <a href="./support-poesie-francaise.html">soporte</a></li>
+            </ul>
+        </section>
+        </main>
     </div>
     <script>
-        window.PAGE_TRANSLATIONS = {
-            es: {
-                htmlLang: "es", pageTitle: "Poemario — Manuel Cobos Robles",
-                title: "Manuel Cobos Robles", career: "Ingeniero de la Energía",
-                "nav-about": "Sobre mí", "nav-projects": "Proyectos",
-                back: "← Proyectos",
-                "p-tag": "Aplicación Móvil · 2023",
-                "p-title": "Poemario – Colección de Sonetos del Siglo de Oro Español",
-                "p-desc": "Poemario es una aplicación que reúne miles sonetos del Siglo de Oro español, permitiendo explorarlos y descubrir nuevos autores fácilmente.",
-                "p-b1": "Acceso a un índice con más de 50 autores y sus poemas.",
-                "p-b2": "Presentación de dos sonetos aleatorios cada día.",
-                "p-b3": "Búsqueda y guardado de poemas favoritos para consulta posterior.",
-                "p-b4": "Permite buscar palabras dentro de los títulos o poemas de la colección.",
-                "p-data": "La colección de poemas se ha extraído de la <a class= 'header' href='https://www.cervantesvirtual.com/' target='_blank' rel='noopener noreferrer' > Biblioteca Virtual Miguel de Cervantes </a>.",
+    window.PAGE_TRANSLATIONS = {
+        en: {
+            htmlLang:"en", pageTitle:"Poemario — Manuel Cobos Robles",
+            metaDescription:"Poemario, a mobile app featuring thousands of Spanish Golden Age sonnets. Available on Google Play and the App Store.",
+            skipLink:"Skip to content",
+            title:"Manuel Cobos Robles", career:"Energy Engineer",
+            "nav-about":"About me", "nav-projects":"Projects",
+            back:"← Projects",
+            "p-tag":"Mobile App · 2026",
+            "p-title":"Poemario – Spanish Golden Age Sonnet Collection",
+            "p-desc":"Poemario is an app featuring thousands of Spanish Golden Age sonnets, allowing users to explore and discover new authors easily.",
+            "p-b1":"Access to an index with over 50 authors and their poems.",
+            "p-b2":"Presentation of two random sonnets each day.",
+            "p-b3":"Save favorite poems for later reference.",
+            "p-b4":"Search for words in titles and poems across the entire collection.",
+            "p-data":"The collection of poems has been sourced from the <a href='https://www.cervantesvirtual.com/' target='_blank' rel='noopener noreferrer'>Biblioteca Virtual Miguel de Cervantes</a>.",
+            "p-links":"<a href='https://play.google.com/store/apps/details?id=com.manucobos.poemario' target='_blank' rel='noopener noreferrer'>Get it on Google Play</a> · <a href='https://apps.apple.com/us/app/poemario-siglo-de-oro/id6762571196' target='_blank' rel='noopener noreferrer'>Download on the App Store</a> ·<a href='./privacidad.html'>Privacy policy</a> · <a href='./support.html'>Support</a>",
+            "p-editions":"Other editions",
+            "p-editions-text":"Coming soon, the same app in other languages:",
+            "p-ed1":"<b>English Verse</b>, poetry in English: <a href='./privacy-english-verse.html'>privacy</a> · <a href='./support-english-verse.html'>support</a>",
+            "p-ed2":"<b>Poésie française</b>, poetry in French: <a href='./confidentialite-poesie-francaise.html'>privacy</a> · <a href='./support-poesie-francaise.html'>support</a>",
+            attrs: {
+                mockup: { alt:"App mockup" },
             },
-            en: {
-                htmlLang: "en", pageTitle: "Poemario — Manuel Cobos Robles",
-                title: "Manuel Cobos Robles", career: "Energy Engineer",
-                "nav-about": "About me", "nav-projects": "Projects",
-                back: "← Projects",
-                "p-tag": "Mobile App · 2023",
-                "p-title": "Poemario – Spanish Golden Age Sonnet Collection",
-                "p-desc": "Poemario is an app featuring thousands of Spanish Golden Age sonnets, allowing users to explore and discover new authors easily.",
-                "p-b1": "Access to an index with over 50 authors and their poems.",
-                "p-b2": "Presentation of two random sonnets each day.",
-                "p-b3": "Search and save favorite poems for later reference.",
-                "p-b4": "Search for words in titles and poems across the entire collection.",
-                "p-data": "The collection of poems has been sourced from the <a class= 'header' href='https://www.cervantesvirtual.com/' target='_blank' rel='noopener noreferrer' > Biblioteca Virtual Miguel de Cervantes </a>.",
-            }
-        };
+        }
+    };
     </script>
     <script src="lang.js"></script>
 </body>
+</html>

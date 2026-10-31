@@ -1,8 +1,3 @@
-/* ── Tipografía base ── */
-p {
-    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
-}
-
 /* ── Enlaces ── */
 a {
     text-decoration: none;
@@ -21,15 +16,47 @@ body {
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    min-width: 320px;
     max-width: 800px;
-    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
-    background-image: url(resources/Iguazu.jpg);
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: #597091;
     line-height: 1.4;
     color: #181818;
     padding: 0 1em;
+    font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+/* Fondo fijo: una capa propia porque iOS no admite background-attachment: fixed */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url(resources/Iguazu.webp) center / cover no-repeat;
+}
+
+/* ── Accesibilidad ── */
+.skip-link {
+    position: absolute;
+    left: 1em;
+    top: -4em;
+    z-index: 1;
+    padding: 0.5em 1em;
+    background: #ffffff;
+}
+
+.skip-link:focus { top: 1em; }
+
+a:focus-visible, button:focus-visible, video:focus-visible {
+    outline: 2px solid #597091;
+    outline-offset: 2px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
 }
 
 /* ── Contenedor ── */
@@ -51,10 +78,11 @@ header {
     text-align: center;
 }
 
-h1 { font-size: 2em; margin: 0; }
+h1, .site-name { font-size: 2em; font-weight: bold; margin: 0; }
 .career { font-style: italic; margin: 0.5em 0; }
 nav { margin-top: 1em; }
 nav a:hover { text-decoration: underline; }
+nav a[aria-current="page"] { border-bottom: 2px solid #597091; }
 
 /* ── Separador entre bloques ── */
 hr {
@@ -158,7 +186,7 @@ video {
 .language-switcher { text-align: left; margin-bottom: 0; }
 
 .language-switcher button {
-    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+    font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 1em;
     background: none;
@@ -171,6 +199,7 @@ video {
 }
 
 .language-switcher button:hover { color: #fff; background: #181818; border-bottom: none; }
+.language-switcher button[aria-pressed="true"] { border-bottom: 2px solid #597091; }
 
 /* ── Tipografía ── */
 h2 {
@@ -178,7 +207,6 @@ h2 {
     margin: 1.8em 0 0.4em;
     border-bottom: 1px solid #d6ceba;
     padding-bottom: 0.2em;
-    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
 h2:first-child { margin-top: 0; }
@@ -247,15 +275,6 @@ code { overflow-wrap: anywhere; }
     margin: 0;
 }
 
-.card-image-placeholder {
-    color: #aaa;
-    font-size: 0.78em;
-    font-style: italic;
-    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
-    text-align: center;
-    padding: 1em;
-}
-
 .card-body {
     padding: 16px 18px 12px;
     flex: 1;
@@ -264,13 +283,12 @@ code { overflow-wrap: anywhere; }
 }
 
 .card-tag {
-    font-size: 0.70em;
+    font-size: 0.78em;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #597091;
     font-weight: bold;
     margin-bottom: 0.35em;
-    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
 .card-title {
@@ -278,7 +296,6 @@ code { overflow-wrap: anywhere; }
     font-weight: bold;
     margin: 0 0 0.45em;
     line-height: 1.3;
-    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
 .card-desc {
@@ -287,7 +304,6 @@ code { overflow-wrap: anywhere; }
     margin: 0;
     line-height: 1.4;
     flex: 1;
-    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
 .card-footer {
@@ -305,7 +321,8 @@ code { overflow-wrap: anywhere; }
 
 /* ── Detalle de proyecto ── */
 .back-link {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
     align-items: center;
     gap: 0.3em;
     font-size: 0.88em;
@@ -323,24 +340,16 @@ code { overflow-wrap: anywhere; }
     font-size: 0.85em;
     color: #597091;
     font-style: italic;
-    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
-}
-
-.placeholder-note {
-    font-size: 0.9em;
-    color: #888;
-    margin-top: 0.5em;
-    font-style: italic;
-    font-family: 'Computer Modern Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
 .project-detail h2 { margin-top: 1.6em; }
-.project-detail .project-h2-main {
+.project-detail .project-title {
     margin-top: 0.3em;
-    border-bottom: none;
-    padding-bottom: 0;
     font-size: 1.3em;
+    line-height: 1.3;
 }
+
+.img-full { max-width: 100%; }
 
 /* ── Responsive ── */
 @media only screen and (max-width: 600px) {
@@ -356,4 +365,11 @@ code { overflow-wrap: anywhere; }
         gap: 1em;
     }
     .project-card { border-right: 1px solid #d6ceba; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card, .project-card:hover, .card-arrow {
+        transition: none;
+        transform: none;
+    }
 }

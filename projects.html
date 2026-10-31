@@ -4,92 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos — Manuel Cobos Robles</title>
+    <meta name="description" content="Proyectos de Manuel Cobos Robles: monitorización de una bomba de calor, riego automático y la aplicación de poesía Poemario.">
+    <link rel="canonical" href="https://mastercobos.github.io/website/projects.html">
+    <link rel="alternate" hreflang="x-default" href="https://mastercobos.github.io/website/projects.html">
+    <link rel="alternate" hreflang="es" href="https://mastercobos.github.io/website/projects.html?lang=es">
+    <link rel="alternate" hreflang="en" href="https://mastercobos.github.io/website/projects.html?lang=en">
+    <link rel="icon" href="resources/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="resources/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Proyectos — Manuel Cobos Robles">
+    <meta property="og:description" content="Proyectos de Manuel Cobos Robles: monitorización de una bomba de calor, riego automático y la aplicación de poesía Poemario.">
+    <meta property="og:url" content="https://mastercobos.github.io/website/projects.html">
+    <meta property="og:image" content="https://mastercobos.github.io/website/resources/og-image.jpg">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main" id="skipLink">Saltar al contenido</a>
     <div class="container">
         <header>
             <div class="language-switcher">
-                <button id="btn-es" aria-label="Cambiar a Español">ES</button>
+                <button id="btn-es" lang="es" aria-label="ES, español">ES</button>
                 <span>|</span>
-                <button id="btn-en" aria-label="Switch to English">EN</button>
+                <button id="btn-en" lang="en" aria-label="EN, English">EN</button>
             </div>
-            <h1 id="title">Manuel Cobos Robles</h1>
+            <p class="site-name" id="title">Manuel Cobos Robles</p>
             <p class="career" id="career">Ingeniero de la Energía</p>
             <nav>
                 <p class="sitemap">
                     <a href="./index.html" id="nav-about">Sobre mí</a> |
-                    <a href="./projects.html" id="nav-projects">Proyectos</a> |
+                    <a href="./projects.html" id="nav-projects" aria-current="page">Proyectos</a> |
                     <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </p>
             </nav>
         </header>
         <hr>
+        <main id="main">
+        <h1 class="visually-hidden" id="pageHeading">Proyectos</h1>
         <div class="projects-grid">
             <a href="./projects-heat-pump.html" class="project-card">
                 <div class="card-image">
-                    <img src="resources/tfg2.jpg" alt="Aerotermia, PLC y enfriadora">
+                    <img id="img1" src="resources/tfg2.webp" alt="Aerotermia, PLC y enfriadora" width="800" height="579" decoding="async">
                 </div>
                 <div class="card-body">
                     <span class="card-tag" id="p1-tag">Trabajo de Fin de Grado · 2023</span>
-                    <p class="card-title" id="p1-title">Monitorización y Adquisición de datos de Bomba de Calor </p>
+                    <p class="card-title" id="p1-title">Monitorización y Adquisición de Datos de una Bomba de Calor</p>
                     <p class="card-desc" id="p1-desc">Mejora del sistema de adquisición de datos de una bomba de calor aerotérmica con PLC Siemens.</p>
-                    <div class="card-footer"><span class="card-arrow">→</span></div>
+                    <div class="card-footer"><span class="card-arrow" aria-hidden="true">→</span></div>
                 </div>
             </a>
             <a href="./projects-irrigation.html" class="project-card">
                 <div class="card-image">
-                    <img src="resources/campo2.jpg" alt="Foto del campo">
+                    <img id="img2" src="resources/campo2.webp" alt="Depósito de riego en la finca" width="800" height="686" decoding="async">
                 </div>
                 <div class="card-body">
                     <span class="card-tag" id="p2-tag">IoT</span>
                     <p class="card-title" id="p2-title">Riego Automático y Monitorización</p>
                     <p class="card-desc" id="p2-desc">Riego automatizado con monitorización en tiempo real mediante Grafana.</p>
-                    <div class="card-footer"><span class="card-arrow">→</span></div>
+                    <div class="card-footer"><span class="card-arrow" aria-hidden="true">→</span></div>
                 </div>
             </a>
             <a href="./projects-poemario.html" class="project-card">
                 <div class="card-image">
-                    <img src="resources/icono_poemario.png" alt="Icono de la aplicación">
+                    <img id="img3" src="resources/icono_poemario.png" alt="Icono de la aplicación Poemario" width="512" height="512" decoding="async">
                 </div>
                 <div class="card-body">
-                    <span class="card-tag" id="p3-tag">App Móvil</span>
+                    <span class="card-tag" id="p3-tag">App Móvil · 2026</span>
                     <p class="card-title" id="p3-title">Poemario</p>
-                    <p class="card-desc" id="p3-desc">Aplicación móvil de poesía.</p>
-                    <div class="card-footer"><span class="card-arrow">→</span></div>
+                    <p class="card-desc" id="p3-desc">Aplicación móvil de poesía, publicada en Google Play y App Store. Próximamente también en inglés y francés.</p>
+                    <div class="card-footer"><span class="card-arrow" aria-hidden="true">→</span></div>
                 </div>
             </a>
         </div>
+        </main>
     </div>
     <script>
     window.PAGE_TRANSLATIONS = {
-        es: {
-            htmlLang:"es", pageTitle:"Proyectos — Manuel Cobos Robles",
-            title:"Manuel Cobos Robles", career:"Ingeniero de la Energía",
-            "nav-about":"Sobre mí", "nav-projects":"Proyectos",
-            "p1-tag":"Trabajo de Fin de Grado · 2023", "p1-title":"Monitorización y Adquisición de datos de Bomba de Calor ",
-            "p1-desc":"Mejora del sistema de adquisición de datos de una bomba de calor aerotérmica con PLC Siemens.",
-            "p1-placeholder":"Imagen próximamente",
-            "p2-tag":"IoT · 2025", "p2-title":"Riego Automático y Monitorización",
-            "p2-desc":"Riego automatizado con monitorización en tiempo real mediante Grafana.",
-            "p2-placeholder":"Imagen próximamente",
-            "p3-tag":"App Móvil · 2026", "p3-title":"Poemario",
-            "p3-desc":"Aplicación móvil de poesía.",
-            "p3-placeholder":"Imagen próximamente",
-        },
         en: {
             htmlLang:"en", pageTitle:"Projects — Manuel Cobos Robles",
+            metaDescription:"Projects by Manuel Cobos Robles: heat pump monitoring, automated irrigation and the Poemario poetry app.",
+            skipLink:"Skip to content",
             title:"Manuel Cobos Robles", career:"Energy Engineer",
             "nav-about":"About me", "nav-projects":"Projects",
-            "p1-tag":"Thesis · 2023", "p1-title":"Heat Pump Monitoring and Data Acquisition",
+            pageHeading:"Projects",
+            "p1-tag":"Bachelor's Thesis · 2023", "p1-title":"Heat Pump Monitoring and Data Acquisition",
             "p1-desc":"Improved data acquisition system for an aerothermal heat pump using a Siemens PLC.",
-            "p1-placeholder":"Image coming soon",
-            "p2-tag":"IoT · 2025", "p2-title":"Automated Irrigation & Monitoring",
+            "p2-tag":"IoT", "p2-title":"Automated Irrigation and Monitoring",
             "p2-desc":"Automated irrigation system with real-time Grafana monitoring.",
-            "p2-placeholder":"Image coming soon",
             "p3-tag":"Mobile App · 2026", "p3-title":"Poemario",
-            "p3-desc":"Mobile poetry application.",
-            "p3-placeholder":"Image coming soon",
+            "p3-desc":"Mobile poetry app, available on Google Play and the App Store. Coming soon in English and French.",
+            attrs: {
+                img1: { alt:"Aerothermal unit, PLC and chiller" },
+                img2: { alt:"Irrigation reservoir on the farm" },
+                img3: { alt:"Poemario app icon" },
+            },
         }
     };
     </script>

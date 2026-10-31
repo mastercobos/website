@@ -4,22 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soporte — Poemario</title>
+    <meta name="description" content="Soporte y preguntas frecuentes de la aplicación Poemario.">
+    <link rel="canonical" href="https://mastercobos.github.io/website/support.html">
+    <link rel="alternate" hreflang="x-default" href="https://mastercobos.github.io/website/support.html">
+    <link rel="alternate" hreflang="es" href="https://mastercobos.github.io/website/support.html?lang=es">
+    <link rel="alternate" hreflang="en" href="https://mastercobos.github.io/website/support.html?lang=en">
+    <link rel="icon" href="resources/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="resources/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Soporte — Poemario">
+    <meta property="og:description" content="Soporte y preguntas frecuentes de la aplicación Poemario.">
+    <meta property="og:url" content="https://mastercobos.github.io/website/support.html">
+    <meta property="og:image" content="https://mastercobos.github.io/website/resources/og-image.jpg">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main" id="skipLink">Saltar al contenido</a>
 <div class="container">
     <header>
         <div class="language-switcher">
-            <button id="btn-es">ES</button>
+            <button id="btn-es" lang="es" aria-label="ES, español">ES</button>
             <span>|</span>
-            <button id="btn-en">EN</button>
+            <button id="btn-en" lang="en" aria-label="EN, English">EN</button>
         </div>
-        <h1 id="pageTitle">Soporte</h1>
+        <h1 id="pageHeading">Soporte</h1>
         <p class="subtitle" id="appName">Poemario</p>
+        <nav>
+            <p class="sitemap">
+                <a href="./index.html" id="nav-about">Sobre mí</a> |
+                <a href="./projects.html" id="nav-projects">Proyectos</a> |
+                <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </p>
+        </nav>
     </header>
 
     <hr>
 
+    <main id="main">
     <section class="content">
         <h2 id="contactTitle">Contacto</h2>
         <p id="contactText">
@@ -41,29 +64,18 @@
 
         <p class="meta" id="lastUpdated">Última actualización: abril de 2026</p>
     </section>
+    </main>
 </div>
 
 <script>
 window.PAGE_TRANSLATIONS = {
-    es: {
-        htmlLang:"es",
-        pageTitle:"Soporte — Poemario",
-        appName:"Poemario",
-        contactTitle:"Contacto",
-        contactText:"Si tienes preguntas, problemas o sugerencias sobre la aplicación Poemario, puedes contactar directamente:",
-        responseTime:"Intento responder en un plazo de 24–48 horas.",
-        faqTitle:"Preguntas frecuentes",
-        faq1q:"La app no funciona correctamente",
-        faq1a:"Asegúrate de tener la última versión instalada. Si el problema continúa, reinstala la app.",
-        faq2q:"He perdido mis favoritos",
-        faq2a:"Los datos se almacenan solo en tu dispositivo. Si desinstalas la app, se eliminan.",
-        faq3q:"¿La app necesita internet?",
-        faq3a:"No. Poemario funciona completamente sin conexión.",
-        lastUpdated:"Última actualización: abril de 2026"
-    },
     en: {
         htmlLang:"en",
         pageTitle:"Support — Poemario",
+        metaDescription:"Support and frequently asked questions for the Poemario app.",
+        skipLink:"Skip to content",
+        pageHeading:"Support",
+        "nav-about":"About me", "nav-projects":"Projects",
         appName:"Poemario",
         contactTitle:"Contact",
         contactText:"If you have questions, issues, or feedback about the Poemario app, you can contact:",

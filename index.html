@@ -3,82 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manuel Cobos Robles</title>
+    <title>Manuel Cobos Robles — Ingeniero de la Energía</title>
+    <meta name="description" content="Manuel Cobos Robles, ingeniero de la energía y Optimization Engineer en BeeBryte. Trayectoria, proyectos y currículum.">
+    <link rel="canonical" href="https://mastercobos.github.io/website/">
+    <link rel="alternate" hreflang="x-default" href="https://mastercobos.github.io/website/">
+    <link rel="alternate" hreflang="es" href="https://mastercobos.github.io/website/?lang=es">
+    <link rel="alternate" hreflang="en" href="https://mastercobos.github.io/website/?lang=en">
+    <link rel="icon" href="resources/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="resources/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Manuel Cobos Robles — Ingeniero de la Energía">
+    <meta property="og:description" content="Manuel Cobos Robles, ingeniero de la energía y Optimization Engineer en BeeBryte. Trayectoria, proyectos y currículum.">
+    <meta property="og:url" content="https://mastercobos.github.io/website/">
+    <meta property="og:image" content="https://mastercobos.github.io/website/resources/og-image.jpg">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main" id="skipLink">Saltar al contenido</a>
     <div class="container">
         <header>
             <div class="language-switcher">
-                <button id="btn-es" aria-label="Cambiar a Español">ES</button>
+                <button id="btn-es" lang="es" aria-label="ES, español">ES</button>
                 <span>|</span>
-                <button id="btn-en" aria-label="Switch to English">EN</button>
+                <button id="btn-en" lang="en" aria-label="EN, English">EN</button>
             </div>
             <h1 id="title">Manuel Cobos Robles</h1>
             <p class="career" id="career">Ingeniero de la Energía</p>
             <nav>
                 <p class="sitemap">
-                    <a href="./index.html" id="nav-about">Sobre mí</a> |
+                    <a href="./index.html" id="nav-about" aria-current="page">Sobre mí</a> |
                     <a href="./projects.html" id="nav-projects">Proyectos</a> |
                     <a href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </p>
             </nav>
         </header>
         <hr>
+        <main id="main">
         <section class="bio">
-            <p id="description">El objetivo de este sitio web es proporcionar una breve introducción a mi vida académica y experiencia laboral. Además, introducir algunos de mis proyectos realizados.</p>
+            <p id="intro">Soy ingeniero de la energía. Desde septiembre de 2024 trabajo como <b>Optimization Engineer</b> en <a href="https://beebryte.com" target="_blank" rel="noopener noreferrer">BeeBryte</a>, empresa especializada en optimización energética. Me encargo del sector de <b>Singapur</b>, trabajando en la optimización de sistemas de energía para clientes industriales y comerciales.</p>
+            <p id="more">Aquí puedes ver <a href="./projects.html">algunos de mis proyectos</a> o conocer mi trayectoria.</p>
 
-            <p id="education1">En 2017, comencé mis estudios en <i>Ingeniería de la Energía</i> en la <a class="header" href="https://www.uma.es" target="_blank" rel="noopener noreferrer">Universidad de Málaga</a>.</p>
+            <h2 id="backgroundTitle">Trayectoria</h2>
 
-            <p id="education2">En 2021, me trasladé a Sevilla para continuar mis estudios en la <a class="header" href="https://www.us.es/" target="_blank" rel="noopener noreferrer">Universidad de Sevilla</a>. Allí, cursé la especialización <i>Sistemas de Producción de Potencia</i>, enfocada en sistemas de <b>generación de energía convencional</b>, <b>turbomáquinas térmicas, centrales de ciclo combinado, centrales nucleares</b>, etc.</p>
+            <p id="education1">En 2017, comencé mis estudios en <i>Ingeniería de la Energía</i> en la <a href="https://www.uma.es" target="_blank" rel="noopener noreferrer">Universidad de Málaga</a>.</p>
 
-            <p id="education3">En 2022, me trasladé mediante un programa de movilidad internacional a Río de Janeiro, Brasil. Desde agosto, pasé 5 meses en Niteroi, asistiendo a la <a class="header" href="https://www.uff.br/" target="_blank" rel="noopener noreferrer">Universidad Federal Fluminense</a>.</p>
+            <p id="education2">En 2021, me trasladé a Sevilla para continuar mis estudios en la <a href="https://www.us.es/" target="_blank" rel="noopener noreferrer">Universidad de Sevilla</a>. Allí, cursé la especialización <i>Sistemas de Producción de Potencia</i>, enfocada en sistemas de <b>generación de energía convencional</b>, <b>turbomáquinas térmicas, centrales de ciclo combinado, centrales nucleares</b>, etc.</p>
+
+            <p id="education3">En 2022, me trasladé mediante un programa de movilidad internacional a Río de Janeiro, Brasil. Desde agosto, pasé 5 meses en Niterói, donde asistí a la <a href="https://www.uff.br/" target="_blank" rel="noopener noreferrer">Universidad Federal Fluminense</a>.</p>
 
             <div class="image-container">
-                <img src="resources/ItaipuH4.jpg" alt="Presa Itaipú">
+                <img id="itaipuImg" src="resources/ItaipuH4.webp" alt="Presa de Itaipú" width="1000" height="517" loading="lazy" decoding="async">
                 <p class="image-description" id="imageDesc">Presa hidroeléctrica de Itaipú (Foz do Iguaçu, Brasil).</p>
             </div>
 
             <p id="workExperience">En enero de 2023, regresé de Brasil y comencé unas prácticas. El trabajo se centró en proyectos de <b>Energías Renovables</b>, con un enfoque principal en el diseño de <b>instalaciones fotovoltaicas</b> para autoconsumo. Las prácticas terminaron a finales de junio.</p>
 
-            <p id="thesis">En ese momento, lo único que me quedaba para graduarme era completar mi tesis <i>Mejora del sistema de monitorización y adquisición de datos de una Bomba de Calor</i>. En septiembre, presenté mi tesis en la Universidad de Málaga. El proyecto recibió una calificación de <b>9.5</b> sobre 10 y fue finalista de un <b>premio de eficiencia energética</b>.</p>
-
-            <p id="workExperience2">Desde septiembre de 2024, trabajo como <b>Optimization Engineer</b> en <a class="header" href="https://beebryte.com" target="_blank" rel="noopener noreferrer">BeeBryte</a>, empresa especializada en optimización energética. Me encargo del sector de <b>Singapur</b>, trabajando en la optimización de sistemas de energía para clientes industriales y comerciales.</p>
-
-            <ul>
-                <li><a id="cv" href="resources/CV_Manuel_Cobos_EN.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a></li>
-            </ul>
+            <p id="thesis">En ese momento, lo único que me quedaba para graduarme era completar mi Trabajo de Fin de Grado <i>Mejora del sistema de monitorización y adquisición de datos de una Bomba de Calor</i>. En septiembre, lo presenté en la Universidad de Málaga. El proyecto recibió una calificación de <b>9,5</b> sobre 10 y fue finalista de un <b>premio de eficiencia energética</b>.</p>
         </section>
+        <section class="contact">
+            <h2 id="contactTitle">Contacto</h2>
+            <div class="contact-links">
+                <a class="contact-item" href="mailto:manuelrr91@gmail.com"><span class="contact-icon" aria-hidden="true">@</span>manuelrr91@gmail.com</a>
+                <a class="contact-item" href="https://www.linkedin.com/in/manuel-cobos-robles/" target="_blank" rel="noopener noreferrer"><span class="contact-icon" aria-hidden="true">in</span>LinkedIn</a>
+                <a class="contact-item" href="resources/CV_Manuel_Cobos_ES.pdf" id="cvItem" target="_blank" rel="noopener noreferrer"><span class="contact-icon" aria-hidden="true">CV</span><span id="cvLabel">Currículum Vitae</span></a>
+            </div>
+        </section>
+        </main>
     </div>
     <script>
     window.PAGE_TRANSLATIONS = {
-        es: {
-            htmlLang:"es", pageTitle:"Manuel Cobos Robles",
-            title:"Manuel Cobos Robles", career:"Ingeniero de la Energía",
-            "nav-about":"Sobre mí", "nav-projects":"Proyectos",
-            description:"El objetivo de este sitio web es proporcionar una breve introducción a mi vida académica y experiencia laboral. Además, introducir algunos de mis proyectos realizados.",
-            education1:"En 2017, comencé mis estudios en <i>Ingeniería de la Energía</i> en la <a class='header' href='https://www.uma.es' target='_blank' rel='noopener noreferrer'>Universidad de Málaga</a>.",
-            education2:"En 2021, me trasladé a Sevilla para continuar mis estudios en la <a class='header' href='https://www.us.es/' target='_blank' rel='noopener noreferrer'>Universidad de Sevilla</a>. Allí, cursé la especialización <i>Sistemas de Producción de Potencia</i>, enfocada en sistemas de <b>generación de energía convencional</b>, <b>turbomáquinas térmicas, centrales de ciclo combinado, centrales nucleares</b>, etc.",
-            education3:"En 2022, me trasladé mediante un programa de movilidad internacional a Río de Janeiro, Brasil. Desde agosto, pasé 5 meses en Niteroi, asistiendo a la <a class='header' href='https://www.uff.br/' target='_blank' rel='noopener noreferrer'>Universidad Federal Fluminense</a>.",
-            imageDesc:"Presa hidroeléctrica de Itaipú (Foz do Iguaçu, Brasil).",
-            workExperience:"En enero de 2023, regresé de Brasil y comencé unas prácticas. El trabajo se centró en proyectos de <b>Energías Renovables</b>, con un enfoque principal en el diseño de <b>instalaciones fotovoltaicas</b> para autoconsumo. Las prácticas terminaron a finales de junio.",
-            thesis:"En ese momento, lo único que me quedaba para graduarme era completar mi tesis <i>Mejora del sistema de monitorización y adquisición de datos de una Bomba de Calor</i>. En septiembre, presenté mi tesis en la Universidad de Málaga. El proyecto recibió una calificación de <b>9.5</b> sobre 10 y fue finalista de un <b>premio de eficiencia energética</b>.",
-            workExperience2:"Desde septiembre de 2024, trabajo como <b>Optimization Engineer</b> en <a class='header' href='https://beebryte.com' target='_blank' rel='noopener noreferrer'>BeeBryte</a>, empresa especializada en optimización energética. Me encargo del sector de <b>Singapur</b>, trabajando en la optimización de sistemas de energía para clientes industriales y comerciales.",
-            cv:"Currículum Vitae", cvLink:"resources/CV_Manuel_Cobos_ES.pdf",
-        },
         en: {
-            htmlLang:"en", pageTitle:"Manuel Cobos Robles",
+            htmlLang:"en", pageTitle:"Manuel Cobos Robles — Energy Engineer",
+            metaDescription:"Manuel Cobos Robles, energy engineer and Optimization Engineer at BeeBryte. Background, projects and CV.",
+            skipLink:"Skip to content",
             title:"Manuel Cobos Robles", career:"Energy Engineer",
             "nav-about":"About me", "nav-projects":"Projects",
-            description:"The objective of this website is to provide a brief introduction to my academic life and job experience. Additionally, I intend to explain some of the projects I have undertaken.",
-            education1:"In 2017, I commenced my studies in <i>Energy Engineering</i> at <a class='header' href='https://www.uma.es' target='_blank' rel='noopener noreferrer'>University of Malaga</a>. Over time, I realized my desire to pursue international experiences.",
-            education2:"In 2021, I relocated to Seville to further my studies at <a class='header' href='https://www.us.es/' target='_blank' rel='noopener noreferrer'>University of Seville</a>. While there, I pursued a specialization titled <i>Power Production Systems</i>, focused on <b>conventional energy generation</b> systems, including <b>Combined Cycle Power Plants, Nuclear Power Plants</b>, etc.",
-            education3:"In 2022, I continued my studies in Rio de Janeiro, Brazil. From August onward, I spent 5 months in Niteroi, attending <a class='header' href='https://www.uff.br/' target='_blank' rel='noopener noreferrer'>Fluminense Federal University</a>.",
+            intro:"I am an energy engineer. Since September 2024, I have been working as an <b>Optimization Engineer</b> at <a href='https://beebryte.com' target='_blank' rel='noopener noreferrer'>BeeBryte</a>, a company specialising in energy optimisation. I am responsible for the <b>Singapore</b> sector, working on energy system optimisation for industrial and commercial clients.",
+            more:"Here you can see <a href='./projects.html'>some of my projects</a> or read about my background.",
+            backgroundTitle:"Background",
+            education1:"In 2017, I commenced my studies in <i>Energy Engineering</i> at <a href='https://www.uma.es' target='_blank' rel='noopener noreferrer'>University of Malaga</a>.",
+            education2:"In 2021, I relocated to Seville to further my studies at <a href='https://www.us.es/' target='_blank' rel='noopener noreferrer'>University of Seville</a>. While there, I pursued a specialization titled <i>Power Production Systems</i>, focused on <b>conventional energy generation</b> systems, including <b>thermal turbomachinery, Combined Cycle Power Plants, Nuclear Power Plants</b>, etc.",
+            education3:"In 2022, I moved to Rio de Janeiro, Brazil, through an international mobility programme. From August onward, I spent 5 months in Niterói, attending <a href='https://www.uff.br/' target='_blank' rel='noopener noreferrer'>Fluminense Federal University</a>.",
             imageDesc:"Itaipú hydroelectric dam (Foz do Iguaçu, Brazil).",
             workExperience:"By January 2023, I had returned from Brazil and began a trainee position. The role centred around <b>Renewable Energies</b> projects, with a major focus on designing <b>photovoltaic systems</b> for self-consumption. The internship concluded at the end of June.",
-            thesis:"At that time, all that remained for me to graduate was completing my thesis <i>Improvement of a Heat Pump Monitoring and Data Acquisition System</i>. In September, I successfully presented it at the University of Malaga. The project received a grade of <b>9.5</b> out of 10 and became a <b>finalist</b> for an <b>energy efficiency award</b>.",
-            workExperience2:"Since September 2024, I have been working as an <b>Optimization Engineer</b> at <a class='header' href='https://beebryte.com' target='_blank' rel='noopener noreferrer'>BeeBryte</a>, a company specialising in energy optimisation. I am responsible for the <b>Singapore</b> sector, working on energy system optimisation for industrial and commercial clients.",
-            cv:"Curriculum Vitae", cvLink:"resources/CV_Manuel_Cobos_EN.pdf",
+            thesis:"At that time, all that remained for me to graduate was completing my Bachelor's thesis <i>Improvement of a Heat Pump Monitoring and Data Acquisition System</i>. In September, I successfully presented it at the University of Malaga. The project received a grade of <b>9.5</b> out of 10 and became a <b>finalist</b> for an <b>energy efficiency award</b>.",
+            contactTitle:"Contact",
+            cvLabel:"Curriculum Vitae",
+            attrs: {
+                itaipuImg: { alt:"Itaipú dam" },
+                cvItem: { href:"resources/CV_Manuel_Cobos_EN.pdf" },
+            },
         }
     };
     </script>

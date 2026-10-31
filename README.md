@@ -11,7 +11,7 @@ Welcome to my personal website repository! This website serves as an online port
 In this section, I share a brief introduction to my background, academic pursuits, and international experiences.
 
 ## Projects
-Explore the various projects I've undertaken, at the moment just my thesis.
+Explore the projects I've undertaken: my thesis, an automated irrigation system and the Poemario poetry app. The privacy policy and support pages for the apps also live here.
 
 ## Curriculum Vitae
 Access my detailed curriculum vitae and learn more about my educational and professional career.
@@ -19,7 +19,7 @@ Access my detailed curriculum vitae and learn more about my educational and prof
 ## Technologies Used
 - HTML
 - CSS
-- [Font Awesome](https://fontawesome.com/) for icons.
+- JavaScript for the language switcher (`lang.js`). Each page's HTML is the Spanish version; other languages live in `PAGE_TRANSLATIONS`.
 
 Thank you for visiting my GitHub repository! If you have any questions or suggestions, feel free to open an issue or reach out.
 
