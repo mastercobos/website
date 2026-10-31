@@ -183,6 +183,7 @@ h2 {
 
 h2:first-child { margin-top: 0; }
 .subtitle { font-style: italic; margin: 0.3em 0 1em; color: #444; }
+code { overflow-wrap: anywhere; }
 
 .meta {
     font-size: 0.85em;

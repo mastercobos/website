@@ -13,8 +13,10 @@
             <button id="btn-es" aria-label="Cambiar a Español">ES</button>
             <span>|</span>
             <button id="btn-en" aria-label="Switch to English">EN</button>
+            <span>|</span>
+            <button id="btn-fr" aria-label="Passer au français">FR</button>
         </div>
-        <h1 id="pageTitle">Política de Privacidad</h1>
+        <h1 id="pageHeading">Política de Privacidad</h1>
         <p class="subtitle" id="appName">Poemario</p>
         <nav>
             <p class="sitemap">
@@ -34,15 +36,31 @@
         <ul>
             <li id="sec2li1">Los poemas que marques como favoritos</li>
             <li id="sec2li2">Los autores que selecciones en la configuración</li>
+            <li id="sec2li3">El tema de la app</li>
+            <li id="sec2li4">Si el aviso diario está activado y a qué hora</li>
+            <li id="sec2li5">Los autores mostrados recientemente, para variar los poemas del día</li>
         </ul>
-        <p id="sec2footer">Estos datos nunca salen de tu dispositivo y se eliminan al desinstalar la app.</p>
-        <h2 id="sec3">Conexión a internet</h2>
-        <p id="sec3text">Poemario no requiere conexión a internet y no realiza ninguna comunicación con servidores externos.</p>
-        <h2 id="sec4">Cambios en esta política</h2>
-        <p id="sec4text">Cualquier cambio futuro en esta política se publicará en esta misma página.</p>
-        <h2 id="sec5">Contacto</h2>
-        <p id="sec5text">Si tienes alguna pregunta puedes escribir a: <b>manuelrr91@gmail.com</b></p>
-        <p class="meta" id="lastUpdated">Última actualización: marzo de 2026</p>
+        <p id="sec2footer">Estos datos no se envían nunca a nosotros ni a terceros, y se eliminan al desinstalar la app. Si tienes activadas las copias de seguridad de tu dispositivo (por ejemplo, de Google o de iCloud), pueden incluir estos datos y restaurarlos más adelante. Esas copias dependen de tu cuenta y nosotros no tenemos acceso a ellas.</p>
+        <h2 id="sec3">Notificaciones</h2>
+        <p id="sec3text">Si activas el aviso diario, la app te pide permiso para mostrar notificaciones cuando tu dispositivo lo exige. Los avisos se programan en tu propio dispositivo, según su reloj y su zona horaria, y no pasan por ningún servidor. Puedes desactivarlos en cualquier momento.</p>
+        <h2 id="sec4">Permisos en Android</h2>
+        <p id="sec4text">Desde la versión 1.1.0, Poemario solicita en Android únicamente estos permisos:</p>
+        <ul>
+            <li id="sec4li1"><b>Mostrar notificaciones</b> (<code>POST_NOTIFICATIONS</code>): para mostrar el aviso diario. Android 13 y posteriores te lo preguntan antes, y puedes leer los poemas aunque no lo concedas.</li>
+            <li id="sec4li2"><b>Ejecutarse al iniciar el dispositivo</b> (<code>RECEIVE_BOOT_COMPLETED</code>): para volver a programar los avisos después de reiniciar, porque Android los borra.</li>
+            <li id="sec4li3"><b>Controlar la vibración</b> (<code>VIBRATE</code>): para que el aviso pueda vibrar, según los ajustes de notificaciones de tu dispositivo.</li>
+        </ul>
+        <p id="sec4internal">Además, las bibliotecas de Android añaden un permiso interno (<code>com.manucobos.poemario.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>), que protege la comunicación dentro de la propia app y no da acceso a nada más.</p>
+        <p id="sec4footer">Ninguno de estos permisos da acceso a tus contactos, fotos, archivos, ubicación, cámara o micrófono.</p>
+        <h2 id="sec5">Compartir poemas</h2>
+        <p id="sec5text">Cuando compartes un poema, la app crea una imagen o un texto y lo entrega a la aplicación que elijas. A partir de ahí se aplica la política de privacidad de esa aplicación. Nosotros no recibimos ninguna información sobre lo que compartes.</p>
+        <h2 id="sec6">Conexión a internet</h2>
+        <p id="sec6text">Poemario no requiere conexión a internet y no realiza ninguna comunicación con servidores externos. Desde la versión 1.1.0, en Android ni siquiera solicita el permiso de acceso a internet. El enlace a esta política que aparece en los ajustes se abre en tu navegador, fuera de la app.</p>
+        <h2 id="sec7">Cambios en esta política</h2>
+        <p id="sec7text">Cualquier cambio futuro en esta política se publicará en esta misma página.</p>
+        <h2 id="sec8">Contacto</h2>
+        <p id="sec8text">Si tienes alguna pregunta puedes escribir a: <b>manuelrr91@gmail.com</b></p>
+        <p class="meta" id="lastUpdated">Última actualización: 31 de octubre de 2026</p>
     </section>
 </div>
 <script>
@@ -51,6 +69,7 @@ window.PAGE_TRANSLATIONS = {
         htmlLang:"es", pageTitle:"Política de Privacidad — Poemario",
         "nav-about":"Sobre mí", "nav-projects":"Proyectos",
         pageTitle:"Política de Privacidad — Poemario",
+        pageHeading:"Política de Privacidad",
         appName:"Poemario",
         intro:"Poemario es una aplicación desarrollada por <b>Manuel Cobos Robles</b>. Esta política de privacidad describe cómo funciona la app en relación a tus datos.",
         sec1:"Datos que recogemos",
@@ -59,34 +78,98 @@ window.PAGE_TRANSLATIONS = {
         sec2text:"La app guarda en tu dispositivo únicamente:",
         sec2li1:"Los poemas que marques como favoritos",
         sec2li2:"Los autores que selecciones en la configuración",
-        sec2footer:"Estos datos nunca salen de tu dispositivo y se eliminan al desinstalar la app.",
-        sec3:"Conexión a internet",
-        sec3text:"Poemario no requiere conexión a internet y no realiza ninguna comunicación con servidores externos.",
-        sec4:"Cambios en esta política",
-        sec4text:"Cualquier cambio futuro en esta política se publicará en esta misma página.",
-        sec5:"Contacto",
-        sec5text:"Si tienes alguna pregunta puedes escribir a: <b>manuelrr91@gmail.com</b>",
-        lastUpdated:"Última actualización: marzo de 2026",
+        sec2li3:"El tema de la app",
+        sec2li4:"Si el aviso diario está activado y a qué hora",
+        sec2li5:"Los autores mostrados recientemente, para variar los poemas del día",
+        sec2footer:"Estos datos no se envían nunca a nosotros ni a terceros, y se eliminan al desinstalar la app. Si tienes activadas las copias de seguridad de tu dispositivo (por ejemplo, de Google o de iCloud), pueden incluir estos datos y restaurarlos más adelante. Esas copias dependen de tu cuenta y nosotros no tenemos acceso a ellas.",
+        sec3:"Notificaciones",
+        sec3text:"Si activas el aviso diario, la app te pide permiso para mostrar notificaciones cuando tu dispositivo lo exige. Los avisos se programan en tu propio dispositivo, según su reloj y su zona horaria, y no pasan por ningún servidor. Puedes desactivarlos en cualquier momento.",
+        sec4:"Permisos en Android",
+        sec4text:"Desde la versión 1.1.0, Poemario solicita en Android únicamente estos permisos:",
+        sec4li1:"<b>Mostrar notificaciones</b> (<code>POST_NOTIFICATIONS</code>): para mostrar el aviso diario. Android 13 y posteriores te lo preguntan antes, y puedes leer los poemas aunque no lo concedas.",
+        sec4li2:"<b>Ejecutarse al iniciar el dispositivo</b> (<code>RECEIVE_BOOT_COMPLETED</code>): para volver a programar los avisos después de reiniciar, porque Android los borra.",
+        sec4li3:"<b>Controlar la vibración</b> (<code>VIBRATE</code>): para que el aviso pueda vibrar, según los ajustes de notificaciones de tu dispositivo.",
+        sec4internal:"Además, las bibliotecas de Android añaden un permiso interno (<code>com.manucobos.poemario.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>), que protege la comunicación dentro de la propia app y no da acceso a nada más.",
+        sec4footer:"Ninguno de estos permisos da acceso a tus contactos, fotos, archivos, ubicación, cámara o micrófono.",
+        sec5:"Compartir poemas",
+        sec5text:"Cuando compartes un poema, la app crea una imagen o un texto y lo entrega a la aplicación que elijas. A partir de ahí se aplica la política de privacidad de esa aplicación. Nosotros no recibimos ninguna información sobre lo que compartes.",
+        sec6:"Conexión a internet",
+        sec6text:"Poemario no requiere conexión a internet y no realiza ninguna comunicación con servidores externos. Desde la versión 1.1.0, en Android ni siquiera solicita el permiso de acceso a internet. El enlace a esta política que aparece en los ajustes se abre en tu navegador, fuera de la app.",
+        sec7:"Cambios en esta política",
+        sec7text:"Cualquier cambio futuro en esta política se publicará en esta misma página.",
+        sec8:"Contacto",
+        sec8text:"Si tienes alguna pregunta puedes escribir a: <b>manuelrr91@gmail.com</b>",
+        lastUpdated:"Última actualización: 31 de octubre de 2026",
     },
     en: {
         htmlLang:"en", pageTitle:"Privacy Policy — Poemario",
         "nav-about":"About me", "nav-projects":"Projects",
+        pageHeading:"Privacy Policy",
         appName:"Poemario",
         intro:"Poemario is an app developed by <b>Manuel Cobos Robles</b>. This privacy policy describes how the app handles your data.",
         sec1:"Data we collect",
-        sec1text:"Poemario does not collect, store or share any personal data. There is no user account, no activity tracking, and no connection to external servers.",
-        sec2:"Locally stored data",
-        sec2text:"The app saves on your device only:",
+        sec1text:"Poemario does not collect, store or share any personal data. There is no user registration, no activity tracking and no connection to external servers.",
+        sec2:"Data stored locally",
+        sec2text:"The app stores only the following on your device:",
         sec2li1:"The poems you mark as favourites",
         sec2li2:"The authors you select in the settings",
-        sec2footer:"This data never leaves your device and is deleted when you uninstall the app.",
-        sec3:"Internet connection",
-        sec3text:"Poemario does not require an internet connection and does not communicate with any external servers.",
-        sec4:"Changes to this policy",
-        sec4text:"Any future changes to this policy will be published on this page.",
-        sec5:"Contact",
-        sec5text:"If you have any questions you can write to: <b>manuelrr91@gmail.com</b>",
-        lastUpdated:"Last updated: March 2026",
+        sec2li3:"The app's theme",
+        sec2li4:"Whether the daily reminder is on, and at what time",
+        sec2li5:"Recently shown authors, to vary the poems of the day",
+        sec2footer:"This data is never sent to us or to third parties, and it is deleted when you uninstall the app. If your device's backups are turned on (for example, Google or iCloud), they may include this data and restore it later. Those backups belong to your account and we have no access to them.",
+        sec3:"Notifications",
+        sec3text:"If you turn on the daily reminder, the app asks for permission to show notifications where your device requires it. Reminders are scheduled on your own device, using its clock and time zone, and do not pass through any server. You can turn them off at any time.",
+        sec4:"Android permissions",
+        sec4text:"Since version 1.1.0, Poemario requests only these permissions on Android:",
+        sec4li1:"<b>Show notifications</b> (<code>POST_NOTIFICATIONS</code>): to show the daily reminder. Android 13 and later ask you first, and you can read the poems without granting it.",
+        sec4li2:"<b>Run at startup</b> (<code>RECEIVE_BOOT_COMPLETED</code>): to schedule reminders again after a restart, because Android clears them.",
+        sec4li3:"<b>Control vibration</b> (<code>VIBRATE</code>): so a reminder can vibrate, according to your device's notification settings.",
+        sec4internal:"Android's libraries also add an internal permission (<code>com.manucobos.poemario.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>), which protects communication within the app and gives access to nothing else.",
+        sec4footer:"None of these permissions gives access to your contacts, photos, files, location, camera or microphone.",
+        sec5:"Sharing poems",
+        sec5text:"When you share a poem, the app creates an image or text and hands it to the app you choose. From then on, that app's privacy policy applies. We receive no information about what you share.",
+        sec6:"Internet connection",
+        sec6text:"Poemario does not need an internet connection and does not communicate with any external server. Since version 1.1.0, on Android it does not even request the internet permission. The link to this policy in the settings opens in your browser, outside the app.",
+        sec7:"Changes to this policy",
+        sec7text:"Any future changes to this policy will be published on this page.",
+        sec8:"Contact",
+        sec8text:"If you have any questions, you can write to: <b>manuelrr91@gmail.com</b>",
+        lastUpdated:"Last updated: 31 October 2026",
+    },
+    fr: {
+        htmlLang:"fr", pageTitle:"Politique de confidentialité — Poemario",
+        "nav-about":"À propos", "nav-projects":"Projets",
+        pageHeading:"Politique de confidentialité",
+        appName:"Poemario",
+        intro:"Poemario est une application développée par <b>Manuel Cobos Robles</b>. Cette politique de confidentialité décrit la manière dont l’application traite vos données.",
+        sec1:"Données collectées",
+        sec1text:"Poemario ne collecte, ne conserve et ne partage aucune donnée personnelle. Il n’y a ni inscription, ni suivi d’activité, ni connexion à des serveurs externes.",
+        sec2:"Données stockées localement",
+        sec2text:"L’application enregistre uniquement sur votre appareil&nbsp;:",
+        sec2li1:"Les poèmes que vous marquez comme favoris",
+        sec2li2:"Les auteurs que vous sélectionnez dans les réglages",
+        sec2li3:"Le thème de l’application",
+        sec2li4:"L’activation du rappel quotidien et son heure",
+        sec2li5:"Les auteurs affichés récemment, afin de varier les poèmes du jour",
+        sec2footer:"Ces données ne nous sont jamais envoyées, pas plus qu’à des tiers, et elles sont supprimées lorsque vous désinstallez l’application. Si les sauvegardes de votre appareil sont activées (par exemple Google ou iCloud), elles peuvent inclure ces données et les restaurer ultérieurement. Ces sauvegardes dépendent de votre compte et nous n’y avons pas accès.",
+        sec3:"Notifications",
+        sec3text:"Si vous activez le rappel quotidien, l’application vous demande l’autorisation d’afficher des notifications lorsque votre appareil l’exige. Les rappels sont programmés sur votre appareil, selon son horloge et son fuseau horaire, et ne passent par aucun serveur. Vous pouvez les désactiver à tout moment.",
+        sec4:"Autorisations sur Android",
+        sec4text:"Depuis la version 1.1.0, Poemario demande uniquement ces autorisations sur Android&nbsp;:",
+        sec4li1:"<b>Afficher des notifications</b> (<code>POST_NOTIFICATIONS</code>)&nbsp;: pour afficher le rappel quotidien. Android 13 et les versions ultérieures vous le demandent d’abord, et vous pouvez lire les poèmes sans l’accorder.",
+        sec4li2:"<b>S’exécuter au démarrage</b> (<code>RECEIVE_BOOT_COMPLETED</code>)&nbsp;: pour reprogrammer les rappels après un redémarrage, car Android les efface.",
+        sec4li3:"<b>Contrôler le vibreur</b> (<code>VIBRATE</code>)&nbsp;: pour que le rappel puisse vibrer, selon les réglages de notification de votre appareil.",
+        sec4internal:"Les bibliothèques d’Android ajoutent également une autorisation interne (<code>com.manucobos.poemario.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>), qui protège les communications au sein de l’application et ne donne accès à rien d’autre.",
+        sec4footer:"Aucune de ces autorisations ne donne accès à vos contacts, photos, fichiers, position, appareil photo ou micro.",
+        sec5:"Partage de poèmes",
+        sec5text:"Lorsque vous partagez un poème, l’application crée une image ou un texte et le transmet à l’application de votre choix. La politique de confidentialité de cette application s’applique ensuite. Nous ne recevons aucune information sur ce que vous partagez.",
+        sec6:"Connexion à Internet",
+        sec6text:"Poemario ne nécessite aucune connexion à Internet et ne communique avec aucun serveur externe. Depuis la version 1.1.0, sur Android, elle ne demande même pas l’autorisation d’accès à Internet. Le lien vers cette politique, dans les réglages, s’ouvre dans votre navigateur, en dehors de l’application.",
+        sec7:"Modifications de cette politique",
+        sec7text:"Toute modification future de cette politique sera publiée sur cette page.",
+        sec8:"Contact",
+        sec8text:"Pour toute question, vous pouvez écrire à&nbsp;: <b>manuelrr91@gmail.com</b>",
+        lastUpdated:"Dernière mise à jour&nbsp;: 31 octobre 2026",
     }
 };
 </script>

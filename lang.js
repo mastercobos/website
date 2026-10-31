@@ -44,6 +44,8 @@ function initLang(translations) {
     const btnEn = document.getElementById("btn-en");
     if (btnEs) btnEs.addEventListener("click", () => applyLang("es"));
     if (btnEn) btnEn.addEventListener("click", () => applyLang("en"));
+    const btnFr = document.getElementById("btn-fr");
+    if (btnFr) btnFr.addEventListener("click", () => applyLang("fr"));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
